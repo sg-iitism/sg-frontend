@@ -21,7 +21,7 @@ export const NavLink = styled("div")`
 `;
 
 export const CustomNavLink = styled("div")`
-  width: 203px;
+  width: 180px;
   display: inline-block;
 
   @media only screen and (max-width: 411px) {
@@ -99,6 +99,6 @@ export const Span = styled("span")`
   &:focus {
     color: rgb(255, 130, 92);
     text-underline-position: under;
-    text-decoration: rgb(255, 130, 92) wavy underline;
+    text-decoration: rgb(255, 130, 92) underline;
   }
 `;

@@ -1,15 +1,15 @@
 {
-  "title": "Light, fast & responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "title": "Societies",
+  "text": "The Several domains of students gymkhana which executes affairs pertaining to an overarching purpose",
   "section": [
     {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
+      "title": "Media And Culture",
+      "content": "The society is responsible for cultural happenings at the campus",
       "icon": "notes.svg"
     },
     {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
+      "title": "Science and Technology",
+      "content": "The SnT society is responsible for promoting technology related activities",
       "icon": "notes.svg"
     }
   ]

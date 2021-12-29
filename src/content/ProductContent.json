@@ -1,4 +1,9 @@
 {
-  "title": "That's about it!",
-  "text": "If you are familiar with React, or SPA frameworks in general, there shouldn't be any confusing parts about this template. if not, you can always reach out to me and I'll try me best to answer your questions."
+  "title": "Festivals and Events",
+  "text": "The Indian Institute of Technology Dhanbad is never at halt of activities, the several clubs, be it cultural or technical, clubs are responsible for the major events, talks and holistic learnings",
+  "button": [
+    {
+      "title": "Explore Clubs"
+    }
+  ]
 }

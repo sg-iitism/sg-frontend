@@ -41,7 +41,7 @@ const RightBlock = ({
                         key={id}
                         color={item.color}
                         fixedWidth={true}
-                        onClick={() => scrollTo("about")}
+                        onClick={() => window.open("https://www.iitism.ac.in/~dsw/docs/sgc.pdf")}
                       >
                         {t(item.title)}
                       </Button>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const FooterSection = styled("footer")`
   background: rgb(241, 242, 243);
   padding: 2.5rem 0;
+  margin: 2rem 0 0 0;
 `;
 
 export const Title = styled("h4")`
@@ -64,7 +65,7 @@ export const Large = styled(Link)<any>`
   &:hover {
     color: rgb(255, 130, 92);
     text-underline-position: under;
-    text-decoration: rgb(255, 130, 92) wavy underline;
+    text-decoration: rgb(255, 130, 92) underline;
   }
 `;
 

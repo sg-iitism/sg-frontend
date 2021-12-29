@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MiddleBlockSection = styled("section")`
   position: relative;
   padding: 7.5rem 0 3rem;
-  text-align: center;
+  text-align: left;
   display: flex;
   justify-content: center;
 
@@ -17,7 +17,7 @@ export const Content = styled("p")`
 `;
 
 export const ContentWrapper = styled("div")`
-  max-width: 570px;
+  max-width: 1200px;
 
   @media only screen and (max-width: 768px) {
     max-width: 100%;
