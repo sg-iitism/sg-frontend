@@ -18,6 +18,7 @@ const Parakram = () => {
         links={ParakramContent.links}
         gallery={ParakramContent.gallery}
         years={ParakramContent.years}
+        name={ParakramContent.name}
       />
     </Container>
   );

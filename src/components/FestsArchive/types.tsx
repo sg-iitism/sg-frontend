@@ -3,13 +3,11 @@ export interface ContentBlockProps {
     title: string;
     description: string;
     events?: any;
-    button?: any;
     t?: any;
     id: string;
-    type?: string;
     links?: any;
     gallery?: any;
-    years?: any;
     name: string;
+    youtube: string;
   }
   

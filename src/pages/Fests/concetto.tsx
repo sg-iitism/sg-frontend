@@ -18,6 +18,7 @@ const Concetto = () => {
         links={ConcettoContent.links}
         gallery={ConcettoContent.gallery}
         years={ConcettoContent.years}
+        name={ConcettoContent.name}
       />
     </Container>
   );

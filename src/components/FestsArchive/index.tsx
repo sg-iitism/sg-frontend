@@ -12,18 +12,17 @@ import "./styles.css";
 
 const { Meta } = Card;
 
-const FestsDetail = ({
+const FestsArchive = ({
     title,
     description,
-    button,
     logo,
     t,
     id,
     links,
     events,
     gallery,
-    years,
-    name
+    name,
+    youtube
   }: ContentBlockProps) =>
  {
   return (
@@ -40,7 +39,18 @@ const FestsDetail = ({
             </Col>
         </Row>
         <div style={{marginTop: "4rem"}}>
-            <h3>Events and Shows</h3>
+            <div style={{textAlign: "center"}}>
+                <iframe width="400px" height="315px" 
+                        src={youtube} title="YouTube video player" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowFullScreen>
+                </iframe>
+                <p style={{fontSize: "25px", fontWeight: "bold"}}>Official Aftermovie</p>
+            </div>
+        </div>
+        <div style={{marginTop: "4rem"}}>
+            <h3>Events</h3>
             <div>
                 <Row justify="space-between">
                     {events.map((item: any) => (
@@ -75,20 +85,6 @@ const FestsDetail = ({
             </div>
         </div>
         <div style={{marginTop: "4rem"}}>
-            <h3>{name.toUpperCase()} Archive</h3>
-            <div>
-                <Row justify="space-between">
-                    {years.map((item: any) => (
-                        <Col lg={6} md={6} sm={12} xs={12}>
-                            <div className="archive_div" style={{textAlign: "center"}}>
-                                <a href={"/fests/" + name + "/years/" + item}><p className="archive_para">{item}</p></a>
-                            </div>
-                        </Col>
-                    ))}
-                </Row>
-            </div>
-        </div>
-        <div style={{marginTop: "4rem"}}>
             <div style={{textAlign: "center"}}>
                 <a href={links.facebook}>
                   <FacebookFilled style={{ fontSize: '30px', color: '#08c', marginLeft: "20px", marginRight: "20px" }} />
@@ -105,4 +101,4 @@ const FestsDetail = ({
   );
 };
 
-export default withTranslation()(FestsDetail);
+export default withTranslation()(FestsArchive);

@@ -2,6 +2,13 @@ import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { SvgIcon } from "../../common/SvgIcon";
 import Container from "../../common/Container";
+import {
+  FacebookFilled,
+  LinkedinFilled,
+  GoogleCircleFilled,
+  MailOutlined,
+  InstagramOutlined
+} from '@ant-design/icons';
 
 import i18n from "i18next";
 import {
@@ -94,10 +101,10 @@ const Footer = ({ t }: any) => {
           >
             <NavLink to="/">
               <LogoContainer>
-                <img src="./img/icons/sg_logo.jpg" width="80px" height="auto" />
+                <img src="../../../img/icons/sg_logo.jpg" width="80px" height="auto" />
               </LogoContainer>
             </NavLink>
-            <FooterContainer>
+            {/* <FooterContainer>
               <SocialLink
                 href="https://github.com/Adrinlol/create-react-app-adrinlol"
                 src="github.svg"
@@ -114,7 +121,21 @@ const Footer = ({ t }: any) => {
                 href="https://medium.com/@lashakakabadze/"
                 src="medium.svg"
               />
-            </FooterContainer>
+            </FooterContainer> */}
+            <div style={{textAlign: "center", marginRight: "2rem"}}>
+                <a href="/">
+                  <FacebookFilled style={{ fontSize: '30px', color: '#18216d', marginLeft: "10px", marginRight: "10px" }} />
+                </a>
+                <a href="/">
+                  <LinkedinFilled style={{ fontSize: '30px', color: '#18216d', marginLeft: "10px", marginRight: "10px" }} />
+                </a>
+                <a href="/">
+                  <MailOutlined style={{ fontSize: '30px', color: '#18216d', marginLeft: "10px", marginRight: "10px" }} />
+                </a>
+                <a href="/">
+                  <InstagramOutlined style={{ fontSize: '30px', color: '#18216d', marginLeft: "10px", marginRight: "10px" }} />
+                </a>
+            </div>
           </Row>
         </Container>
       </Extra>

@@ -39,6 +39,18 @@ const routes = [
     exact: true,
     component: "Fests/parakram.tsx",
   },
+  {
+    path: ["/fests/srijan/years/"],
+    component: "Fests_archive/srijan.tsx",
+  },
+  {
+    path: ["/fests/parakram/years"],
+    component: "Fests_archive/parakram.tsx",
+  },
+  {
+    path: ["/fests/concetto/years"],
+    component: "Fests_archive/concetto.tsx",
+  },
 ];
 
 export default routes;
