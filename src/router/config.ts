@@ -14,6 +14,11 @@ const routes = [
     exact: true,
     component: "About",
   },
+  {
+    path: ["/senate"],
+    exact: true,
+    component: "Senate",
+  },
 ];
 
 export default routes;
