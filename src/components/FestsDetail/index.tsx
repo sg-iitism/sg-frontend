@@ -2,6 +2,11 @@ import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
 import { Card } from 'antd';
+import {
+    FacebookFilled,
+    LinkedinFilled,
+    GoogleCircleFilled
+} from '@ant-design/icons';
 import { ContentBlockProps } from "./types";
 import "./styles.css";
 
@@ -16,7 +21,8 @@ const FestsDetail = ({
     id,
     links,
     events,
-    gallery
+    gallery,
+    years
   }: ContentBlockProps) =>
  {
   return (
@@ -32,7 +38,7 @@ const FestsDetail = ({
                 <p>{description}</p>
             </Col>
         </Row>
-        <div>
+        <div style={{marginTop: "4rem"}}>
             <h3>Events and Shows</h3>
             <div>
                 <Row justify="space-between">
@@ -43,29 +49,55 @@ const FestsDetail = ({
                                 style={{ width: 240 }}
                                 cover={<img alt="example" src={item.image} />}
                             >
-                                <Meta title={item.position} description="www.instagram.com" />
+                                <Meta title={item.text}></Meta>
                             </Card>
                         </Col>
                     ))}
                 </Row>
             </div>
         </div>
-        <div>
+        <div style={{marginTop: "4rem"}}>
             <h3>Gallery</h3>
             <div>
                 <Row justify="space-between">
                     {gallery.map((item: any) => (
-                        <Col lg={12} md={12} sm={24} xs={24}>
+                        <Col lg={8} md={8} sm={24} xs={24}>
                             <Card
                                 hoverable
-                                style={{ width: 400 }}
+                                style={{ width: 300, marginTop: "2rem" }}
                                 cover={<img alt="example" src={item.image} />}
                             >
-                                <Meta title={item.position} description="www.instagram.com" />
                             </Card>
                         </Col>
                     ))}
                 </Row>
+            </div>
+        </div>
+        <div style={{marginTop: "4rem"}}>
+            <h3>Srijan Archive</h3>
+            <div>
+                <Row justify="space-between">
+                    {years.map((item: any) => (
+                        <Col lg={6} md={6} sm={12} xs={12}>
+                            <div className="archive_div" style={{textAlign: "center"}}>
+                                <a href={"/fests/srijan/" + item}><p className="archive_para">{item}</p></a>
+                            </div>
+                        </Col>
+                    ))}
+                </Row>
+            </div>
+        </div>
+        <div style={{marginTop: "4rem"}}>
+            <div style={{textAlign: "center"}}>
+                <a href={links.facebook}>
+                  <FacebookFilled style={{ fontSize: '30px', color: '#08c', marginLeft: "20px", marginRight: "20px" }} />
+                </a>
+                <a href={links.linkedin}>
+                  <LinkedinFilled style={{ fontSize: '30px', color: '#08c', marginLeft: "20px", marginRight: "20px" }} />
+                </a>
+                <a href={links.website}>
+                  <GoogleCircleFilled style={{ fontSize: '30px', color: '#08c', marginLeft: "20px", marginRight: "20px" }} />
+                </a>
             </div>
         </div>
     </div>

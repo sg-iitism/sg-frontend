@@ -17,6 +17,7 @@ const Srijan = () => {
         id="Srijan"
         links={SrijanContent.links}
         gallery={SrijanContent.gallery}
+        years={SrijanContent.years}
       />
     </Container>
   );

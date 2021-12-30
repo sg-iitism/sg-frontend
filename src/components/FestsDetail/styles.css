@@ -9,3 +9,14 @@
 .fest_name {
     font-size: 30px;
 }
+.archive_div {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    min-height: 100px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+    align-items: center;
+}
+.archive_para {
+    padding-top: 30px;
+}

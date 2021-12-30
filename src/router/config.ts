@@ -32,12 +32,12 @@ const routes = [
   {
     path: ["/fests/concetto"],
     exact: true,
-    component: "Fests/Concetto",
+    component: "Fests/concetto.tsx",
   },
   {
     path: ["/fests/parakram"],
     exact: true,
-    component: "Fests/Parakram",
+    component: "Fests/parakram.tsx",
   },
 ];
 

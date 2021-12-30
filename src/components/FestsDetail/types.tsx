@@ -9,5 +9,6 @@ export interface ContentBlockProps {
     type?: string;
     links?: any;
     gallery?: any;
+    years?: any;
   }
   
