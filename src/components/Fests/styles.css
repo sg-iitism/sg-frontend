@@ -1,6 +1,16 @@
-.fests_logo {
-  border-radius: "50%";
+.fests_img {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
 }
-.fests_logo_div {
-  display: none;
+.fests_name {
+  font-size: 25px;
+  font-weight: bold;
+}
+.fests_detail {
+  font-size: 18px;
+  font-weight: 500;
+}
+.fests_div {
+  text-align: center;
 }

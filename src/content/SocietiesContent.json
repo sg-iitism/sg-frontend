@@ -1,0 +1,16 @@
+{
+  "title": "Societies",
+  "text": "The Several domains of students gymkhana which executes affairs pertaining to an overarching purpose",
+  "section": [
+    {
+      "title": "Media And Culture",
+      "content": "The society is responsible for cultural happenings at the campus",
+      "icon": "notes.svg"
+    },
+    {
+      "title": "Science and Technology",
+      "content": "The society works for promoting technology related activities",
+      "icon": "notes.svg"
+    }
+  ]
+}

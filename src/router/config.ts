@@ -9,6 +9,11 @@ const routes = [
     exact: true,
     component: "Contact",
   },
+  {
+    path: ["/about"],
+    exact: true,
+    component: "About",
+  },
 ];
 
 export default routes;

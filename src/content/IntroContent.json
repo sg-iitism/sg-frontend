@@ -3,11 +3,8 @@
   "text": "Indian Institute of Technology (Indian School of Mines) Dhanbad",
   "button": [
     {
-      "title": "Constitution"
-    },
-    {
-      "title": "About us",
-      "color": "#fff"
+      "title": "Constitution",
+      "link": "https://www.iitism.ac.in/~dsw/docs/sgc.pdf"
     }
   ]
 }

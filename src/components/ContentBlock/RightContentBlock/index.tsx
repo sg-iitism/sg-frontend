@@ -41,9 +41,8 @@ const RightBlock = ({
                         key={id}
                         color={item.color}
                         fixedWidth={true}
-                        onClick={() => window.open("https://www.iitism.ac.in/~dsw/docs/sgc.pdf")}
                       >
-                        {t(item.title)}
+                        <a href={item.link} style={{color: "white"}}>{t(item.title)}</a>
                       </Button>
                     );
                   })}

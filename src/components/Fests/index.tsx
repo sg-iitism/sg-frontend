@@ -5,26 +5,41 @@ import "./styles.css";
 
 const Fests = () => {
   return (
-    <div style={{marginTop: "4rem", marginBottom: "4rem"}}>
+    <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       <h3 style={{marginBottom: "4rem"}}>Fests and Events</h3>
       <div>
         <Row justify="space-between">
           <Col lg={6} md={6} sm={12} xs={12}>
-            <div style={{textAlign: "center"}}>
-              <img src="./img/icons/srijan_logo.jpg" width="200px" height="auto" style={{borderRadius: "50%"}}></img>
-              <div><span style={{fontSize: "20px", marginTop: "2rem", fontWeight: "bold"}}>Srijan</span></div>
+            <div className="fests_div">
+              <img src="./img/icons/srijan_logo.jpg" className="fests_img"></img>
+              <div style={{marginTop: "2rem"}}>
+                <span className="fests_name">Srijan</span>
+              </div>
+              <div style={{marginTop: "0.3rem"}}>
+                <span className="fests_detail">Annual Cultural Festival</span>
+              </div>
             </div>
           </Col>
           <Col lg={6} md={6} sm={12} xs={12}>
-            <div style={{textAlign: "center"}}>
-              <img src="./img/icons/concetto_logo.jpg" width="200px" height="auto" style={{borderRadius: "50%"}}></img>
-              <div><span style={{fontSize: "20px", marginTop: "2rem", fontWeight: "bold"}}>Concetto</span></div>
+            <div className="fests_div">
+              <img src="./img/icons/concetto_logo.jpg" className="fests_img"></img>
+              <div style={{marginTop: "2rem"}}>
+                <span className="fests_name">Concetto</span>
+              </div>
+              <div style={{marginTop: "0.3rem"}}>
+                <span className="fests_detail">Techno-Management Festival</span>
+              </div>
             </div>
           </Col>
           <Col lg={6} md={6} sm={12} xs={12}>
-            <div style={{textAlign: "center"}}>
-              <img src="./img/icons/parakram_logo.png" width="200px" height="auto" style={{borderRadius: "50%"}}></img>
-              <div><span style={{fontSize: "20px", marginTop: "2rem", fontWeight: "bold"}}>Parakram</span></div>
+            <div className="fests_div">
+              <img src="./img/icons/parakram_logo.png" className="fests_img"></img>
+              <div style={{marginTop: "2rem"}}>
+                <span className="fests_name">Parakram</span>
+              </div>
+              <div style={{marginTop: "0.3rem"}}>
+                <span className="fests_detail">Annual Sports Festival</span>
+              </div>
             </div>
           </Col>
         </Row>

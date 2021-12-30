@@ -5,7 +5,7 @@ const Contact = lazy(() => import("../../components/ContactForm"));
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 
-const Home = () => {
+const ContactComponent = () => {
   return (
     <Container>
       <ScrollToTop />
@@ -18,4 +18,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ContactComponent;
