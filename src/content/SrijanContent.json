@@ -1,0 +1,43 @@
+{
+    "title": "Srijan-Annual Cultural Festival",
+    "description": "Antaragni is the annual cultural festival of IIT Kanpur and one of the largest and most awaited across Asia. It literally translates into ‘The Fire Within’, which every person associated is sure to feel within themselves. With 55 rich years behind it, Antaragni embodies the passion and desire of the students of IIT Kanpur and the whole of India to showcase and celebrate amazing cultural talent. It has been the benchmark of the college cultural scene of India, being the launchpad for some very successful names.",
+    "logo": "../img/icons/srijan_logo.jpg",
+    "events": [
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        }
+    ],
+    "links": {
+        "linkedin": "/",
+        "facebook": "/",
+        "website": "/"
+    },
+    "gallery": [
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        }
+    ]
+  }
+  
