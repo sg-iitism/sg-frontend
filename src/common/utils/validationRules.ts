@@ -8,8 +8,8 @@ export default function validate(values: validateProps) {
   }
   if (!values.email) {
     errors.email = "Email address is required";
-  } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-    errors.email = "Email address is invalid";
+  } else if (!(values.email).includes("iitism.ac.in")) {
+      errors.email = "Please use college ID only and correct email";
   }
   if (!values.message) {
     errors.message = "Message is required";

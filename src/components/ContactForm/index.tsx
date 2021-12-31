@@ -9,14 +9,18 @@ import Block from "../Block";
 import Input from "../../common/Input";
 import TextArea from "../../common/TextArea";
 import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
+import { useState } from "react";
 
 const Contact = ({ title, content, id, t }: ContactProps) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
     validate
   ) as any;
 
+  const [count, setCount] = useState(0);
+
   const ValidationType = ({ type }: ValidationTypeProps) => {
     const ErrorMessage = errors[type];
+    console.log(ErrorMessage);
     return (
       <Zoom direction="left">
         <Span erros={errors[type]}>{ErrorMessage}</Span>
@@ -32,7 +36,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.1185838921524!2d86.43901351493429!3d23.814381884557864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6bc9fac678481%3A0x122cb1d133a89995!2sIndian%20Institute%20of%20Technology%20(Indian%20School%20of%20Mines)%2C%20Dhanbad!5e0!3m2!1sen!2sin!4v1593296068669!5m2!1sen!2sin"
               title="This is a unique title"
-              width="400px"
+              width="80%"
               height="400px"
               frameBorder="0"
               style={{ border: 0 }}
@@ -41,7 +45,8 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         </Col>
         <Col lg={12} md={12} sm={24} xs={24}>
           <Slide direction="right">
-            <FormGroup autoComplete="off" onSubmit={handleSubmit}>
+            <FormGroup autoComplete="off" id="gform" method="POST" className="pure-form pure-form-stacked" data-email="from_email@example.com"
+                       action="https://script.google.com/macros/s/AKfycbw7-UiQSHCRXZiErHYQ1z5SLTFTci1P9rkc9rCY5uzQ0cwOe4MhHYmQjX_CkV8r/exec">
               <Col span={24}>
                 <Input
                   type="text"
@@ -54,7 +59,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
               </Col>
               <Col span={24}>
                 <Input
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="Your Email"
                   value={values.email || ""}
@@ -64,6 +69,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
               </Col>
               <Col span={24}>
                 <TextArea
+                  type="message"
                   placeholder="Your Message"
                   value={values.message || ""}
                   name="message"
