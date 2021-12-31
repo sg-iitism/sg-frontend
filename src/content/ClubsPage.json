@@ -1,0 +1,45 @@
+{
+    "title": "Clubs and Councils",
+    "text": "The Indian Institute of Technology Dhanbad is never at halt of activities, the several clubs, be it cultural or technical, are responsible for the major events, talks and holistic learnings. The two councils namely Media n Culture and Science and Technology are the seggregations among different clubs that operate in the campus.",
+    "media": [
+        {
+            "club_name": "Chayanika-Sangh",
+            "club_description": "The Hindi Literary Society",
+            "club_url": "/clubs/chayanika",
+            "club_logo": "../img/icons/chayanika_logo.jpg"
+        },
+        {
+            "club_name": "Chayanika-Sangh",
+            "club_description": "The Hindi Literary Society",
+            "club_url": "/clubs/chayanika",
+            "club_logo": "../img/icons/chayanika_logo.jpg"
+        },
+        {
+            "club_name": "Chayanika-Sangh",
+            "club_description": "The Hindi Literary Society",
+            "club_url": "/clubs/chayanika",
+            "club_logo": "../img/icons/chayanika_logo.jpg"
+        }
+    ],
+    "science": [
+        {
+            "club_name": "RoboISM",
+            "club_description": "The Robotics and AI Club",
+            "club_url": "/clubs/roboism",
+            "club_logo": "../img/icons/robo_logo.png"
+        },
+        {
+            "club_name": "RoboISM",
+            "club_description": "The Robotics and AI Club",
+            "club_url": "/clubs/roboism",
+            "club_logo": "../img/icons/robo_logo.png"
+        },
+        {
+            "club_name": "RoboISM",
+            "club_description": "The Robotics and AI Club",
+            "club_url": "/clubs/roboism",
+            "club_logo": "../img/icons/robo_logo.png"
+        }
+    ]
+  }
+  

@@ -41,7 +41,7 @@ const Header = ({ t }: any) => {
           <a href="/about"><Span>{t("About")}</Span></a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => scrollTo("mission")}>
-          <Span>{t("Clubs")}</Span>
+          <a href="/clubs"><Span>{t("Clubs")}</Span></a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => scrollTo("product")}>
           <a href="/fests"><Span>{t("Fests")}</Span></a>

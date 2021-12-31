@@ -51,6 +51,21 @@ const routes = [
     path: ["/fests/concetto/years"],
     component: "Fests_archive/concetto.tsx",
   },
+  {
+    path: ["/clubs"],
+    exact: true,
+    component: "Clubs/index.tsx",
+  },
+  {
+    path: ["/clubs/roboism"],
+    exact: true,
+    component: "ClubDetails/roboism.tsx",
+  },
+  {
+    path: ["/clubs/chayanika"],
+    exact: true,
+    component: "ClubDetails/chayanika.tsx",
+  },
 ];
 
 export default routes;

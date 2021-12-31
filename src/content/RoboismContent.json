@@ -1,0 +1,53 @@
+{
+    "title": "RoboISM",
+    "description": "The Indian Institute of Technology Dhanbad is never at halt of activities, the several clubs, be it cultural or technical, are responsible for the major events, talks and holistic learnings. The two councils namely Media n Culture and Science and Technology are the seggregations among different clubs that operate in the campus.",
+    "logo": "../../../img/icons/robo_logo.png",
+    "events": [
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        }
+    ],
+    "links": {
+        "linkedin": "/",
+        "facebook": "/",
+        "website": "/"
+    },
+    "coordis": [
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "General Secretary"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "General Secretary"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "General Secretary"
+        }
+    ],
+    "achievements": [
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Won Gold in Inter-IIT"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Won Gold in Inter-IIT"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Won Gold in Inter-IIT"
+        }
+    ]
+  }
+  

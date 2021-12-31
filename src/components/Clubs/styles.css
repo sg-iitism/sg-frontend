@@ -1,0 +1,24 @@
+ .fests_img {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #18216d;
+}
+.fests_name {
+    font-size: 25px;
+    font-weight: bold;
+}
+.fests_detail {
+    font-size: 18px;
+    font-weight: 500;
+}
+.fests_div {
+    text-align: center;
+}
+.clubs_h3 {
+    margin-top: 1rem;
+}
+.clubs_h3_science {
+    margin-top: 4rem;
+}
+
