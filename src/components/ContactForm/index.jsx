@@ -5,31 +5,71 @@ import { ContactProps, ValidationTypeProps } from "./types";
 import { useForm } from "../../common/utils/useForm";
 import validate from "../../common/utils/validationRules";
 import { Button } from "../../common/Button";
+import { Modal } from 'antd';
 import Block from "../Block";
 import Input from "../../common/Input";
 import TextArea from "../../common/TextArea";
 import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import React from "react";
 
-const Contact = ({ title, content, id, t }: ContactProps) => {
-  const { values, errors, handleChange, handleSubmit } = useForm(
-    validate
-  ) as any;
+const Contact = () => {
 
-  const [count, setCount] = useState(0);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isSuccessVisible, setIsSuccessVisible] = useState(false);
 
-  const ValidationType = ({ type }: ValidationTypeProps) => {
-    const ErrorMessage = errors[type];
-    console.log(ErrorMessage);
-    return (
-      <Zoom direction="left">
-        <Span erros={errors[type]}>{ErrorMessage}</Span>
-      </Zoom>
-    );
+  const handleOk = () => {
+    setIsModalVisible(false);
   };
 
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleSuccess = () => {
+    setIsSuccessVisible(false);
+  };
+
+  const handleCancelSuccess = () => {
+    setIsSuccessVisible(false);
+  };
+
+  const handleName = (event) => {
+    event.preventDefault();
+    setName(event.target.value);
+    console.log(name);
+  }
+
+  const handleEmail = (event) => {
+    event.preventDefault();
+    setEmail(event.target.value);
+    console.log(email);
+  }
+
+  const handleMessage = (event) => {
+    event.preventDefault();
+    setMessage(event.target.value);
+    console.log(message);
+  }
+
+  const handleSubmit = (e) => {
+    console.log(name);
+    console.log(email);
+    console.log(message);
+    if(name==="" || !email.includes("iitism.ac.in") || message===""){
+      e.preventDefault();
+      setIsModalVisible(true);
+    } else {
+      document.querySelector("#gform").submit();
+      setIsSuccessVisible(true);
+    }
+  }
+
   return (
-    <ContactContainer id={id}>
+    <ContactContainer>
       <Row justify="space-between" align="middle">
         <Col lg={12} md={11} sm={24} xs={24}>
           <Slide direction="left">
@@ -52,38 +92,43 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
                   type="text"
                   name="name"
                   placeholder="Your Name"
-                  value={values.name || ""}
-                  onChange={handleChange}
+                  value={name}
+                  onChange={handleName}
                 />
-                <ValidationType type="name" />
               </Col>
               <Col span={24}>
                 <Input
                   type="email"
                   name="email"
                   placeholder="Your Email"
-                  value={values.email || ""}
-                  onChange={handleChange}
+                  value={email}
+                  onChange={handleEmail}
                 />
-                <ValidationType type="email" />
               </Col>
               <Col span={24}>
                 <TextArea
                   type="message"
                   placeholder="Your Message"
-                  value={values.message || ""}
+                  value={message}
                   name="message"
-                  onChange={handleChange}
+                  onChange={handleMessage}
                 />
-                <ValidationType type="message" />
               </Col>
               <ButtonContainer>
-                <Button name="submit">{t("Submit")}</Button>
+                <Button name="submit" onClick={handleSubmit}>{("Submit")}</Button>
               </ButtonContainer>
             </FormGroup>
           </Slide>
         </Col>
       </Row>
+      <Modal title="Error" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <p>Your response could not be recorded :(</p>
+        <p>Make Sure to use your college id only</p>
+        <p>Please fill all the required fields</p>
+      </Modal>
+      <Modal title="Success" visible={isSuccessVisible} onOk={handleSuccess} onCancel={handleCancelSuccess}>
+        <p>Your response has been recorded :)</p>
+      </Modal>
     </ContactContainer>
   );
 };

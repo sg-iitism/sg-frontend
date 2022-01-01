@@ -9,11 +9,7 @@ const ContactComponent = () => {
   return (
     <Container>
       <ScrollToTop />
-      <Contact
-        title={ContactContent.title}
-        content={ContactContent.text}
-        id="contact"
-      />
+      <Contact />
     </Container>
   );
 };
