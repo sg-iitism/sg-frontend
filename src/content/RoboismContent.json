@@ -14,6 +14,18 @@
         {
             "image": "../img/icons/srijan_logo.jpg",
             "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/sg_logo.jpg",
+            "text": "Sample Event"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Sample Event"
         }
     ],
     "links": {
@@ -37,6 +49,18 @@
         }
     ],
     "achievements": [
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Won Gold in Inter-IIT"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Won Gold in Inter-IIT"
+        },
+        {
+            "image": "../img/icons/srijan_logo.jpg",
+            "text": "Won Gold in Inter-IIT"
+        },
         {
             "image": "../img/icons/srijan_logo.jpg",
             "text": "Won Gold in Inter-IIT"

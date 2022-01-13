@@ -1,6 +1,6 @@
 import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
-import Container from "../../common/Container";
+import Slider from "react-slick";
 import { Card } from 'antd';
 import {
     FacebookFilled,
@@ -9,9 +9,46 @@ import {
     GithubOutlined
 } from '@ant-design/icons';
 import { ContentBlockProps } from "./types";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
 
 const { Meta } = Card;
+
+var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
 
 const ClubDetails = ({
     title,
@@ -57,9 +94,9 @@ const ClubDetails = ({
         <div style={{marginTop: "4rem"}}>
             <h3>Events</h3>
             <div>
-                <Row justify="space-between">
+                <Slider {...settings}>
                     {events.map((item: any) => (
-                        <Col lg={6} md={12} sm={24} xs={24}>
+                        <div>
                             <Card
                                 hoverable
                                 style={{ width: 240 }}
@@ -67,27 +104,27 @@ const ClubDetails = ({
                             >
                                 <Meta title={item.text}></Meta>
                             </Card>
-                        </Col>
+                        </div>
                     ))}
-                </Row>
+                </Slider>
             </div>
         </div>
         <div style={{marginTop: "4rem"}}>
             <h3>Achievements</h3>
             <div>
-                <Row justify="space-between">
+                <Slider {...settings}>
                     {achievements.map((item: any) => (
-                        <Col lg={8} md={8} sm={24} xs={24}>
+                        <div>
                             <Card
                                 hoverable
-                                style={{ width: 300, marginTop: "2rem" }}
+                                style={{ width: 240, marginTop: "2rem" }}
                                 cover={<img alt="example" src={item.image} />}
                             >
                                 <Meta title={item.text}></Meta>
                             </Card>
-                        </Col>
+                        </div>
                     ))}
-                </Row>
+                </Slider>
             </div>
         </div>
         <div style={{marginTop: "4rem"}}>
