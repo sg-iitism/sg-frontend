@@ -25,6 +25,11 @@ const routes = [
     component: "Fests/index.tsx",
   },
   {
+    path: ["/calender"],
+    exact: true,
+    component: "Calender",
+  },
+  {
     path: ["/fests/srijan"],
     exact: true,
     component: "Fests/srijan.tsx",
