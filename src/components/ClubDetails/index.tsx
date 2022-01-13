@@ -1,4 +1,5 @@
-import { Row, Col } from "antd";
+import { Row, Col, Layout, Menu, Breadcrumb } from "antd";
+import React, {useState} from "react";
 import { withTranslation } from "react-i18next";
 import Slider from "react-slick";
 import { Card } from 'antd';
@@ -6,7 +7,7 @@ import {
     FacebookFilled,
     LinkedinFilled,
     GlobalOutlined,
-    GithubOutlined
+    GithubOutlined,
 } from '@ant-design/icons';
 import { ContentBlockProps } from "./types";
 import "slick-carousel/slick/slick.css"; 
@@ -14,6 +15,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
 
 const { Meta } = Card;
+const { Sider } = Layout;
+const { SubMenu } = Menu;
 
 var settings = {
     dots: true,
@@ -62,6 +65,9 @@ const ClubDetails = ({
     achievements
   }: ContentBlockProps) =>
  {
+
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
         <Row justify="space-between">
@@ -76,16 +82,16 @@ const ClubDetails = ({
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
                         <a href={links.website}>
-                          <GlobalOutlined style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
+                        <GlobalOutlined style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
                         </a>
                         <a href={links.facebook}>
-                          <FacebookFilled style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
+                        <FacebookFilled style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
                         </a>
                         <a href={links.linkedin}>
-                          <LinkedinFilled style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
+                        <LinkedinFilled style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
                         </a>
                         <a href={links.github}>
-                          <GithubOutlined style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
+                        <GithubOutlined style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
                         </a>
                     </div>
                 </div>
