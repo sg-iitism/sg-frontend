@@ -1,10 +1,11 @@
 {
-  "title": "Clubs",
+  "title": "Fests",
   "text": "The Indian Institute of Technology Dhanbad is never at halt of activities, the several clubs, be it cultural or technical, clubs are responsible for the major events, talks and holistic learnings",
+  "newPage": false,
   "button": [
     {
-      "title": "Explore Clubs",
-      "link": "/clubs"
+      "title": "Explore Fests",
+      "link": "/fests"
     }
   ]
 }

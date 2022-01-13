@@ -1,5 +1,5 @@
 .fests_img {
-    width: 200px;
+    width: 250px;
     height: auto;
     border-radius: 50%;
     border: 5px solid #18216d;
@@ -13,7 +13,7 @@
     font-weight: 500;
 }
 .fests_div {
-    text-align: center;
+    text-align: left;
 }
 .clubs_h3 {
     margin-top: 1rem;

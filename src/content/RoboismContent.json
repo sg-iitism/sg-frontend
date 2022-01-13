@@ -1,6 +1,6 @@
 {
     "title": "RoboISM",
-    "description": "The Indian Institute of Technology Dhanbad is never at halt of activities, the several clubs, be it cultural or technical, are responsible for the major events, talks and holistic learnings. The two councils namely Media n Culture and Science and Technology are the seggregations among different clubs that operate in the campus.",
+    "description": "The Indian Institute of Technology Dhanbad is never at halt of activities, the several clubs, be it cultural or technical",
     "logo": "../../../img/icons/robo_logo.png",
     "events": [
         {
@@ -19,7 +19,8 @@
     "links": {
         "linkedin": "/",
         "facebook": "/",
-        "website": "/"
+        "website": "/",
+        "github": "/"
     },
     "coordis": [
         {

@@ -14,6 +14,8 @@ import {
 const RightBlock = ({
   title,
   content,
+  fullContent,
+  newPage,
   button,
   icon,
   t,
@@ -32,7 +34,11 @@ const RightBlock = ({
           <Col lg={11} md={11} sm={11} xs={24}>
             <ContentWrapper>
               <h6>{t(title)}</h6>
-              <Content>{t(content)}</Content>
+              <Content>
+                {t(content)}
+                <br />
+                {t(fullContent)}
+              </Content>
               <ButtonWrapper>
                 {typeof button === "object" &&
                   button.map((item: any, id: number) => {
@@ -42,7 +48,7 @@ const RightBlock = ({
                         color={item.color}
                         fixedWidth={true}
                       >
-                        <a href={item.link} style={{color: "white"}}>{t(item.title)}</a>
+                        <a href={item.link} target={newPage ? "_blank" : ""} style={{color: "white"}}>{t(item.title)}</a>
                       </Button>
                     );
                   })}

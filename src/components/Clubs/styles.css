@@ -2,7 +2,7 @@
     width: 200px;
     height: auto;
     border-radius: 50%;
-    border: 5px solid #18216d;
+    border: 2px solid #18216d;
 }
 .fests_name {
     font-size: 25px;
@@ -16,9 +16,9 @@
     text-align: center;
 }
 .clubs_h3 {
-    margin-top: 1rem;
+    margin-top: 8rem;
 }
 .clubs_h3_science {
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 

@@ -3,11 +3,13 @@ import { withTranslation } from "react-i18next";
 import { SvgIcon } from "../../../common/SvgIcon";
 import { ContentBlockProps } from "../types";
 import { Fade } from "react-awesome-reveal";
+import { Button } from "../../../common/Button";
 import {
   LeftContentSection,
   Content,
   ContentWrapper,
   ServiceWrapper,
+  ButtonWrapper,
   MinTitle,
   MinPara,
 } from "./styles";
@@ -16,7 +18,8 @@ const LeftContentBlock = ({
   icon,
   title,
   content,
-  section,
+  button,
+  newPage,
   t,
   id,
 }: ContentBlockProps) => {
@@ -31,20 +34,20 @@ const LeftContentBlock = ({
             <ContentWrapper>
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
-              <ServiceWrapper>
-                <Row justify="space-between">
-                  {typeof section === "object" &&
-                    section.map((item: any, id: number) => {
-                      return (
-                        <Col key={id} span={11}>
-                          <SvgIcon src={item.icon} width="60px" height="60px" />
-                          <MinTitle>{t(item.title)}</MinTitle>
-                          <MinPara>{t(item.content)}</MinPara>
-                        </Col>
-                      );
-                    })}
-                </Row>
-              </ServiceWrapper>
+                  <ButtonWrapper>
+                    {typeof button === "object" &&
+                      button.map((item: any, id: number) => {
+                        return (
+                          <Button
+                            key={id}
+                            color={item.color}
+                            fixedWidth={true}
+                          >
+                            <a href={item.link} target={newPage ? "_blank" : ""} style={{color: "white"}}>{t(item.title)}</a>
+                          </Button>
+                        );
+                      })}
+                  </ButtonWrapper>
             </ContentWrapper>
           </Col>
         </Row>

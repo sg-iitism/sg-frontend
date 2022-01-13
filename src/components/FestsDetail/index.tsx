@@ -5,7 +5,8 @@ import { Card } from 'antd';
 import {
     FacebookFilled,
     LinkedinFilled,
-    GoogleCircleFilled
+    GlobalOutlined,
+    InstagramOutlined
 } from '@ant-design/icons';
 import { ContentBlockProps } from "./types";
 import "./styles.css";
@@ -37,6 +38,22 @@ const FestsDetail = ({
             <Col lg={12} md={12} sm={24} xs={24}>
                 <h3 className="fest_name">{title}</h3>
                 <p>{description}</p>
+                <div style={{marginTop: "2rem"}}>
+                    <div style={{textAlign: "left"}}>
+                        <a href={links.website}>
+                          <GlobalOutlined style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
+                        </a>
+                        <a href={links.facebook}>
+                          <FacebookFilled style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
+                        </a>
+                        <a href={links.linkedin}>
+                          <LinkedinFilled style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
+                        </a>
+                        <a href={links.instagram}>
+                          <InstagramOutlined style={{ fontSize: '30px', color: '#18216d', marginRight: "20px" }} />
+                        </a>
+                    </div>
+                </div>
             </Col>
         </Row>
         <div style={{marginTop: "4rem"}}>
@@ -75,7 +92,7 @@ const FestsDetail = ({
             </div>
         </div>
         <div style={{marginTop: "4rem"}}>
-            <h3>{name.toUpperCase()} Archive</h3>
+            <h3>Past Years Archive</h3>
             <div>
                 <Row justify="space-between">
                     {years.map((item: any) => (
@@ -86,19 +103,6 @@ const FestsDetail = ({
                         </Col>
                     ))}
                 </Row>
-            </div>
-        </div>
-        <div style={{marginTop: "4rem"}}>
-            <div style={{textAlign: "center"}}>
-                <a href={links.facebook}>
-                  <FacebookFilled style={{ fontSize: '30px', color: '#08c', marginLeft: "20px", marginRight: "20px" }} />
-                </a>
-                <a href={links.linkedin}>
-                  <LinkedinFilled style={{ fontSize: '30px', color: '#08c', marginLeft: "20px", marginRight: "20px" }} />
-                </a>
-                <a href={links.website}>
-                  <GoogleCircleFilled style={{ fontSize: '30px', color: '#08c', marginLeft: "20px", marginRight: "20px" }} />
-                </a>
             </div>
         </div>
     </div>

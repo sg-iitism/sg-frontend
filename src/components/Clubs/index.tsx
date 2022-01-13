@@ -8,18 +8,9 @@ import "./styles.css";
 const ClubsComponent = () => {
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
-      <h3 style={{marginBottom: "4rem"}}>Clubs and Societies</h3>
+      <h3 className="clubs_h3_science">Technical Clubs</h3>
       <Row justify="space-between">
-          <Col lg={12} md={12} sm={24} xs={24}>
-              <SvgIcon src="event.svg" width="70%" height="70%" />
-          </Col>
-          <Col lg={12} md={12} sm={24} xs={24}>
-            <p>{ClubsContent.text}</p>
-          </Col>
-      </Row>
-      <h3 className="clubs_h3">Media And Culture Council</h3>
-      <Row justify="space-between">
-          {ClubsContent.media.map((club) => (
+          {ClubsContent.science.map((club) => (
               <Col lg={6} md={6} sm={12} xs={12}>
                     <a href={club.club_url}>
                         <div className="fests_div">
@@ -35,9 +26,9 @@ const ClubsComponent = () => {
               </Col>
           ))}
       </Row>
-      <h3 className="clubs_h3_science">Science And Technology Council</h3>
+      <h3 className="clubs_h3">Media And Cultural Clubs</h3>
       <Row justify="space-between">
-          {ClubsContent.science.map((club) => (
+          {ClubsContent.media.map((club) => (
               <Col lg={6} md={6} sm={12} xs={12}>
                     <a href={club.club_url}>
                         <div className="fests_div">

@@ -54,31 +54,28 @@ const Footer = ({ t }: any) => {
 
   return (
     <>
-      <FooterSection>
+      <FooterSection style={{marginTop: "4rem"}}>
         <Container>
           <Row justify="space-between">
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Language>{t("Contact")}</Language>
-              <Large to="/">{t("Tell us everything")}</Large>
-              <Para>
-                {t(`Do you have any question? Feel free to reach out.`)}
-              </Para>
-              <a href="mailto:l.qqbadze@gmail.com">
-                <Chat>{t(`Let's Chat`)}</Chat>
-              </a>
+            <Col lg={6} md={6} sm={12} xs={12}>
+              <NavLink to="/">
+                <LogoContainer>
+                  <img src="../../../img/icons/sg_logo.jpg" width="100px" height="auto" />
+                </LogoContainer>
+              </NavLink>
             </Col>
-            <Col lg={8} md={8} sm={12} xs={12}>
+            <Col lg={6} md={6} sm={12} xs={12}>
               <Title>{t("Quick Links")}</Title>
-              <Large left="true" to="/">
+              <Large left="true" to="/about">
                 {t("About")}
               </Large>
-              <Large left="true" to="/">
+              <Large left="true" to="/clubs">
                 {t("Clubs")}
               </Large>
-              <Large left="true" to="/">
+              <Large left="true" to="/fests">
                 {t("Fests")}
               </Large>
-              <Large left="true" to="/">
+              <Large left="true" to="/senate">
                 {t("Senate")}
               </Large>
             </Col>
@@ -89,10 +86,21 @@ const Footer = ({ t }: any) => {
               <Para>Dhanbad, Jharkhand</Para>
               <Para>826004</Para>
             </Col>
+            <Col lg={6} md={6} sm={12} xs={12}>
+              <Language>{t("Contact")}</Language>
+              <Para>{t(`Have any questions?`)}</Para>
+              <br />
+              <Large to="/contact">{t(`Send a Message`)}</Large>
+              <div style={{marginTop: "2rem"}}>
+                <a href="/">
+                    <FacebookFilled style={{ fontSize: '25px', color: '#18216d' }} />
+                </a>
+              </div>
+            </Col>
           </Row>
         </Container>
       </FooterSection>
-      <Extra>
+      {/* <Extra>
         <Container border={true}>
           <Row
             justify="space-between"
@@ -104,7 +112,7 @@ const Footer = ({ t }: any) => {
                 <img src="../../../img/icons/sg_logo.jpg" width="80px" height="auto" />
               </LogoContainer>
             </NavLink>
-            {/* <FooterContainer>
+            <FooterContainer>
               <SocialLink
                 href="https://github.com/Adrinlol/create-react-app-adrinlol"
                 src="github.svg"
@@ -121,8 +129,8 @@ const Footer = ({ t }: any) => {
                 href="https://medium.com/@lashakakabadze/"
                 src="medium.svg"
               />
-            </FooterContainer> */}
-            <div style={{textAlign: "center", marginRight: "2rem"}}>
+            </FooterContainer>
+            <div style={{textAlign: "center", marginRight: "8rem"}}>
                 <a href="/">
                   <FacebookFilled style={{ fontSize: '30px', color: '#18216d', marginLeft: "10px", marginRight: "10px" }} />
                 </a>
@@ -138,7 +146,7 @@ const Footer = ({ t }: any) => {
             </div>
           </Row>
         </Container>
-      </Extra>
+      </Extra> */}
     </>
   );
 };

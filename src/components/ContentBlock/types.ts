@@ -7,4 +7,6 @@ export interface ContentBlockProps {
   t?: any;
   id: string;
   type?: string;
+  fullContent?: string;
+  newPage?: boolean;
 }

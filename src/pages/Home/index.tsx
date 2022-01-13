@@ -2,7 +2,7 @@ import { lazy } from "react";
 import { Row, Col } from "antd";
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
-import SocietiesContent from "../../content/SocietiesContent.json";
+import FestsContent from "../../content/FestsContent.json";
 import ClubsContent from "../../content/ClubsContent.json";
 
 const Contact = lazy(() => import("../../components/ContactForm"));
@@ -20,6 +20,8 @@ const Home = () => {
         type="right"
         title={IntroContent.title}
         content={IntroContent.text}
+        fullContent={IntroContent.fullText}
+        newPage={IntroContent.newPage}
         button={IntroContent.button}
         icon="developer.svg"
         id="intro"
@@ -32,9 +34,10 @@ const Home = () => {
       />
       <ContentBlock
         type="left"
-        title={SocietiesContent.title}
-        content={SocietiesContent.text}
-        section={SocietiesContent.section}
+        title={FestsContent.title}
+        content={FestsContent.text}
+        newPage={FestsContent.newPage}
+        button={FestsContent.button}
         icon="graphs.svg"
         id="about"
       />
@@ -46,7 +49,7 @@ const Home = () => {
         icon="product-launch.svg"
         id="mission"
       />
-      <Fests />
+      {/* <Fests /> */}
     </Container>
   );
 };
