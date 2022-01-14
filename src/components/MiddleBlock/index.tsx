@@ -28,9 +28,11 @@ const MiddleBlock = ({ title, content, button, link, t }: MiddleBlockProps) => {
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
               {button && (
-                <Button name="submit">
-                  <a style={{color: "white"}} href={link}>{t(button)}</a>
-                </Button>
+                <a href={link}>
+                  <Button name="submit">
+                    {t(button)}
+                  </Button>
+                </a>
               )}
             </Col>
           </ContentWrapper>

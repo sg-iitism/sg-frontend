@@ -20,3 +20,12 @@
 .archive_para {
     padding-top: 30px;
 }
+.slick-prev:before {
+    color: #18216d;
+}
+.slick-next:before {
+    color: #18216d;
+}
+.bread_nav {
+    color: #18216d;
+}

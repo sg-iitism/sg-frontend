@@ -92,7 +92,7 @@ const Footer = ({ t }: any) => {
               <br />
               <Large to="/contact">{t(`Send a Message`)}</Large>
               <div style={{marginTop: "2rem"}}>
-                <a href="/">
+                <a href="https://www.facebook.com/ismstudentssociety">
                     <FacebookFilled style={{ fontSize: '25px', color: '#18216d' }} />
                 </a>
               </div>

@@ -43,13 +43,15 @@ const RightBlock = ({
                 {typeof button === "object" &&
                   button.map((item: any, id: number) => {
                     return (
-                      <Button
-                        key={id}
-                        color={item.color}
-                        fixedWidth={true}
-                      >
-                        <a href={item.link} target={newPage ? "_blank" : ""} style={{color: "white"}}>{t(item.title)}</a>
-                      </Button>
+                      <a href={item.link} target={newPage ? "_blank" : ""}>
+                        <Button
+                          key={id}
+                          color={item.color}
+                          fixedWidth={true}
+                        >
+                          {t(item.title)}
+                        </Button>
+                      </a>
                     );
                   })}
               </ButtonWrapper>

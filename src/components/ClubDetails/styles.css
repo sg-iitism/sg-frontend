@@ -21,4 +21,18 @@
 .clubs_h3_science {
     margin-top: 4rem;
 }
+.slick-prev:before {
+    color: #18216d;
+}
+.slick-next:before {
+    color: #18216d;
+}
+.bread_nav {
+    text-decoration: #18216d;
+    color: #18216d;
+}
+.bread_nav:hover {
+    text-decoration: #18216d;
+    color: #18216d;
+}
 

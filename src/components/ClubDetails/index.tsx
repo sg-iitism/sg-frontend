@@ -15,22 +15,21 @@ import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
 
 const { Meta } = Card;
-const { Sider } = Layout;
+const { Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
-var settings = {
+var settings1 = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
+    slidesToShow: 3,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: true
         }
@@ -39,7 +38,43 @@ var settings = {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
+  var settings2 = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
           initialSlide: 2
         }
       },
@@ -70,7 +105,15 @@ const ClubDetails = ({
 
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
-        <Row justify="space-between">
+        <Content style={{ padding: '0 0 50px 0' }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+                <Breadcrumb.Item><a className="bread_nav" href="#about_club">About</a></Breadcrumb.Item>
+                <Breadcrumb.Item><a className="bread_nav" href="#club_events">Events</a></Breadcrumb.Item>
+                <Breadcrumb.Item><a className="bread_nav" href="#club_achievements">Achievements</a></Breadcrumb.Item>
+                <Breadcrumb.Item><a className="bread_nav" href="#club_coordis">Coordinators</a></Breadcrumb.Item>
+            </Breadcrumb>
+        </Content>
+        <Row justify="space-between" id="about_club">
             <Col lg={12} md={12} sm={24} xs={24}>
                 <div className="fests_div">
                     <img src={logo} alt="club" className="fests_img" />
@@ -97,15 +140,15 @@ const ClubDetails = ({
                 </div>
             </Col>
         </Row>
-        <div style={{marginTop: "4rem"}}>
+        <div style={{marginTop: "4rem"}} id="club_events">
             <h3>Events</h3>
             <div>
-                <Slider {...settings}>
+                <Slider {...settings1}>
                     {events.map((item: any) => (
-                        <div>
+                        <div style={{textAlign: "center"}}>
                             <Card
                                 hoverable
-                                style={{ width: 240 }}
+                                style={{marginLeft: "2rem", marginRight: "2rem"}}
                                 cover={<img alt="example" src={item.image} />}
                             >
                                 <Meta title={item.text}></Meta>
@@ -115,15 +158,15 @@ const ClubDetails = ({
                 </Slider>
             </div>
         </div>
-        <div style={{marginTop: "4rem"}}>
+        <div style={{marginTop: "6rem"}} id="club_achievements">
             <h3>Achievements</h3>
             <div>
-                <Slider {...settings}>
+                <Slider {...settings2}>
                     {achievements.map((item: any) => (
                         <div>
                             <Card
                                 hoverable
-                                style={{ width: 240, marginTop: "2rem" }}
+                                style={{marginLeft: "1.5rem", marginRight: "1.5rem"}}
                                 cover={<img alt="example" src={item.image} />}
                             >
                                 <Meta title={item.text}></Meta>
@@ -133,7 +176,7 @@ const ClubDetails = ({
                 </Slider>
             </div>
         </div>
-        <div style={{marginTop: "4rem"}}>
+        <div style={{marginTop: "6rem"}} id="club_coordis">
             <h3>Coordinators</h3>
             <div>
                 <Row justify="space-between">
