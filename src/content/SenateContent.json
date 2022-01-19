@@ -2,22 +2,28 @@
     "title": "Senate Members",
     "team": [
       {
-        "image": "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
+        "image": "https://via.placeholder.com/250x250",
+        "name": "SAMPLE NAME",
         "position": "Gymkhana Member",
         "linkedin": "/",
-        "facebook": "/"
+        "mail": "/",
+        "phone": "/"
       },
       {
-        "image": "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
+        "image": "https://via.placeholder.com/250x250",
+        "name": "SAMPLE NAME",
         "position": "Gymkhana Member",
         "linkedin": "/",
-        "facebook": "/"
+        "mail": "/",
+        "phone": "/"
       },
       {
-        "image": "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
+        "image": "https://via.placeholder.com/250x250",
+        "name": "SAMPLE NAME",
         "position": "Gymkhana Member",
         "linkedin": "/",
-        "facebook": "/"
+        "mail": "/",
+        "phone": "/"
       }
     ]
   }

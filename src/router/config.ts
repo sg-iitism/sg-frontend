@@ -71,6 +71,9 @@ const routes = [
     exact: true,
     component: "ClubDetails/chayanika.tsx",
   },
+  {
+    component: "404"
+  },
 ];
 
 export default routes;
