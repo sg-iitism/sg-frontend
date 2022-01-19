@@ -47,9 +47,9 @@ const Senate = () => {
 
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
-      <h3 style={{marginBottom: "4rem"}}>Current Senate Memebers</h3>
-        <Row justify="space-between" style={{marginBottom: "4rem", textAlign: "center"}}>
-          {!loading ? members.map((person) => (
+      <h3 style={{marginBottom: "4rem"}}>Current Senate</h3>
+        {!loading ? <Row justify="space-between" style={{marginBottom: "4rem", textAlign: "center"}}>
+          {members.map((person) => (
             <Col lg={6} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
               <div className="senate">
                 <img src={person.imageUrl} className="senate_img" />
@@ -73,15 +73,22 @@ const Senate = () => {
                 </div>
               </div>
             </Col>
-          )) : <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>}
+          ))}
         </Row>
+        : 
+          <div style={{textAlign: "center", marginBottom: "3rem"}}>
+            <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>
+          </div>}
         {!loading ? <Collapse defaultActiveKey={[]} onChange={() => {}}>
           <Panel header="PREVIOUS MEMBERS" key="1">
             {years.map((year) => (
-              <a href="/"><p>{year.id}</p></a>
+              <a href={"/senate/"+year.id}><p>{year.id}</p></a>
             ))}
           </Panel>
-        </Collapse> : <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>}
+        </Collapse> :
+        <div style={{textAlign: "center"}}>
+          <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>
+        </div>}
     </div>
   );
 };

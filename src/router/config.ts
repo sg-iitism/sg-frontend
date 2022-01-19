@@ -20,6 +20,10 @@ const routes = [
     component: "Senate",
   },
   {
+    path: ["/senate"],
+    component: "SenateArchive",
+  },
+  {
     path: ["/fests"],
     exact: true,
     component: "Fests/index.tsx",

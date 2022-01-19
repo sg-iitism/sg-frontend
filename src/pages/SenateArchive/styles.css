@@ -1,0 +1,35 @@
+.senate_desc {
+    text-align: center;
+}
+.senate_icons {
+    text-align: center;
+}
+.senate_img {
+    width: 250px;
+    height: 250px;
+}
+.senate {
+    text-align: center;
+}
+.senate_name {
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+}
+.person_icon {
+    font-size: 25px;
+    color: #18216d;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.person_icon:hover {
+    font-size: 25px;
+    color: #ff8c00;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.senate_position {
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #ff8c00;
+}
