@@ -9,7 +9,7 @@ const ClubsComponent = () => {
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       <h3 className="clubs_h3_science">Technical Clubs</h3>
-      <Row justify="space-between">
+      <Row justify="space-between" id="tech_clubs">
           {ClubsContent.science.map((club) => (
               <Col lg={6} md={6} sm={12} xs={12}>
                     <a href={club.club_url}>
@@ -27,7 +27,7 @@ const ClubsComponent = () => {
           ))}
       </Row>
       <h3 className="clubs_h3">Media And Cultural Clubs</h3>
-      <Row justify="space-between">
+      <Row justify="space-between" id="cult_clubs">
           {ClubsContent.media.map((club) => (
               <Col lg={6} md={6} sm={12} xs={12}>
                     <a href={club.club_url}>

@@ -37,8 +37,8 @@ const Header = ({ t }: any) => {
     };
     return (
       <>
-        <CustomNavLinkSmall>
-          <a href="/about"><Span>{t("About")}</Span></a>
+        <CustomNavLinkSmall onClick={() => scrollTo("about")}>
+          <Span>{t("About")}</Span>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall>
           <a href="/clubs"><Span>{t("Clubs")}</Span></a>

@@ -24,7 +24,7 @@ const LeftContentBlock = ({
   id,
 }: ContentBlockProps) => {
   return (
-    <LeftContentSection>
+    <LeftContentSection style={{marginTop: "2rem"}}>
       <Fade direction="left">
         <Row justify="space-between" align="middle" id={id}>
           <Col lg={11} md={11} sm={12} xs={24}>
