@@ -35,7 +35,7 @@ const ClubsComponent = () => {
                             <a href={"/clubs/" + club.id}>
                                 <div className="fests_div">
                                     <img 
-                                      src={club.logoUrl ? club.logoUrl : "http://localhost:3000/img/icons/sg_logo.jpg"} 
+                                      src={club.logoUrl ? club.logoUrl : "/img/icons/sg_logo.jpg"} 
                                       className="fests_img">
                                     </img>
                                     <div style={{marginTop: "2rem"}}>

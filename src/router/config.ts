@@ -66,14 +66,8 @@ const routes = [
     component: "Clubs/index.tsx",
   },
   {
-    path: ["/clubs/roboism"],
-    exact: true,
-    component: "ClubDetails/roboism.tsx",
-  },
-  {
-    path: ["/clubs/chayanika"],
-    exact: true,
-    component: "ClubDetails/chayanika.tsx",
+    path: ["/clubs"],
+    component: "ClubDetails"
   },
   {
     component: "404"

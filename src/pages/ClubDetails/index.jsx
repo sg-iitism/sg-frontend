@@ -5,7 +5,7 @@ const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ClubDetails = lazy(() => import("../../components/ClubDetails"));
 
-const Chayanika = () => {
+const ClubDetail = () => {
   return (
     <Container>
       <ScrollToTop />
@@ -23,4 +23,4 @@ const Chayanika = () => {
   );
 };
 
-export default Chayanika;
+export default ClubDetail;
