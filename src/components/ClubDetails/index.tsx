@@ -142,7 +142,7 @@ const ClubDetails = ({
         <Row justify="space-between" id="about_club">
             <Col lg={12} md={12} sm={24} xs={24}>
                 <div className="fests_div">
-                    <img src={club.logoUrl ? club.logoUrl : "img/icons/sg_logo.jpg" } alt="club" className="fests_img" />
+                    <img src={club.logoUrl ? club.logoUrl : "https://via.placeholder.com/250x250" } alt="club" className="fests_img" />
                 </div>
             </Col>
             <Col lg={12} md={12} sm={24} xs={24}>
@@ -182,11 +182,11 @@ const ClubDetails = ({
                             <Card
                                 hoverable
                                 style={{margin: "auto", textAlign: "center", maxWidth: "250px"}}
-                                cover={<img alt="example" src={item.imageUrl} height="250px" width="auto" />}
+                                cover={<img alt="example" src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} height="250px" width="auto" />}
                             >
                                 <Meta title={item.name}></Meta>
                             </Card>
-                            <a href={"events/" + item.id}>
+                            <a href={"/events/" + item.id}>
                               <Button>Know More</Button>
                             </a>
                           </div>

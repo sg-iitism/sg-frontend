@@ -70,6 +70,10 @@ const routes = [
     component: "ClubDetails"
   },
   {
+    path: ["/events"],
+    component: "EventDetails"
+  },
+  {
     component: "404"
   },
 ];
