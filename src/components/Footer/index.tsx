@@ -66,9 +66,6 @@ const Footer = ({ t }: any) => {
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Title>{t("Quick Links")}</Title>
-              <Large left="true" to="/about">
-                {t("About")}
-              </Large>
               <Large left="true" to="/clubs">
                 {t("Clubs")}
               </Large>
@@ -77,6 +74,9 @@ const Footer = ({ t }: any) => {
               </Large>
               <Large left="true" to="/senate">
                 {t("Senate")}
+              </Large>
+              <Large left="true" to="/calender">
+                {t("Calendar")}
               </Large>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>

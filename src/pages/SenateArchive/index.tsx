@@ -12,7 +12,8 @@ import {
   LinkedinFilled,
   MailFilled,
   PhoneFilled,
-  FacebookFilled
+  FacebookFilled,
+  LeftOutlined
 } from '@ant-design/icons';
 import "./styles.css";
 
@@ -44,6 +45,10 @@ const SenateArchive = () => {
   return (
     <Container>
       <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
+        <a href="/senate" className="back_anchor"><span>
+          <LeftOutlined className="back_icon" />
+          Current Senate
+        </span></a>
         <h3 style={{marginBottom: "4rem"}}>Senate {year}</h3>
           {!loading ? <Row justify="space-between" style={{marginBottom: "4rem", textAlign: "center"}}>
             {members.map((person) => (

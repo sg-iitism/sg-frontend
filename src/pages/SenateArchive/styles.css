@@ -28,8 +28,21 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+.back_icon {
+    font-size: 15px;
+    color: #18216d;
+    margin-right: 10px;
+}
+.back_icon:hover {
+    font-size: 15px;
+    color: #ff8c00;
+    margin-right: 10px;
+}
 .senate_position {
     font-size: 15px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #ff8c00;
+}
+.back_anchor:hover {
     color: #ff8c00;
 }

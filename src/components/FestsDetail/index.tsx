@@ -192,7 +192,6 @@ const FestsDetail = ({
                       </div>
                     ))}
                   </Row>
-                  
               </div>
               }
             </div>

@@ -24,7 +24,6 @@ const Home = () => {
         content={IntroContent.text}
         fullContent={IntroContent.fullText}
         newPage={IntroContent.newPage}
-        button={IntroContent.button}
         icon="developer.svg"
         id="intro"
       />

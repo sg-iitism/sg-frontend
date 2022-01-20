@@ -27,13 +27,13 @@ var settings1 = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -175,7 +175,7 @@ const ClubDetails = ({
         {event.length>0 ? <div style={{marginTop: "4rem"}} id="club_events">
             <h3>Events</h3>
             <div style={{textAlign: "center"}}>
-                <Slider {...settings1}>
+                {event.length>=3 ? <Slider {...settings1}>
                     {event.map((item: any) => (
                         <div style={{textAlign: "center"}}>
                           <div>
@@ -192,25 +192,83 @@ const ClubDetails = ({
                           </div>
                         </div>
                     ))}
-                </Slider>
+                </Slider> : 
+                <div>
+                  <Row>
+                    {event.map((item: any) => (
+                      <div style={{textAlign: "center"}}>
+                        <Col lg={8} md={12} sm={24} xs={24}>
+                          <Card
+                              hoverable
+                              style={{margin: "auto", textAlign: "center", maxWidth: "250px"}}
+                              cover={<img alt="example" 
+                                          src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
+                                          height="250px" width="auto" 
+                                    />}
+                          >
+                              <Meta title={item.name}></Meta>
+                          </Card>
+                          <a href={"/events/" + item.id}>
+                            <Button>Know More</Button>
+                          </a>
+                        </Col>
+                      </div>
+                    ))}
+                  </Row>
+                </div> }
             </div>
         </div> : null}
         {achieve.length>0 ? <div style={{marginTop: "6rem"}} id="club_achievements">
             <h3>Achievements</h3>
             <div>
-                <Slider {...settings2}>
+                {achieve.length>=3 ? <Slider {...settings2}>
                     {achieve.map((item: any) => (
                         <div onClick={() => setModalData(item)}>
                             <Card
                                 hoverable
                                 style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center"}}
-                                cover={<img alt="example" src={item.imageUrl} height="250px" width="auto" />}
+                                cover={<img alt="example" 
+                                            src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
+                                            height="250px" width="auto" 
+                                      />}
                             >
                                 <Meta title={item.title}></Meta>
+                                <div className="achieve_desc">
+                                  <span>
+                                    {item.details.substr(0, 40) + "..."}
+                                    <a className="more_anchor" onClick={() => setModalData(item)}>More</a>
+                                  </span>
+                                </div>
                             </Card>
                         </div>
                     ))}
-                </Slider>
+                </Slider> : 
+                  <Row>
+                    {achieve.map((item: any) => (
+                      <div style={{textAlign: "center"}}>
+                        <Col lg={8} md={12} sm={24} xs={24}>
+                          <div onClick={() => setModalData(item)}>
+                              <Card
+                                  hoverable
+                                  style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center"}}
+                                  cover={<img alt="example" 
+                                              src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
+                                              height="250px" width="auto" 
+                                        />}
+                              >
+                                  <Meta title={item.title}></Meta>
+                                  <div className="achieve_desc">
+                                    <span>
+                                      {item.details.substr(0, 40) + "..."}
+                                      <a className="more_anchor" onClick={() => setModalData(item)}>More</a>
+                                    </span>
+                                  </div>
+                              </Card>
+                          </div>
+                        </Col>
+                      </div>
+                    ))}
+                  </Row>}
             </div>
         </div> : null}
         <div style={{marginTop: "6rem"}} id="club_coordis">
@@ -253,8 +311,9 @@ const ClubDetails = ({
       {modalData ? 
         <Modal title={modalData.title}
           visible={modalData ? true : false} 
-          onOk={() => setModalData(null)} 
-          onCancel={() => setModalData(null)}
+          onOk={() => setModalData(null)}
+          okText="Close"
+          cancelButtonProps={{ style: { display: 'none' } }}
           >
             <div style={{textAlign: "center"}}>
               {modalData.imageUrl ? 
