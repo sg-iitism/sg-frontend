@@ -3,9 +3,9 @@ import ConcettoContent from "../../content/ConcettoContent.json";
 
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
-const FestsDetail = lazy(() => import("../../components/FestsDetail"));
+const FestsDetail= lazy(() => import("../../components/FestsDetail"));
 
-const Concetto = () => {
+const FestDetails = () => {
   return (
     <Container>
       <ScrollToTop />
@@ -24,4 +24,4 @@ const Concetto = () => {
   );
 };
 
-export default Concetto;
+export default FestDetails;
