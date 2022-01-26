@@ -4,6 +4,7 @@ import { Row, Col, Layout, Menu, Breadcrumb } from "antd";
 import { withTranslation } from "react-i18next";
 import Slider from "react-slick";
 import { Card, Space, Spin } from 'antd';
+import Construction from "../Construction";
 import { Button } from "../../common/Button";
 import {
     FacebookFilled,
@@ -77,6 +78,7 @@ const FestsDetail = ({
   const [event, setEvent] = useState<any[]>([]);
   const [year, setYear] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState(false);
 
   const path=window.location.pathname;
 
@@ -87,15 +89,37 @@ const FestsDetail = ({
     const year_url = `https://sg-iitism-api.herokuapp.com/v1${path}/years`;
 
     const fetchData = async () => {
-      const fest_data = await axios(fest_url);
-      const year_data = await axios(year_url);
-      const event_data = await axios(event_url);
-      const curr_data = await axios(curr_url);
-      
-      setFest(fest_data.data);
-      setYear(year_data.data);
-      setEvent(event_data.data);
-      setCurr(curr_data.data);
+      try {
+        const fest_data = await axios(fest_url);
+        setFest(fest_data.data);
+      } catch(error) {
+        setErr(true);
+        setLoading(false);
+      }
+
+      try {
+        const event_data = await axios(event_url);
+        setEvent(event_data.data);
+      } catch(error) {
+        setErr(true);
+        setLoading(false);
+      }
+
+      try {
+        const year_data = await axios(year_url);
+        setYear(year_data.data);
+      } catch(error) {
+        setErr(true);
+        setLoading(false);
+      }
+
+      try {
+        const curr_data = await axios(curr_url);
+        setCurr(curr_data.data);
+      } catch(error) {
+        setErr(true);
+        setLoading(false);
+      }
       setLoading(false);
     };
 
@@ -104,7 +128,8 @@ const FestsDetail = ({
 
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
-      {!loading ? <div>
+      {err ? <Construction /> : null}
+      {!loading && !err ? <div>
         <Row justify="space-between" id="about_fest">
             <Col lg={12} md={12} sm={24} xs={24}>
                 <div className="fests_div">
@@ -242,12 +267,15 @@ const FestsDetail = ({
                 </Row>
             </div>
         </div>
-      </div> :
-
-        <div style={{textAlign: "center"}}>
-          <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>
-        </div>
+      </div> : 
+            null
+        
       }
+      {loading ?
+        <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
+          <Space size="middle" style={{textAlign: "center", marginTop: "15%"}}><Spin size="large" /></Space>
+        </div>
+       : null}
     </div>
   );
 };

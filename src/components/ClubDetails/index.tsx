@@ -5,6 +5,7 @@ import { withTranslation } from "react-i18next";
 import Slider from "react-slick";
 import { Button } from "../../common/Button";
 import { Card, Spin, Space, Modal } from 'antd';
+import Construction from "../Construction";
 import {
     FacebookFilled,
     LinkedinFilled,
@@ -14,6 +15,7 @@ import {
     InstagramFilled,
     PhoneFilled,
 } from '@ant-design/icons';
+import moment from "moment";
 import { ContentBlockProps } from "./types";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -112,6 +114,7 @@ const ClubDetails = ({
   const [persons, SetPersons] = useState<any[]>([]);
   const [modalData, setModalData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState(false);
 
   const path=window.location.pathname;
 
@@ -121,14 +124,31 @@ const ClubDetails = ({
     const achieve_url = `https://sg-iitism-api.herokuapp.com/v1${path}/achievements`;
 
     const fetchData = async () => {
-      const club_data = await axios(club_url);
-      const events_data = await axios(events_url);
-      const achieve_data = await axios(achieve_url);
-      
-      setClub(club_data.data);
-      SetPersons(club_data.data.contacts);
-      setEvent(events_data.data);
-      setAchieve(achieve_data.data);
+      try {
+        const club_data = await axios(club_url);
+        setClub(club_data.data);
+        SetPersons(club_data.data.contacts);
+      } catch(err) {
+        setErr(true);
+        setLoading(false);
+      }
+
+      try {
+        const events_data = await axios(events_url);
+        setEvent(events_data.data);
+      } catch(err) {
+        setErr(true);
+        setLoading(false);
+      }
+
+      try {
+        const achieve_data = await axios(achieve_url);
+        setAchieve(achieve_data.data);
+      } catch(err) {
+        setErr(true);
+        setLoading(false);
+      }
+
       setLoading(false);
     };
 
@@ -137,7 +157,8 @@ const ClubDetails = ({
 
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
-      { !loading ?
+      {err ? <Construction /> : null}
+      { !loading && !err ?
       <div>
         <Row justify="space-between" id="about_club">
             <Col lg={12} md={12} sm={24} xs={24}>
@@ -174,48 +195,62 @@ const ClubDetails = ({
         </Row>
         {event.length>0 ? <div style={{marginTop: "4rem"}} id="club_events">
             <h3>Events</h3>
-            <div style={{textAlign: "center"}}>
+            <div>
                 {event.length>=3 ? <Slider {...settings1}>
                     {event.map((item: any) => (
                         <div style={{textAlign: "center"}}>
-                          <div>
+                          <div style={{textAlign: "center"}}>
                             <Card
                                 hoverable
                                 style={{margin: "auto", textAlign: "center", maxWidth: "250px"}}
                                 cover={<img alt="example" src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} height="250px" width="auto" />}
                             >
-                                <Meta title={item.name}></Meta>
+                                <Meta 
+                                  title={item.name}
+                                  description={moment(item.start).format('MM/DD/YYYY') +
+                                    " to " + moment(item.start).format('MM/DD/YYYY')}
+                                ></Meta>
                             </Card>
+                            <div style={{marginTop: "1rem"}}>
+                              {item.clubOrganizers.map((org: any) => 
+                                <span className="event_org">{org}</span>)}
+                            </div>
                             <a href={"/events/" + item.id}>
                               <Button>Know More</Button>
                             </a>
                           </div>
                         </div>
                     ))}
-                </Slider> : 
-                <div>
-                  <Row>
+                </Slider> :
+                  <Row justify="space-between">
                     {event.map((item: any) => (
-                      <div style={{textAlign: "center"}}>
-                        <Col lg={8} md={12} sm={24} xs={24}>
-                          <Card
-                              hoverable
-                              style={{margin: "auto", textAlign: "center", maxWidth: "250px"}}
-                              cover={<img alt="example" 
-                                          src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
-                                          height="250px" width="auto" 
-                                    />}
-                          >
-                              <Meta title={item.name}></Meta>
-                          </Card>
-                          <a href={"/events/" + item.id}>
-                            <Button>Know More</Button>
-                          </a>
+                        <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
+                          <div className="events_div">
+                            <Card
+                                hoverable
+                                style={{margin: "auto", textAlign: "center", maxWidth: "250px"}}
+                                cover={<img alt="example" 
+                                            src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
+                                            height="250px" width="auto" 
+                                      />}
+                            >
+                                <Meta 
+                                  title={item.name}
+                                  description={moment(item.start).format('MM/DD/YYYY') +
+                                    " to " + moment(item.start).format('MM/DD/YYYY')}
+                                ></Meta>
+                            </Card>
+                            <div style={{marginTop: "1rem"}}>
+                              {item.clubOrganizers.map((org: any) => 
+                                <span className="event_org">{org}</span>)}
+                            </div>
+                            <a className="event_anchor" href={"/events/" + item.id}>
+                              <Button>Know More</Button>
+                            </a>
+                          </div>
                         </Col>
-                      </div>
                     ))}
-                  </Row>
-                </div> }
+                  </Row> }
             </div>
         </div> : null}
         {achieve.length>0 ? <div style={{marginTop: "6rem"}} id="club_achievements">
@@ -303,11 +338,14 @@ const ClubDetails = ({
                 </Row>
             </div>
         </div>
-      </div> : 
-          <div style={{textAlign: "center"}}>
-            <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>
-          </div>
-      }
+      </div> : null}
+
+      {loading ?
+        <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
+          <Space size="middle" style={{textAlign: "center", marginTop: "15%"}}><Spin size="large" /></Space>
+        </div>
+       : null}
+      
       {modalData ? 
         <Modal title={modalData.title}
           visible={modalData ? true : false} 

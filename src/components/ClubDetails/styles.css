@@ -14,6 +14,7 @@
 }
 .fests_div {
     text-align: left;
+    margin-bottom: 2rem;
 }
 .clubs_h3 {
     margin-top: 1rem;
@@ -77,5 +78,38 @@
     margin-top: 1rem;
 }
 .more_anchor {
+    color: #ff8c00;
+}
+.event_img {
+    width: 250px;
+    height: 250px;
+    height: auto;
+}
+.events_col {
+    margin: auto;
+}
+.event_para {
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+.events_div {
+    text-align: center;
+}
+.event_org {
+    background-color: #18216d;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 1rem;
+}
+.event_anchor {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #18216d;
+}
+.event_anchor:hover {
     color: #ff8c00;
 }

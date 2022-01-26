@@ -29,7 +29,7 @@ const routes = [
     component: "Fests/index.tsx",
   },
   {
-    path: ["/calender"],
+    path: ["/calendar"],
     exact: true,
     component: "Calender",
   },

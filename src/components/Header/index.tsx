@@ -47,7 +47,7 @@ const Header = ({ t }: any) => {
           <a href="/fests"><Span>{t("Fests")}</Span></a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall>
-          <a href="/calender"><Span>{t("Calendar")}</Span></a>
+          <a href="/calendar"><Span>{t("Calendar")}</Span></a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall>
           <Span>

@@ -3,11 +3,13 @@ import axios from 'axios';
 import { Row, Col, Space, Spin } from "antd";
 import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
+import Construction from "../Construction";
 import "./styles.css";
 
 const FestsComponent = () => {
   const [fests, setFests] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState(false);
 
   const path=window.location.pathname;
 
@@ -15,9 +17,14 @@ const FestsComponent = () => {
     const url = `https://sg-iitism-api.herokuapp.com/v1${path}`;
 
     const fetchData = async () => {
-      const fests_data = await axios(url);
-      
-      setFests(fests_data.data);
+      try {
+        const fests_data = await axios(url);
+        setFests(fests_data.data);
+      } catch(err) {
+        setErr(true);
+        setLoading(false);
+      }
+
       setLoading(false);
     };
 
@@ -27,7 +34,8 @@ const FestsComponent = () => {
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       <h3 style={{marginBottom: "4rem"}}>Fests</h3>
-      {!loading ? <div>
+      {err ? <Construction /> : null}
+      {!loading && !err ? <div>
         <Row justify="space-between">
           {fests.map((fest) => (
              <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "4rem"}}>
@@ -45,11 +53,13 @@ const FestsComponent = () => {
               </Col>
           ))}
         </Row>
-      </div> :
+      </div> : null}
 
-      <div style={{textAlign: "center"}}>
-        <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>
-      </div> }
+      {loading ?
+        <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
+          <Space size="middle" style={{textAlign: "center", marginTop: "15%"}}><Spin size="large" /></Space>
+        </div>
+       : null}
     </div>
   );
 };

@@ -75,7 +75,7 @@ const Footer = ({ t }: any) => {
               <Large left="true" to="/senate">
                 {t("Senate")}
               </Large>
-              <Large left="true" to="/calender">
+              <Large left="true" to="/calendar">
                 {t("Calendar")}
               </Large>
             </Col>

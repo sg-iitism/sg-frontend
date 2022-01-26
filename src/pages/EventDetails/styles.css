@@ -10,3 +10,13 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.event_org {
+    background-color: #18216d;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}

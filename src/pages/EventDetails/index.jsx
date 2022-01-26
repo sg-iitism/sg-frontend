@@ -48,6 +48,12 @@ const EventDetails = () => {
                     {(new Date(event.start)).toLocaleString() + " - " + (new Date(event.end)).toLocaleString()}
                 </span>
             </p> : null}
+            {event.clubOrganizers.length > 0 ?
+               <div>
+               {event.clubOrganizers.map((org) => 
+                  <span className="event_org">{org}</span>)}
+               </div>
+             : null}
             {event.website ? <p>
                 <GlobalOutlined className="icon" />
                 <span className='span'>
