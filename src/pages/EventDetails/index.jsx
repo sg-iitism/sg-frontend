@@ -7,6 +7,7 @@ import {
   CalendarOutlined,
   GlobalOutlined
 } from '@ant-design/icons';
+import moment from 'moment';
 import "./styles.css";
 
 const EventDetails = () => {
@@ -41,11 +42,11 @@ const EventDetails = () => {
             />
             <br /><br />
             <p>{event.name}</p>
-            <br /><br />
+            <br />
             {event.start && event.end ? <p>
                 <CalendarOutlined className="icon" />
                 <span className='span'>
-                    {(new Date(event.start)).toLocaleString() + " - " + (new Date(event.end)).toLocaleString()}
+                    {moment(event.start).format('MM/DD/YYYY') + " - " + moment(event.end).format('MM/DD/YYYY')}
                 </span>
             </p> : null}
             {event.clubOrganizers.length > 0 ?
@@ -54,6 +55,7 @@ const EventDetails = () => {
                   <span className="event_org">{org}</span>)}
                </div>
              : null}
+            <br />
             {event.website ? <p>
                 <GlobalOutlined className="icon" />
                 <span className='span'>
@@ -62,8 +64,8 @@ const EventDetails = () => {
             </p> : null}
            </div> :
 
-           <div style={{textAlign: "center", marginBottom: "3rem"}}>
-            <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>
+           <div style={{textAlign: "center", marginBottom: "3rem", minHeight: "50vh"}}>
+            <Space size="middle" style={{textAlign: "center", marginTop: "15%"}}><Spin size="large" /></Space>
           </div>
         }
       </Container>

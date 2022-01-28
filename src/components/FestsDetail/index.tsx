@@ -16,6 +16,7 @@ import {
     MailOutlined,
     PhoneFilled
 } from '@ant-design/icons';
+import moment from "moment";
 import { ContentBlockProps } from "./types";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -79,6 +80,10 @@ const FestsDetail = ({
   const [year, setYear] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
+  const [overloading, setOverloading] = useState(true);
+  const [eventloading, setEventloading] = useState(false);
+  const [currloading, setCurrLoading] = useState(true);
+  const [yearloading, setYearloading] = useState(false);
 
   const path=window.location.pathname;
 
@@ -92,22 +97,7 @@ const FestsDetail = ({
       try {
         const fest_data = await axios(fest_url);
         setFest(fest_data.data);
-      } catch(error) {
-        setErr(true);
-        setLoading(false);
-      }
-
-      try {
-        const event_data = await axios(event_url);
-        setEvent(event_data.data);
-      } catch(error) {
-        setErr(true);
-        setLoading(false);
-      }
-
-      try {
-        const year_data = await axios(year_url);
-        setYear(year_data.data);
+        setOverloading(false);
       } catch(error) {
         setErr(true);
         setLoading(false);
@@ -116,10 +106,30 @@ const FestsDetail = ({
       try {
         const curr_data = await axios(curr_url);
         setCurr(curr_data.data);
+        setCurrLoading(false);
       } catch(error) {
         setErr(true);
         setLoading(false);
       }
+
+      try {
+        const event_data = await axios(event_url);
+        setEvent(event_data.data);
+        setEventloading(false);
+      } catch(error) {
+        setErr(true);
+        setLoading(false);
+      }
+
+      try {
+        const year_data = await axios(year_url);
+        setYear(year_data.data);
+        setYearloading(false);
+      } catch(error) {
+        setErr(true);
+        setLoading(false);
+      }
+
       setLoading(false);
     };
 
@@ -129,7 +139,14 @@ const FestsDetail = ({
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Construction /> : null}
-      {!loading && !err ? <div>
+
+      {overloading || currloading ? 
+          <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
+            <Space size="middle" style={{textAlign: "center", marginTop: "10%"}}><Spin size="large" /></Space>
+          </div> : null
+      }
+
+      {!overloading && !currloading && !err ?
         <Row justify="space-between" id="about_fest">
             <Col lg={12} md={12} sm={24} xs={24}>
                 <div className="fests_div">
@@ -170,7 +187,14 @@ const FestsDetail = ({
                     </div>
                 </div>
             </Col>
-        </Row>
+        </Row> : null}
+
+        {eventloading && !overloading && !currloading ? 
+          <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
+            <Space size="middle" style={{textAlign: "center", marginTop: "10%"}}><Spin size="large" /></Space>
+          </div> : null
+        }
+
         {event.length>0 ? <div style={{marginTop: "4rem"}} id="fest_events">
             <h3>Events and Shows</h3>
             <div style={{textAlign: "center"}}>
@@ -186,8 +210,18 @@ const FestsDetail = ({
                                             height="250px" width="auto" 
                                       />}
                             >
-                                <Meta title={item.name}></Meta>
+                                <Meta 
+                                  title={item.name}
+                                  description={moment(item.start).format('MM/DD/YYYY') +
+                                    " to " + moment(item.start).format('MM/DD/YYYY')}
+                                ></Meta>
                             </Card>
+                            {/* {item.clubOrganizers.length > 0 ?
+                              <div>
+                              {item.clubOrganizers.map((org: any) => 
+                                  <span className="event_org">{org}</span>)}
+                              </div>
+                            : null} */}
                             <a href={"/events/" + item.id}>
                               <Button>Know More</Button>
                             </a>
@@ -221,7 +255,8 @@ const FestsDetail = ({
               }
             </div>
         </div> : null}
-        {curr.coreTeam.length>0 ? <div style={{marginTop: "6rem"}} id="club_coordis">
+
+        {!currloading && !overloading && !eventloading && curr.coreTeam.length>0 ? <div style={{marginTop: "6rem"}} id="club_coordis">
             <h3>Core Team</h3>
             <div>
                 <Row justify="space-between">
@@ -253,7 +288,8 @@ const FestsDetail = ({
                 </Row>
             </div>
         </div> : null}
-        <div style={{marginTop: "4rem"}} id="fest_archive">
+
+        {!yearloading && !overloading && !currloading ? <div style={{marginTop: "4rem"}} id="fest_archive">
             <h3>Past Years Archive</h3>
             <div>
                 <Row justify="space-between">
@@ -266,16 +302,14 @@ const FestsDetail = ({
                     ))}
                 </Row>
             </div>
-        </div>
-      </div> : 
-            null
-        
-      }
-      {loading ?
-        <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
-          <Space size="middle" style={{textAlign: "center", marginTop: "15%"}}><Spin size="large" /></Space>
-        </div>
-       : null}
+        </div> : null}
+
+        {yearloading && !overloading && !currloading ? 
+          <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
+            <Space size="middle" style={{textAlign: "center", marginTop: "30%"}}><Spin size="large" /></Space>
+          </div> : null
+        }
+      
     </div>
   );
 };

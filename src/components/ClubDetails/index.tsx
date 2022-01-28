@@ -115,6 +115,9 @@ const ClubDetails = ({
   const [modalData, setModalData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
+  const [overloading, setOverloading] = useState(true);
+  const [eventloading, setEventloading] = useState(false);
+  const [achieveloading, setAchieveloading] = useState(false);
 
   const path=window.location.pathname;
 
@@ -128,6 +131,9 @@ const ClubDetails = ({
         const club_data = await axios(club_url);
         setClub(club_data.data);
         SetPersons(club_data.data.contacts);
+        setOverloading(false);
+        setEventloading(true);
+        setAchieveloading(true);
       } catch(err) {
         setErr(true);
         setLoading(false);
@@ -136,6 +142,7 @@ const ClubDetails = ({
       try {
         const events_data = await axios(events_url);
         setEvent(events_data.data);
+        setEventloading(false);
       } catch(err) {
         setErr(true);
         setLoading(false);
@@ -144,6 +151,7 @@ const ClubDetails = ({
       try {
         const achieve_data = await axios(achieve_url);
         setAchieve(achieve_data.data);
+        setAchieveloading(false);
       } catch(err) {
         setErr(true);
         setLoading(false);
@@ -158,8 +166,9 @@ const ClubDetails = ({
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Construction /> : null}
-      { !loading && !err ?
+      
       <div>
+      { !overloading && !err ?
         <Row justify="space-between" id="about_club">
             <Col lg={12} md={12} sm={24} xs={24}>
                 <div className="fests_div">
@@ -193,6 +202,17 @@ const ClubDetails = ({
                 </div>
             </Col>
         </Row>
+        : 
+        <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
+          <Space size="middle" style={{textAlign: "center", marginTop: "15%"}}><Spin size="large" /></Space>
+        </div> }
+
+        {eventloading && !overloading ? 
+          <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center", marginTop: "100%"}}>
+            <Space size="middle" style={{textAlign: "center", marginTop: "1000px"}}><Spin size="large" /></Space>
+          </div> : null
+        }
+
         {event.length>0 ? <div style={{marginTop: "4rem"}} id="club_events">
             <h3>Events</h3>
             <div>
@@ -253,6 +273,7 @@ const ClubDetails = ({
                   </Row> }
             </div>
         </div> : null}
+
         {achieve.length>0 ? <div style={{marginTop: "6rem"}} id="club_achievements">
             <h3>Achievements</h3>
             <div>
@@ -306,7 +327,14 @@ const ClubDetails = ({
                   </Row>}
             </div>
         </div> : null}
-        <div style={{marginTop: "6rem"}} id="club_coordis">
+
+        {achieveloading && !overloading ? 
+          <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
+            <Space size="middle" style={{textAlign: "center", marginTop: "15%"}}><Spin size="large" /></Space>
+          </div> : null
+        }
+
+        {!overloading && !achieveloading && !eventloading && !err ?  <div style={{marginTop: "6rem"}} id="club_coordis">
             <h3>Coordinators</h3>
             <div>
                 <Row justify="space-between">
@@ -337,10 +365,10 @@ const ClubDetails = ({
                     ))}
                 </Row>
             </div>
-        </div>
-      </div> : null}
+        </div> : null}
+      </div> 
 
-      {loading ?
+      {overloading ?
         <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
           <Space size="middle" style={{textAlign: "center", marginTop: "15%"}}><Spin size="large" /></Space>
         </div>
