@@ -6,10 +6,12 @@ import routes from "./config";
 import { Styles } from "../styles/styles";
 
 const Router = () => {
+  const curr = window.location.pathname;
+
   return (
     <Suspense fallback={null}>
       <Styles />
-      <Header />
+      <Header url={curr} />
       <Switch>
         {routes.map((routeItem) => {
           return (

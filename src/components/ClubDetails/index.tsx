@@ -349,10 +349,10 @@ const ClubDetails = ({
                               {person.linkedin ? <a href={person.linkedin}>
                                 <LinkedinFilled className="person_icon" />
                               </a> : null}
-                              {person.mail ? <a href={"mailto:" + person.mail}>
+                              {person.mail ? <a href={"mailto:" + person.mail} data-toggle="tooltip" data-placement="top" title={person.mail}>
                                 <MailOutlined className="person_icon" />
                               </a> : null}
-                              {person.phone ? <a href={"tel:" + person.phone}>
+                              {person.phone ? <a href={"tel:" + person.phone} data-toggle="tooltip" data-placement="top" title={person.phone}>
                                 <PhoneFilled className="person_icon" />
                               </a> : null}
                               {person.facebook ? <a href={person.facebook}>
@@ -378,20 +378,21 @@ const ClubDetails = ({
         <Modal title={modalData.title}
           visible={modalData ? true : false} 
           onOk={() => setModalData(null)}
+          onCancel={() => setModalData(null)}
           okText="Close"
           cancelButtonProps={{ style: { display: 'none' } }}
-          >
-            <div style={{textAlign: "center"}}>
-              {modalData.imageUrl ? 
-                <img src={modalData.imageUrl} width="300px" height="auto" /> : null
-              }
-              <br /><br />
-              {modalData.details ? 
-                <span className='span'>
-                  {modalData.details}
-                </span> : null
-              }
-            </div>
+        >
+          <div style={{textAlign: "center"}}>
+            {modalData.imageUrl ? 
+              <img src={modalData.imageUrl} width="300px" height="auto" /> : null
+            }
+            <br /><br />
+            {modalData.details ? 
+              <span className='span'>
+                {modalData.details}
+              </span> : null
+            }
+          </div>
         </Modal> : 
         null
       }

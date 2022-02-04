@@ -41,8 +41,8 @@ const Home = () => {
         content={FestsContent.text}
         newPage={FestsContent.newPage}
         button={FestsContent.button}
-        icon="graphs.svg"
-        id=""
+        icon="fests.svg"
+        id="fests"
       />
       <ContentBlock
         type="right"
@@ -50,14 +50,14 @@ const Home = () => {
         content={ClubsContent.text}
         button={ClubsContent.button}
         icon="product-launch.svg"
-        id="mission"
+        id="clubs"
       />
       <ContentBlock
         type="left"
         title={CulturalContent.title}
         content={CulturalContent.text}
         button={CulturalContent.button}
-        icon="waving.svg"
+        icon="cult_clubs.svg"
         id=""
       />
       <ContentBlock

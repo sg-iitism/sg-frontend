@@ -140,7 +140,7 @@ const FestsDetail = ({
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Construction /> : null}
 
-      {overloading || currloading ? 
+      {!err && (overloading || currloading) ? 
           <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
             <Space size="middle" style={{textAlign: "center", marginTop: "10%"}}><Spin size="large" /></Space>
           </div> : null
@@ -189,7 +189,7 @@ const FestsDetail = ({
             </Col>
         </Row> : null}
 
-        {eventloading && !overloading && !currloading ? 
+        {!err && eventloading && !overloading && !currloading ? 
           <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
             <Space size="middle" style={{textAlign: "center", marginTop: "10%"}}><Spin size="large" /></Space>
           </div> : null
@@ -271,10 +271,10 @@ const FestsDetail = ({
                               {person.linkedin ? <a href={person.linkedin}>
                                 <LinkedinFilled className="person_icon" />
                               </a> : null}
-                              {person.mail ? <a href={"mailto:" + person.mail}>
+                              {person.mail ? <a href={"mailto:" + person.mail} data-toggle="tooltip" data-placement="top" title={person.mail}>
                                 <MailOutlined className="person_icon" />
                               </a> : null}
-                              {person.phone ? <a href={"tel:" + person.phone}>
+                              {person.phone ? <a href={"tel:" + person.phone} data-toggle="tooltip" data-placement="top" title={person.phone}>
                                 <PhoneFilled className="person_icon" />
                               </a> : null}
                               {person.facebook ? <a href={person.facebook}>
@@ -295,16 +295,18 @@ const FestsDetail = ({
                 <Row justify="space-between">
                     {year.map((item: any) => (
                         <Col lg={6} md={6} sm={12} xs={12}>
+                          <a href={path + "/years/" + item.year}>
                             <div className="archive_div" style={{textAlign: "center"}}>
-                                <a href={path + "/years/" + item.year}><p className="archive_para">{item.year}</p></a>
+                                <p className="archive_para">{item.year}</p>
                             </div>
+                          </a>
                         </Col>
                     ))}
                 </Row>
             </div>
         </div> : null}
 
-        {yearloading && !overloading && !currloading ? 
+        {!err && yearloading && !overloading && !currloading ? 
           <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
             <Space size="middle" style={{textAlign: "center", marginTop: "30%"}}><Spin size="large" /></Space>
           </div> : null

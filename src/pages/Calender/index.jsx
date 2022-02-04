@@ -72,6 +72,7 @@ const CalenderComponent = () => {
         <Modal title={modalData.title}
             visible={modalData ? true : false} 
             onOk={() => setModalData(null)} 
+            onCancel={() => setModalData(null)}
             okText="Close"
             cancelButtonProps={{ style: { display: 'none' } }}
         >

@@ -35,13 +35,13 @@ const EventDetails = () => {
       <Container>
         {!loading ? 
            <div style={{textAlign: "center"}}>
+             <h3>{event.name}</h3>
              <img 
                src={event.imageUrl ? event.imageUrl : "img/icons/sg_logo.jpg"}
                width="350px"
                height="auto"
             />
             <br /><br />
-            <p>{event.name}</p>
             <br />
             {event.start && event.end ? <p>
                 <CalendarOutlined className="icon" />

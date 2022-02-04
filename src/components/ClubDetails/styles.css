@@ -68,6 +68,7 @@
 }
 .senate_position {
     font-size: 15px;
+    font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #ff8c00;
 }

@@ -24,7 +24,6 @@ const FestsComponent = () => {
         setErr(true);
         setLoading(false);
       }
-
       setLoading(false);
     };
 

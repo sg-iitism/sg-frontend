@@ -52,7 +52,7 @@ const ClubsComponent = () => {
             })}
         </Row> : 
             <div style={{textAlign: "center", marginBottom: "3rem"}}>
-              <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>
+              <Space size="middle" style={{textAlign: "center", minHeight: "50vh"}}><Spin size="large" /></Space>
             </div>
          }
         <h3 className="clubs_h3">Media And Cultural Clubs</h3>
@@ -82,7 +82,7 @@ const ClubsComponent = () => {
             })}
         </Row> :
             <div style={{textAlign: "center", marginBottom: "3rem"}}>
-                <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>
+                <Space size="middle" style={{textAlign: "center", minHeight: "50vh"}}><Spin size="large" /></Space>
             </div>
         }
         </div>
