@@ -17,6 +17,7 @@ import {
 } from '@ant-design/icons';
 import moment from "moment";
 import { ContentBlockProps } from "./types";
+import draftToHtml from 'draftjs-to-html';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
@@ -113,6 +114,7 @@ const ClubDetails = ({
   const [achieve, setAchieve] = useState<any[]>([]);
   const [persons, SetPersons] = useState<any[]>([]);
   const [modalData, setModalData] = useState<any>(null);
+  const [modalDataDetailsHtml, setModalDataDetailsHtml] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
   const [overloading, setOverloading] = useState(true);
@@ -163,6 +165,13 @@ const ClubDetails = ({
     fetchData();
   }, []);
 
+  let aboutHtml: any;
+  try {
+    aboutHtml = draftToHtml(JSON.parse(club.about));
+  } catch {
+    aboutHtml = club.about || '';
+  }  
+
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Construction /> : null}
@@ -177,7 +186,7 @@ const ClubDetails = ({
             </Col>
             <Col lg={12} md={12} sm={24} xs={24}>
                 <h3 className="fest_name">{club.name ? club.name : "Club"}</h3>
-                <p className="club_para">{club.about ? club.about : description}</p>
+                <div className="club_para" dangerouslySetInnerHTML={{__html: aboutHtml}}/>
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
                         {club.website ? <a href={club.website}>
@@ -278,8 +287,15 @@ const ClubDetails = ({
             <h3>Achievements</h3>
             <div>
                 {achieve.length>=3 ? <Slider {...settings2}>
-                    {achieve.map((item: any) => (
-                        <div onClick={() => setModalData(item)}>
+                    {achieve.map((item: any) => { 
+                      let detailsHtml: any;
+                      try {
+                        detailsHtml = draftToHtml(JSON.parse(item.details));
+                      } catch {
+                        detailsHtml = item.details || '';
+                      }
+                      return (
+                        <div onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>
                             <Card
                                 hoverable
                                 style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center"}}
@@ -289,21 +305,26 @@ const ClubDetails = ({
                                       />}
                             >
                                 <Meta title={item.title}></Meta>
-                                <div className="achieve_desc">
-                                  <span>
-                                    {item.details.substr(0, 40) + "..."}
-                                    <a className="more_anchor" onClick={() => setModalData(item)}>More</a>
-                                  </span>
+                                <div className="achieve_desc" dangerouslySetInnerHTML={{ __html:detailsHtml}} style={{ overflow: 'hidden', maxHeight: 130 }}>
                                 </div>
+                                <Button onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>Know More</Button>                                
                             </Card>
                         </div>
-                    ))}
+                    );
+                    })}
                 </Slider> : 
                   <Row>
-                    {achieve.map((item: any) => (
+                    {achieve.map((item: any) => {
+                      let detailsHtml: any;
+                      try {
+                        detailsHtml = draftToHtml(JSON.parse(item.details));
+                      } catch {
+                        detailsHtml = item.details || '';
+                      }                      
+                      return (
                       <div style={{textAlign: "center"}}>
                         <Col lg={8} md={12} sm={24} xs={24}>
-                          <div onClick={() => setModalData(item)}>
+                          <div onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>
                               <Card
                                   hoverable
                                   style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center"}}
@@ -313,17 +334,15 @@ const ClubDetails = ({
                                         />}
                               >
                                   <Meta title={item.title}></Meta>
-                                  <div className="achieve_desc">
-                                    <span>
-                                      {item.details.substr(0, 40) + "..."}
-                                      <a className="more_anchor" onClick={() => setModalData(item)}>More</a>
-                                    </span>
-                                  </div>
+                                  <div className="achieve_desc" dangerouslySetInnerHTML={{ __html:detailsHtml}} style={{ overflow: 'hidden', maxHeight: 130 }}>
+                                </div>
+                                <Button onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>Know More</Button>
                               </Card>
                           </div>
                         </Col>
                       </div>
-                    ))}
+                    ); 
+                    })}
                   </Row>}
             </div>
         </div> : null}
@@ -388,9 +407,7 @@ const ClubDetails = ({
             }
             <br /><br />
             {modalData.details ? 
-              <span className='span'>
-                {modalData.details}
-              </span> : null
+              <div dangerouslySetInnerHTML={{__html: modalDataDetailsHtml }}/> : null
             }
           </div>
         </Modal> : 
