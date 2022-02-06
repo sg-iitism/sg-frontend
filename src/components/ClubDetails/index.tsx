@@ -243,6 +243,8 @@ const ClubDetails = ({
                             <div style={{marginTop: "1rem"}}>
                               {item.clubOrganizers.map((org: any) => 
                                 <span className="event_org">{org}</span>)}
+                              {item.festOrganizer && item.clubOrganizers.length<3 ? 
+                                <span className="event_org">{item.festOrganizer}</span> : null}
                             </div>
                             <a href={"/events/" + item.id}>
                               <Button>Know More</Button>
@@ -295,20 +297,30 @@ const ClubDetails = ({
                         detailsHtml = item.details || '';
                       }
                       return (
-                        <div onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>
+                        <div style={{textAlign: "center"}} onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>
                             <Card
                                 hoverable
-                                style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center"}}
+                                style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center", paddingBottom: "1rem"}}
                                 cover={<img alt="example" 
                                             src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
-                                            height="250px" width="auto" 
+                                            height="200px" width="auto" style={{padding: "2rem"}}
                                       />}
                             >
-                                <Meta title={item.title}></Meta>
-                                <div className="achieve_desc" dangerouslySetInnerHTML={{ __html:detailsHtml}} style={{ overflow: 'hidden', maxHeight: 130 }}>
+                                <div>
+                                  <p style={{fontWeight: "bold"}}>{item.title.substr(0, 20)}</p>
                                 </div>
-                                <Button onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>Know More</Button>                                
-                            </Card>
+                                <div 
+                                  className="achieve_desc" 
+                                  dangerouslySetInnerHTML={{ __html:detailsHtml}} 
+                                  style={{ overflow: 'hidden', maxHeight: 130, marginBottom: "1rem" }}
+                                >
+                                </div> 
+                                <Button 
+                                  onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}
+                                >
+                                  Know More
+                                </Button>                              
+                            </Card> 
                         </div>
                     );
                     })}
