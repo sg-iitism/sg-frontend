@@ -8,11 +8,12 @@ import {
   GlobalOutlined
 } from '@ant-design/icons';
 import moment from 'moment';
+import draftToHtml from 'draftjs-to-html';
 import "./styles.css";
 import { NO_IMAGE_URL } from '../../constants';
 
 const EventDetails = () => {
-  const [event, setEvent] = useState(null);
+  const [event, setEvent] = useState({});
   const [loading, setLoading] = useState(true);
 
   const path = window.location.pathname;
@@ -31,6 +32,13 @@ const EventDetails = () => {
     fetchData();
   }, []);
 
+  let detailsHtml;
+  try {
+    detailsHtml = draftToHtml(JSON.parse(event.details));
+  } catch {
+    detailsHtml = event.details || '';
+  }  
+
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       <Container>
@@ -43,6 +51,7 @@ const EventDetails = () => {
                height="auto"
             />
             <br /><br />
+            {event.details ? <div className="club_para" dangerouslySetInnerHTML={{__html: detailsHtml}}/> : null}
             <br />
             {event.start && event.end ? <p>
                 <CalendarOutlined className="icon" />

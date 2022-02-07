@@ -17,6 +17,7 @@ import {
     PhoneFilled
 } from '@ant-design/icons';
 import moment from "moment";
+import draftToHtml from 'draftjs-to-html';
 import { ContentBlockProps } from "./types";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -75,8 +76,8 @@ const FestsDetail = ({
     name
   }: ContentBlockProps) =>
  {
-  const [fest, setFest] = useState<any>(null);
-  const [curr, setCurr] = useState<any>(null);
+  const [fest, setFest] = useState<any>({});
+  const [curr, setCurr] = useState<any>({});
   const [event, setEvent] = useState<any[]>([]);
   const [year, setYear] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -137,6 +138,20 @@ const FestsDetail = ({
     fetchData();
   }, []);
 
+  let aboutHtml: any;
+  try {
+    aboutHtml = draftToHtml(JSON.parse(curr.about));
+  } catch {
+    aboutHtml = curr.about || '';
+  }
+
+  let partiHtml: any;
+  try {
+    partiHtml = draftToHtml(JSON.parse(curr.participants));
+  } catch {
+    partiHtml = curr.participants || '';
+  }
+
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Construction /> : null}
@@ -163,8 +178,9 @@ const FestsDetail = ({
                     {fest.name ? fest.name : "Festival"} | <span className="span">{curr.tagline}</span>
                   </h3>
                 </span>
-                <p>{curr.about}</p>
-                <span className="span">{curr.participants}</span>
+                <div className="text_color" dangerouslySetInnerHTML={{__html: aboutHtml}}/>
+                <br />
+                <div className="span" dangerouslySetInnerHTML={{__html: partiHtml}}/>
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
                        {curr.website ? <a href={curr.website}>
@@ -193,8 +209,7 @@ const FestsDetail = ({
         {!err && eventloading && !overloading && !currloading ? 
           <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
             <Space size="middle" style={{textAlign: "center", marginTop: "10%"}}><Spin size="large" /></Space>
-          </div> : null
-        }
+          </div> : null }
 
         {event.length>0 ? <div style={{marginTop: "4rem"}} id="fest_events">
             <h3>Events and Shows</h3>
@@ -217,12 +232,12 @@ const FestsDetail = ({
                                     " to " + moment(item.start).format('MM/DD/YYYY')}
                                 ></Meta>
                             </Card>
-                            {/* {item.clubOrganizers.length > 0 ?
-                              <div>
+                            <div style={{marginTop: "1rem"}}>
                               {item.clubOrganizers.map((org: any) => 
-                                  <span className="event_org">{org}</span>)}
-                              </div>
-                            : null} */}
+                                <span className="event_org">{org}</span>)}
+                              {item.festOrganizer && item.clubOrganizers.length<3 ? 
+                                <span className="event_org">{item.festOrganizer}</span> : null}
+                            </div>
                             <a href={"/events/" + item.id}>
                               <Button>Know More</Button>
                             </a>

@@ -16,6 +16,7 @@ import {
     MailOutlined,
     PhoneFilled
 } from '@ant-design/icons';
+import draftToHtml from 'draftjs-to-html';
 import { ContentBlockProps } from "./types";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -71,9 +72,9 @@ const FestsArchive = ({
     youtube
   }: ContentBlockProps) =>
  {
-    const [curr, setCurr] = useState<any>(null);
+    const [curr, setCurr] = useState<any>({});
     const [event, setEvent] = useState<any[]>([]);
-    const [fest, setFest] = useState<any>(null);
+    const [fest, setFest] = useState<any>({});
     const [loading, setLoading] = useState(true);
     const [err, setErr] = useState(false);
   
@@ -118,6 +119,20 @@ const FestsArchive = ({
       fetchData();
     }, []);
 
+    let aboutHtml: any;
+    try {
+      aboutHtml = draftToHtml(JSON.parse(curr.about));
+    } catch {
+      aboutHtml = curr.about || '';
+    }
+
+    let partiHtml: any;
+    try {
+      partiHtml = draftToHtml(JSON.parse(curr.participants));
+    } catch {
+      partiHtml = curr.participants || '';
+    }
+
     return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Construction /> : null}
@@ -138,8 +153,9 @@ const FestsArchive = ({
                   </h3>
                   <span className="span">{curr.tagline}</span>
                 </span>
-                <p>{curr.about}</p>
-                <span className="span">{curr.participants}</span>
+                <div className="text_color" dangerouslySetInnerHTML={{__html: aboutHtml}}/>
+                <br />
+                <div className="" dangerouslySetInnerHTML={{__html: partiHtml}}/>
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
                        {curr.website ? <a href={curr.website}>
@@ -203,6 +219,12 @@ const FestsArchive = ({
                           >
                               <Meta title={item.name}></Meta>
                           </Card>
+                          <div style={{marginTop: "1rem"}}>
+                            {item.clubOrganizers.map((org: any) => 
+                              <span className="event_org">{org}</span>)}
+                            {item.festOrganizer && item.clubOrganizers.length<3 ? 
+                              <span className="event_org">{item.festOrganizer}</span> : null}
+                          </div>
                           <a href={"/events/" + item.id}>
                             <Button>Know More</Button>
                           </a>
