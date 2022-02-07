@@ -21,7 +21,7 @@ import draftToHtml from 'draftjs-to-html';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
-import { NO_IMAGE_URL } from "../../constants";
+import { BASE_URL, NO_IMAGE_URL } from "../../constants";
 
 const { Meta } = Card;
 const { Sider, Content } = Layout;
@@ -125,9 +125,9 @@ const ClubDetails = ({
   const path=window.location.pathname;
 
   useEffect(() => {
-    const club_url = `https://sg-iitism-api.herokuapp.com/v1${path}`;
-    const events_url = `https://sg-iitism-api.herokuapp.com/v1${path}/events`;
-    const achieve_url = `https://sg-iitism-api.herokuapp.com/v1${path}/achievements`;
+    const club_url = `${BASE_URL}${path}`;
+    const events_url = `${BASE_URL}${path}/events`;
+    const achieve_url = `${BASE_URL}${path}/achievements`;
 
     const fetchData = async () => {
       try {

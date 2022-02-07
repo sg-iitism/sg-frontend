@@ -16,7 +16,7 @@ import {
   LeftOutlined
 } from '@ant-design/icons';
 import "./styles.css";
-import { NO_IMAGE_URL } from "../../constants";
+import { BASE_URL, NO_IMAGE_URL } from "../../constants";
 
 const { Meta } = Card;
 const { Panel } = Collapse;
@@ -29,7 +29,7 @@ const SenateArchive = () => {
   const [year, setYear] = useState("");
 
   useEffect(() => {
-    const senate_url = `https://sg-iitism-api.herokuapp.com/v1${path}`;
+    const senate_url = `${BASE_URL}${path}`;
 
     const fetchData = async () => {
       const people = await axios(senate_url);

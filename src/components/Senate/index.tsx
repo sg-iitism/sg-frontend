@@ -16,7 +16,7 @@ import {
   FacebookFilled
 } from '@ant-design/icons';
 import "./styles.css";
-import { NO_IMAGE_URL } from "../../constants";
+import { BASE_URL, NO_IMAGE_URL } from "../../constants";
 
 const { Meta } = Card;
 const { Panel } = Collapse;
@@ -31,8 +31,8 @@ const Senate = () => {
   const [err, setErr] = useState(false);
 
   useEffect(() => {
-    const senate_url = `https://sg-iitism-api.herokuapp.com/v1${path}`;
-    const tenure_url = `https://sg-iitism-api.herokuapp.com/v1${path}/tenures`;
+    const senate_url = `${BASE_URL}${path}`;
+    const tenure_url = `${BASE_URL}${path}/tenures`;
 
     const fetchData = async () => {
       try {

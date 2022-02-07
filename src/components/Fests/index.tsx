@@ -5,7 +5,7 @@ import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
 import Construction from "../Construction";
 import "./styles.css";
-import { NO_IMAGE_URL } from "../../constants";
+import { BASE_URL, NO_IMAGE_URL } from "../../constants";
 
 const FestsComponent = () => {
   const [fests, setFests] = useState<any[]>([]);
@@ -15,7 +15,7 @@ const FestsComponent = () => {
   const path=window.location.pathname;
 
   useEffect(() => {
-    const url = `https://sg-iitism-api.herokuapp.com/v1${path}`;
+    const url = `${BASE_URL}${path}`;
 
     const fetchData = async () => {
       try {

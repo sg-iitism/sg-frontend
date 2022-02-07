@@ -4,14 +4,14 @@ import { Row, Col, Space, Spin } from "antd";
 import { withTranslation } from "react-i18next";
 import ClubsContent from "../../content/ClubsPage.json";
 import "./styles.css";
-import { NO_IMAGE_URL } from "../../constants";
+import { BASE_URL, NO_IMAGE_URL } from "../../constants";
 
 const ClubsComponent = () => {
     const [clubs, setClubs] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
   
     useEffect(() => {
-      const url = "https://sg-iitism-api.herokuapp.com/v1/clubs";
+      const url = `${BASE_URL}/clubs`;
   
       const fetchData = async () => {
         const result = await axios(url);

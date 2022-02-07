@@ -10,7 +10,7 @@ import {
 import moment from 'moment';
 import draftToHtml from 'draftjs-to-html';
 import "./styles.css";
-import { NO_IMAGE_URL } from '../../constants';
+import { NO_IMAGE_URL, BASE_URL } from '../../constants';
 
 const EventDetails = () => {
   const [event, setEvent] = useState({});
@@ -19,7 +19,7 @@ const EventDetails = () => {
   const path = window.location.pathname;
 
   useEffect(() => {
-    const url = `https://sg-iitism-api.herokuapp.com/v1/${path}`;
+    const url = `${BASE_URL}${path}`;
 
     const fetchData = async () => {
       const data = await axios(url);
@@ -56,7 +56,7 @@ const EventDetails = () => {
             {event.start && event.end ? <p>
                 <CalendarOutlined className="icon" />
                 <span className='span'>
-                    {moment(event.start).format('MM/DD/YYYY') + " - " + moment(event.end).format('MM/DD/YYYY')}
+                    {moment(event.start).format('LLL') + " - " + moment(event.end).format('LLL')}
                 </span>
             </p> : null}
             {event.clubOrganizers.length > 0 ?

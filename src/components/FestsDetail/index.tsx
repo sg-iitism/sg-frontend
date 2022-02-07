@@ -22,7 +22,7 @@ import { ContentBlockProps } from "./types";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
-import { NO_IMAGE_URL } from "../../constants";
+import { BASE_URL, NO_IMAGE_URL } from "../../constants";
 
 const { Meta } = Card;
 const { Sider, Content } = Layout;
@@ -90,10 +90,10 @@ const FestsDetail = ({
   const path=window.location.pathname;
 
   useEffect(() => {
-    const fest_url = `https://sg-iitism-api.herokuapp.com/v1${path}`;
-    const curr_url = `https://sg-iitism-api.herokuapp.com/v1${path}?latest=true`;
-    const event_url = `https://sg-iitism-api.herokuapp.com/v1${path}/events`;
-    const year_url = `https://sg-iitism-api.herokuapp.com/v1${path}/years`;
+    const fest_url = `${BASE_URL}${path}`;
+    const curr_url = `${BASE_URL}${path}?latest=true`;
+    const event_url = `${BASE_URL}${path}/events`;
+    const year_url = `${BASE_URL}${path}/years`;
 
     const fetchData = async () => {
       try {

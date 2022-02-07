@@ -21,7 +21,7 @@ import { ContentBlockProps } from "./types";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
-import { NO_IMAGE_URL } from "../../constants";
+import { BASE_URL, NO_IMAGE_URL } from "../../constants";
 
 var settings1 = {
     dots: true,
@@ -84,9 +84,9 @@ const FestsArchive = ({
     const fest_path = new_path.substr(0, ind);
   
     useEffect(() => {
-      const curr_url = `https://sg-iitism-api.herokuapp.com/v1${path}?latest=true`;
-      const event_url = `https://sg-iitism-api.herokuapp.com/v1${path}/events`;
-      const fest_url = `https://sg-iitism-api.herokuapp.com/v1/fests/${fest_path}`;
+      const curr_url = `${BASE_URL}${path}?latest=true`;
+      const event_url = `${BASE_URL}${path}/events`;
+      const fest_url = `${BASE_URL}/fests/${fest_path}`;
   
       const fetchData = async () => {
         try {
