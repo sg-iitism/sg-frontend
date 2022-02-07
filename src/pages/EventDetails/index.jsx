@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import moment from 'moment';
 import "./styles.css";
+import { NO_IMAGE_URL } from '../../constants';
 
 const EventDetails = () => {
   const [event, setEvent] = useState(null);
@@ -37,7 +38,7 @@ const EventDetails = () => {
            <div style={{textAlign: "center"}}>
              <h3>{event.name}</h3>
              <img 
-               src={event.imageUrl ? event.imageUrl : "img/icons/sg_logo.jpg"}
+               src={event.imageUrl ? event.imageUrl : NO_IMAGE_URL}
                width="350px"
                height="auto"
             />

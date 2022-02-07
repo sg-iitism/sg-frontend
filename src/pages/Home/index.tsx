@@ -24,7 +24,7 @@ const Home = () => {
         content={IntroContent.text}
         fullContent={IntroContent.fullText}
         newPage={IntroContent.newPage}
-        icon="developer.svg"
+        icon="heritage-building-ism.jpg"
         id="intro"
       />
       <MiddleBlock

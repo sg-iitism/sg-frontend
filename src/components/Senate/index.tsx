@@ -16,6 +16,7 @@ import {
   FacebookFilled
 } from '@ant-design/icons';
 import "./styles.css";
+import { NO_IMAGE_URL } from "../../constants";
 
 const { Meta } = Card;
 const { Panel } = Collapse;
@@ -59,6 +60,12 @@ const Senate = () => {
     fetchData();
   }, []);
 
+  if (!loading && err) {
+    return <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
+      {err ? <Error /> : null}
+    </div>
+  }
+
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Error /> : null}
@@ -67,7 +74,7 @@ const Senate = () => {
           {members.map((person) => (
             <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
               <div className="senate">
-                <img src={person.imageUrl} className="senate_img" />
+                <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
                 <div className="senate_desc">
                   <p className="senate_name">{person.name.toUpperCase()}</p>
                   <p className="senate_position">{person.position}</p>

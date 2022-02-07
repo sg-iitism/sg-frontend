@@ -21,6 +21,7 @@ import draftToHtml from 'draftjs-to-html';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
+import { NO_IMAGE_URL } from "../../constants";
 
 const { Meta } = Card;
 const { Sider, Content } = Layout;
@@ -181,7 +182,7 @@ const ClubDetails = ({
         <Row justify="space-between" id="about_club">
             <Col lg={12} md={12} sm={24} xs={24}>
                 <div className="fests_div">
-                    <img src={club.logoUrl ? club.logoUrl : "https://via.placeholder.com/250x250" } alt="club" className="fests_img" />
+                    <img src={club.logoUrl ? club.logoUrl : NO_IMAGE_URL } alt="club" className="fests_img" />
                 </div>
             </Col>
             <Col lg={12} md={12} sm={24} xs={24}>
@@ -232,7 +233,7 @@ const ClubDetails = ({
                             <Card
                                 hoverable
                                 style={{margin: "auto", textAlign: "center", maxWidth: "250px"}}
-                                cover={<img alt="example" src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} height="250px" width="auto" />}
+                                cover={<img alt="example" src={item.imageUrl ? item.imageUrl : NO_IMAGE_URL} height="250px" width="auto" />}
                             >
                                 <Meta 
                                   title={item.name}
@@ -259,7 +260,7 @@ const ClubDetails = ({
                                 hoverable
                                 style={{margin: "auto", textAlign: "center", maxWidth: "250px"}}
                                 cover={<img alt="example" 
-                                            src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
+                                            src={item.imageUrl ? item.imageUrl : NO_IMAGE_URL} 
                                             height="250px" width="auto" 
                                       />}
                             >
@@ -300,7 +301,7 @@ const ClubDetails = ({
                                 hoverable
                                 style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center"}}
                                 cover={<img alt="example" 
-                                            src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
+                                            src={item.imageUrl ? item.imageUrl : NO_IMAGE_URL} 
                                             height="250px" width="auto" 
                                       />}
                             >
@@ -329,7 +330,7 @@ const ClubDetails = ({
                                   hoverable
                                   style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center"}}
                                   cover={<img alt="example" 
-                                              src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
+                                              src={item.imageUrl ? item.imageUrl : NO_IMAGE_URL} 
                                               height="250px" width="auto" 
                                         />}
                               >
@@ -360,7 +361,7 @@ const ClubDetails = ({
                     {persons.map((person) => (
                       <Col lg={6} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
                         <div className="senate">
-                          <img src={person.imageUrl} className="senate_img" />
+                          <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
                           <div className="senate_desc">
                             <p className="senate_name">{person.name.toUpperCase()}</p>
                             <p className="senate_position">{person.position}</p>
@@ -403,7 +404,7 @@ const ClubDetails = ({
         >
           <div style={{textAlign: "center"}}>
             {modalData.imageUrl ? 
-              <img src={modalData.imageUrl} width="300px" height="auto" /> : null
+              <img src={modalData.imageUrl || NO_IMAGE_URL} width="300px" height="auto" /> : null
             }
             <br /><br />
             {modalData.details ? 

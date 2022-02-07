@@ -13,6 +13,7 @@ import {
 } from '@ant-design/icons';
 
 import "./styles.css"
+import { NO_IMAGE_URL } from '../../constants';
 
 const localizer = momentLocalizer(moment);
 
@@ -78,7 +79,7 @@ const CalenderComponent = () => {
         >
             <div style={{textAlign: "center"}}>
               {modalData.imageUrl ? 
-                <img src={modalData.imageUrl} width="300px" height="auto" /> : null
+                <img src={modalData.imageUrl || NO_IMAGE_URL} width="300px" height="auto" /> : null
               }
               <br /><br />
               {modalData.clubOrganizers.length>0 ? 

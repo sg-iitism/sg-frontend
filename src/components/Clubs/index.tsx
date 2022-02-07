@@ -4,6 +4,7 @@ import { Row, Col, Space, Spin } from "antd";
 import { withTranslation } from "react-i18next";
 import ClubsContent from "../../content/ClubsPage.json";
 import "./styles.css";
+import { NO_IMAGE_URL } from "../../constants";
 
 const ClubsComponent = () => {
     const [clubs, setClubs] = useState<any[]>([]);
@@ -35,7 +36,7 @@ const ClubsComponent = () => {
                             <a href={"/clubs/" + club.id}>
                                 <div className="fests_div">
                                     <img 
-                                      src={club.logoUrl ? club.logoUrl : "/img/icons/sg_logo.jpg"} 
+                                      src={club.logoUrl ? club.logoUrl : NO_IMAGE_URL} 
                                       className="fests_img">
                                     </img>
                                     <div style={{marginTop: "2rem"}}>
@@ -65,7 +66,7 @@ const ClubsComponent = () => {
                             <a href={"/clubs/" + club.id}>
                                 <div className="fests_div">
                                     <img 
-                                      src={club.logoUrl ? club.logoUrl : "http://localhost:3000/img/icons/sg_logo.jpg"} 
+                                      src={club.logoUrl ? club.logoUrl : NO_IMAGE_URL} 
                                       className="fests_img">
                                     </img>
                                     <div style={{marginTop: "2rem"}}>

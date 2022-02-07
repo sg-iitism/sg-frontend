@@ -20,6 +20,7 @@ import { ContentBlockProps } from "./types";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
+import { NO_IMAGE_URL } from "../../constants";
 
 var settings1 = {
     dots: true,
@@ -125,7 +126,7 @@ const FestsArchive = ({
             <Col lg={12} md={12} sm={24} xs={24}>
                 <div className="fests_div">
                     <img 
-                      src={fest.logoUrl ? fest.logoUrl : "/img/icons/sg_logo.jpg"} 
+                      src={fest.logoUrl ? fest.logoUrl : NO_IMAGE_URL} 
                       alt="srijan" className="fests_img" 
                     />
                 </div>
@@ -174,7 +175,7 @@ const FestsArchive = ({
                                 hoverable
                                 style={{margin: "auto", textAlign: "center", maxWidth: "250px"}}
                                 cover={<img alt="example" 
-                                            src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
+                                            src={item.imageUrl ? item.imageUrl : NO_IMAGE_URL} 
                                             height="250px" width="auto" 
                                       />}
                             >
@@ -196,7 +197,7 @@ const FestsArchive = ({
                               hoverable
                               style={{margin: "auto", textAlign: "center", maxWidth: "250px"}}
                               cover={<img alt="example" 
-                                          src={item.imageUrl ? item.imageUrl : "https://via.placeholder.com/350x150"} 
+                                          src={item.imageUrl ? item.imageUrl : NO_IMAGE_URL} 
                                           height="250px" width="auto" 
                                     />}
                           >
@@ -221,7 +222,7 @@ const FestsArchive = ({
                     {curr.coreTeam.map((person: any) => (
                       <Col lg={6} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
                         <div className="senate">
-                          <img src={person.imageUrl} className="senate_img" />
+                          <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
                           <div className="senate_desc">
                             <p className="senate_name">{person.name.toUpperCase()}</p>
                             <p className="senate_position">{person.position}</p>

@@ -5,6 +5,7 @@ import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
 import Construction from "../Construction";
 import "./styles.css";
+import { NO_IMAGE_URL } from "../../constants";
 
 const FestsComponent = () => {
   const [fests, setFests] = useState<any[]>([]);
@@ -40,7 +41,7 @@ const FestsComponent = () => {
              <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "4rem"}}>
                 <a href={"/fests/" + fest.id}>
                   <div className="fests_div">
-                    <img src={fest.logoUrl ? fest.logoUrl : "/img/icons/sg_logo.jpg"} className="fests_img"></img>
+                    <img src={fest.logoUrl ? fest.logoUrl : NO_IMAGE_URL} className="fests_img"></img>
                     <div style={{marginTop: "2rem"}}>
                       <span className="fests_name">{fest.name}</span>
                     </div>
