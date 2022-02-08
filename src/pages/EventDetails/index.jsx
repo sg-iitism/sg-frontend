@@ -56,7 +56,7 @@ const EventDetails = () => {
             {event.start && event.end ? <p>
                 <CalendarOutlined className="icon" />
                 <span className='span'>
-                    {moment(event.start).format('LLL') + " - " + moment(event.end).format('LLL')}
+                    {moment(event.start).format('MM/DD/YYYY') + " - " + moment(event.end).format('MM/DD/YYYY')}
                 </span>
             </p> : null}
             {event.clubOrganizers.length > 0 ?

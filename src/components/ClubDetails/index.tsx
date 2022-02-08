@@ -238,7 +238,7 @@ const ClubDetails = ({
                                 <Meta 
                                   title={item.name}
                                   description={moment(item.start).format('MM/DD/YYYY') +
-                                    " to " + moment(item.start).format('MM/DD/YYYY')}
+                                    " to " + moment(item.end).format('MM/DD/YYYY')}
                                 ></Meta>
                             </Card>
                             <div style={{marginTop: "1rem"}}>
@@ -269,7 +269,7 @@ const ClubDetails = ({
                                 <Meta 
                                   title={item.name}
                                   description={moment(item.start).format('MM/DD/YYYY') +
-                                    " to " + moment(item.start).format('MM/DD/YYYY')}
+                                    " to " + moment(item.end).format('MM/DD/YYYY')}
                                 ></Meta>
                             </Card>
                             <div style={{marginTop: "1rem"}}>

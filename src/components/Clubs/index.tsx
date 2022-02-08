@@ -32,7 +32,7 @@ const ClubsComponent = () => {
             {clubs.map((club) => {
                 if(club.division === "snt"){
                     return (
-                        <Col lg={6} md={6} sm={12} xs={24} style={{marginBottom: "2rem"}}>
+                        <Col lg={8} md={8} sm={12} xs={24} style={{marginBottom: "2rem"}}>
                             <a href={"/clubs/" + club.id}>
                                 <div className="fests_div">
                                     <img 
@@ -62,7 +62,7 @@ const ClubsComponent = () => {
             {clubs.map((club) => {
                 if(club.division === "mnc"){
                     return (
-                        <Col lg={6} md={6} sm={12} xs={24} style={{marginBottom: "2rem"}}>
+                        <Col lg={8} md={8} sm={12} xs={24} style={{marginBottom: "2rem"}}>
                             <a href={"/clubs/" + club.id}>
                                 <div className="fests_div">
                                     <img 
