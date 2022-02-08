@@ -158,22 +158,22 @@ const FestsArchive = ({
                 <div className="" dangerouslySetInnerHTML={{__html: partiHtml}}/>
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
-                       {curr.website ? <a href={curr.website}>
+                       {curr.website ? <a href={curr.website} target="_blank" rel="noopener">
                           <GlobalOutlined style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
-                        {curr.facebook ? <a href={curr.facebook}>
+                        {curr.facebook ? <a href={curr.facebook} target="_blank" rel="noopener">
                           <FacebookFilled style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
-                        {curr.instagram ? <a href={curr.instagram}>
+                        {curr.instagram ? <a href={curr.instagram} target="_blank" rel="noopener">
                           <InstagramOutlined style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
-                        {curr.linkedin ? <a href={curr.linkedin}>
+                        {curr.linkedin ? <a href={curr.linkedin} target="_blank" rel="noopener">
                           <LinkedinFilled style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
-                        {curr.github ? <a href={curr.github}>
+                        {curr.github ? <a href={curr.github} target="_blank" rel="noopener">
                           <GithubOutlined style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
-                        {curr.androidApp ? <a href={curr.androidApp}>
+                        {curr.androidApp ? <a href={curr.androidApp} target="_blank" rel="noopener">
                           <AndroidOutlined style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
                     </div>
@@ -249,7 +249,7 @@ const FestsArchive = ({
                             <p className="senate_name">{person.name.toUpperCase()}</p>
                             <p className="senate_position">{person.position}</p>
                             <div className="senate_icons">
-                              {person.linkedin ? <a href={person.linkedin}>
+                              {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
                                 <LinkedinFilled className="person_icon" />
                               </a> : null}
                               {person.mail ? <a href={"mailto:" + person.mail}>
@@ -258,7 +258,7 @@ const FestsArchive = ({
                               {person.phone ? <a href={"tel:" + person.phone}>
                                 <PhoneFilled className="person_icon" />
                               </a> : null}
-                              {person.facebook ? <a href={person.facebook}>
+                              {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
                                 <FacebookFilled className="person_icon" />
                               </a> : null}
                             </div>

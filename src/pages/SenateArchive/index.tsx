@@ -60,7 +60,7 @@ const SenateArchive = () => {
                     <p className="senate_name">{person.name.toUpperCase()}</p>
                     <p className="senate_position">{person.position}</p>
                     <div className="senate_icons">
-                      {person.linkedin ? <a href={person.linkedin}>
+                      {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
                         <LinkedinFilled className="person_icon" />
                       </a> : null}
                       {person.mail ? <a href={person.mail}>
@@ -69,7 +69,7 @@ const SenateArchive = () => {
                       {person.phone ? <a href={"tel:" + person.phone}>
                         <PhoneFilled className="person_icon" />
                       </a> : null}
-                      {person.facebook ? <a href={person.facebook}>
+                      {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
                         <FacebookFilled className="person_icon" />
                       </a> : null}
                     </div>

@@ -122,7 +122,7 @@ const CalenderComponent = () => {
               {modalData.website ? 
                 <><br /><br /><div>
                   <span className='span'> 
-                   <a href={modalData.website}><GlobalOutlined className="icon" /></a>
+                   <a href={modalData.website} target="_blank" rel="noopener"><GlobalOutlined className="icon" /></a>
                   </span>
                 </div></>
                  : null

@@ -79,7 +79,7 @@ const Senate = () => {
                   <p className="senate_name">{person.name.toUpperCase()}</p>
                   <p className="senate_position">{person.position}</p>
                   <div className="senate_icons">
-                    {person.linkedin ? <a href={person.linkedin}>
+                    {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
                       <LinkedinFilled className="person_icon" />
                     </a> : null}
                     {person.mail ? <a href={"mailto:" + person.mail} data-toggle="tooltip" data-placement="top" title={person.mail}>
@@ -88,7 +88,7 @@ const Senate = () => {
                     {person.phone ? <a href={"tel:" + person.phone} data-toggle="tooltip" data-placement="top" title={person.phone}>
                       <PhoneFilled className="person_icon" />
                     </a> : null}
-                    {person.facebook ? <a href={person.facebook}>
+                    {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
                       <FacebookFilled className="person_icon" />
                     </a> : null}
                   </div>

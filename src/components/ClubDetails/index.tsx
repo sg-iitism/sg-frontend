@@ -11,6 +11,7 @@ import {
     LinkedinFilled,
     GlobalOutlined,
     GithubOutlined,
+    YoutubeOutlined,
     MailOutlined,
     InstagramFilled,
     PhoneFilled,
@@ -190,19 +191,22 @@ const ClubDetails = ({
                 <div className="club_para" dangerouslySetInnerHTML={{__html: aboutHtml}}/>
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
-                        {club.website ? <a href={club.website}>
+                        {club.website ? <a href={club.website} target="_blank" rel="noopener">
                           <GlobalOutlined style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
-                        {club.facebook ? <a href={club.facebook}>
+                        {club.facebook ? <a href={club.facebook} target="_blank" rel="noopener">
                           <FacebookFilled style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
-                        {club.instagram ? <a href={club.instagram}>
+                        {club.instagram ? <a href={club.instagram} target="_blank" rel="noopener">
                           <InstagramFilled style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
-                        {club.linkedin ? <a href={club.linkedin}>
+                        {club.youtube ? <a href={club.youtube} target="_blank" rel="noopener">
+                          <YoutubeOutlined style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
+                        </a> : null}                        
+                        {club.linkedin ? <a href={club.linkedin} target="_blank" rel="noopener">
                           <LinkedinFilled style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
-                        {club.github ? <a href={club.github}>
+                        {club.github ? <a href={club.github} target="_blank" rel="noopener">
                           <GithubOutlined style={{ fontSize: '25px', color: '#18216d', marginRight: "10px" }} />
                         </a> : null}
                         {club.mail ? <a href={"mailto:" + club.mail}>
@@ -378,7 +382,7 @@ const ClubDetails = ({
                             <p className="senate_name">{person.name.toUpperCase()}</p>
                             <p className="senate_position">{person.position}</p>
                             <div className="senate_icons">
-                              {person.linkedin ? <a href={person.linkedin}>
+                              {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
                                 <LinkedinFilled className="person_icon" />
                               </a> : null}
                               {person.mail ? <a href={"mailto:" + person.mail} data-toggle="tooltip" data-placement="top" title={person.mail}>
@@ -387,7 +391,7 @@ const ClubDetails = ({
                               {person.phone ? <a href={"tel:" + person.phone} data-toggle="tooltip" data-placement="top" title={person.phone}>
                                 <PhoneFilled className="person_icon" />
                               </a> : null}
-                              {person.facebook ? <a href={person.facebook}>
+                              {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
                                 <FacebookFilled className="person_icon" />
                               </a> : null}
                             </div>

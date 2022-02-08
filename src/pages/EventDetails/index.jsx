@@ -69,7 +69,7 @@ const EventDetails = () => {
             {event.website ? <p>
                 <GlobalOutlined className="icon" />
                 <span className='span'>
-                    <a href={event.website}>{event.website}</a>
+                    <a href={event.website} target="_blank" rel="noopener">{event.website}</a>
                 </span>
             </p> : null}
            </div> :
