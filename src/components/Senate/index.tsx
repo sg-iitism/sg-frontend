@@ -101,11 +101,13 @@ const Senate = () => {
         {loading && !err ?  <div style={{textAlign: "center", marginBottom: "3rem"}}>
             <Space size="middle" style={{textAlign: "center", minHeight: "40vh"}}><Spin size="large" /></Space>
           </div> : null}
-        {!yearsLoading && !loading && !err ? <Collapse defaultActiveKey={[]} onChange={() => {}}>
+        {!yearsLoading && !loading && !err && years.length>1 ? <Collapse defaultActiveKey={[]} onChange={() => {}}>
           <Panel header="PREVIOUS MEMBERS" key="1">
-            {years.map((year) => (
-              <a href={"/senate/"+year.id}><p>{year.id}</p></a>
-            ))}
+            {years.map((year, i, row) => {
+              if(i+1!=row.length){
+                return (<a href={"/senate/"+year.id}><p>{year.id}</p></a>);
+              }
+            })}
           </Panel>
         </Collapse> : null}
 

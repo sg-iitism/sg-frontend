@@ -116,7 +116,13 @@ const CalenderComponent = () => {
               <><br /><br />
                 <span className='span'>
                   Organised by 
-                  {modalData.clubOrganizers.map((club) => (<span> {club}, </span>))}
+                  {modalData.clubOrganizers.map((club, i, row) => {
+                    if(i+1==row.length){
+                      return (<span> {club} </span>)
+                    } else {
+                      (<span> {club}, </span>)
+                    }
+                  })}
                 </span> </>: null
               }
               {modalData.website ? 

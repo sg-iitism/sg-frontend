@@ -305,19 +305,23 @@ const FestsDetail = ({
             </div>
         </div> : null}
 
-        {!yearloading && !overloading && !currloading ? <div style={{marginTop: "4rem"}} id="fest_archive">
+        {!yearloading && !overloading && !currloading && year.length>1 ? <div style={{marginTop: "4rem"}} id="fest_archive">
             <h3>Past Years Archive</h3>
             <div>
                 <Row justify="space-between">
-                    {year.map((item: any) => (
-                        <Col lg={6} md={6} sm={12} xs={12}>
-                          <a href={path + "/years/" + item.year}>
-                            <div className="archive_div" style={{textAlign: "center"}}>
-                                <p className="archive_para">{item.year}</p>
-                            </div>
-                          </a>
-                        </Col>
-                    ))}
+                    {year.map((item: any, i, row) => {
+                      if(i+1==row.length){
+                        return (
+                          <Col lg={6} md={6} sm={12} xs={12}>
+                            <a href={path + "/years/" + item.year}>
+                              <div className="archive_div" style={{textAlign: "center"}}>
+                                  <p className="archive_para">{item.year}</p>
+                              </div>
+                            </a>
+                          </Col>
+                        )
+                      } 
+                    })}
                 </Row>
             </div>
         </div> : null}
