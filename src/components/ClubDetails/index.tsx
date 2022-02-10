@@ -308,7 +308,7 @@ const ClubDetails = ({
                                 style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center", paddingBottom: "1rem"}}
                                 cover={<img alt="example" 
                                             src={item.imageUrl ? item.imageUrl : NO_IMAGE_URL} 
-                                            height="250px" width="auto" 
+                                            height="250px" width="250px" 
                                       />}
                             >
                                 <div>
@@ -344,13 +344,15 @@ const ClubDetails = ({
                           <div onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>
                               <Card
                                   hoverable
-                                  style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center"}}
+                                  style={{marginLeft: "2rem", marginRight: "2rem", textAlign: "center", minWidth: "250px"}}
                                   cover={<img alt="example" 
                                               src={item.imageUrl ? item.imageUrl : NO_IMAGE_URL} 
-                                              height="250px" width="auto" 
+                                              height="250px" width="250px" 
                                         />}
                               >
-                                  <Meta title={item.title}></Meta>
+                                  <div>
+                                    <p style={{fontWeight: "bold"}}>{item.title.substr(0, 20)}</p>
+                                  </div>
                                   <div className="achieve_desc" dangerouslySetInnerHTML={{ __html:detailsHtml}} style={{ overflow: 'hidden', maxHeight: 130 }}>
                                 </div>
                                 <Button onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>Know More</Button>
