@@ -327,7 +327,7 @@ const ClubDetails = ({
                                       />}
                             >
                                 <div>
-                                  <p style={{fontWeight: "bold"}}>{item.title.substr(0, 20)}</p>
+                                  <p style={{fontWeight: "bold"}}>{item.title.substr(0, 50)}</p>
                                 </div>
                                 <div 
                                   className="achieve_desc" 
@@ -367,7 +367,7 @@ const ClubDetails = ({
                                         />}
                               >
                                   <div>
-                                    <p style={{fontWeight: "bold"}}>{item.title.substr(0, 20)}</p>
+                                    <p style={{fontWeight: "bold"}}>{item.title.substr(0, 50)}</p>
                                   </div>
                                   <div className="achieve_desc" dangerouslySetInnerHTML={{ __html:detailsHtml}} style={{ overflow: 'hidden', maxHeight: 130 }}>
                                 </div>
