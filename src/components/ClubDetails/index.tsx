@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import { Button } from "../../common/Button";
 import { Card, Spin, Space, Modal } from 'antd';
 import Construction from "../Construction";
+import ShowMoreText from "react-show-more-text";
 import {
     FacebookFilled,
     LinkedinFilled,
@@ -189,17 +190,20 @@ const ClubDetails = ({
             </Col>
             <Col lg={12} md={12} sm={24} xs={24}>
                 <h3 className="fest_name">{club.name ? club.name : "Club"}</h3>
-                <span style={{fontSize: "20px", fontWeight: "bold"}}>{club.tagline}</span><br /><br />
-                <div className="club_para" 
-                     dangerouslySetInnerHTML=
-                        {{__html: !readMore && aboutHtml.length>1000 ? 
-                          aboutHtml.slice(0, 1000) : 
-                        aboutHtml}}     
-                />
-                {aboutHtml.length>1000 ?
-                 <span className="read-more" onClick={() => setReadMore(!readMore)}>
-                   ... Read {readMore? "Less" : "More"}
-                 </span> : null}
+                {club.tagline ? <div><span style={{fontSize: "20px", fontWeight: "bold"}}>{club.tagline}</span><br /><br /></div> : null}
+                <ShowMoreText
+                  lines={8}
+                  more="Show more"
+                  less="Show less"
+                  className="content-css"
+                  anchorClass="my-anchor-css-class"
+                  expanded={false}
+                  truncatedEndingComponent={"... "}
+                >
+                  <div className="club_para" 
+                      dangerouslySetInnerHTML={{__html:  aboutHtml}}
+                  />
+                </ShowMoreText>
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
                         {club.website ? <a href={club.website} target="_blank" rel="noopener">
@@ -426,7 +430,7 @@ const ClubDetails = ({
        : null}
       
       {modalData ? 
-        <Modal title={modalData.title}
+        <Modal title={<div style={{margin: "auto", paddingLeft: "20px", paddingRight: "20px"}}>{modalData.title}</div>}
           visible={modalData ? true : false} 
           onOk={() => setModalData(null)}
           onCancel={() => setModalData(null)}

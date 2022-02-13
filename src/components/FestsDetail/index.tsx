@@ -310,7 +310,7 @@ const FestsDetail = ({
             <div>
                 <Row justify="space-between">
                     {year.map((item: any, i, row) => {
-                      if(i+1==row.length){
+                      if(i+1!=row.length){
                         return (
                           <Col lg={6} md={6} sm={12} xs={12}>
                             <a href={path + "/years/" + item.year}>

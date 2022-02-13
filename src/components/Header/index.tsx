@@ -45,19 +45,17 @@ const Header = ({ t, url }: HeaderProps) => {
         <CustomNavLinkSmall onClick={url=="/" ? () => scrollTo("about") : () => window.location.pathname="/"}>
           <Span>{t(url=="/" ? "About" : "Home")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={url=="/" ? () => scrollTo("clubs") : () => window.location.pathname="/clubs" }>
-          <Span>{t("Clubs")}</Span>
+        <CustomNavLinkSmall>
+          <a href="/clubs"><Span>{t("Clubs")}</Span></a>
         </CustomNavLinkSmall>               
-        <CustomNavLinkSmall onClick={url=="/" ? () => scrollTo("fests") : () => window.location.pathname="/fests" }>
-          <Span>{t("Fests")}</Span>
+        <CustomNavLinkSmall>
+          <a href="/fests"><Span>{t("Fests")}</Span></a>
         </CustomNavLinkSmall>      
         <CustomNavLinkSmall>
           <a href="/calendar"><Span>{t("Calendar")}</Span></a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall>
-          <Span>
-            <a href="/senate">{t("Senate")}</a>
-          </Span>
+          <a href="/senate"><Span>{t("Senate")}</Span></a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall
           style={{ width: "180px" }}
