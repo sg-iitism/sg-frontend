@@ -122,6 +122,7 @@ const ClubDetails = ({
   const [overloading, setOverloading] = useState(true);
   const [eventloading, setEventloading] = useState(false);
   const [achieveloading, setAchieveloading] = useState(false);
+  const [readMore, setReadMore] = useState(false);
 
   const path=window.location.pathname;
 
@@ -188,7 +189,17 @@ const ClubDetails = ({
             </Col>
             <Col lg={12} md={12} sm={24} xs={24}>
                 <h3 className="fest_name">{club.name ? club.name : "Club"}</h3>
-                <div className="club_para" dangerouslySetInnerHTML={{__html: aboutHtml}}/>
+                <span style={{fontSize: "20px", fontWeight: "bold"}}>{club.tagline}</span><br /><br />
+                <div className="club_para" 
+                     dangerouslySetInnerHTML=
+                        {{__html: !readMore && aboutHtml.length>1000 ? 
+                          aboutHtml.slice(0, 1000) : 
+                        aboutHtml}}     
+                />
+                {aboutHtml.length>1000 ?
+                 <span className="read-more" onClick={() => setReadMore(!readMore)}>
+                   ... Read {readMore? "Less" : "More"}
+                 </span> : null}
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
                         {club.website ? <a href={club.website} target="_blank" rel="noopener">
@@ -339,8 +350,9 @@ const ClubDetails = ({
                         detailsHtml = item.details || '';
                       }                      
                       return (
-                      <div style={{textAlign: "center"}}>
                         <Col lg={8} md={12} sm={24} xs={24}>
+                          <div style={{textAlign: "center"}}>
+                        
                           <div onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>
                               <Card
                                   hoverable
@@ -358,8 +370,9 @@ const ClubDetails = ({
                                 <Button onClick={() => { setModalData(item); setModalDataDetailsHtml(detailsHtml);}}>Know More</Button>
                               </Card>
                           </div>
-                        </Col>
+                        
                       </div>
+                    </Col>
                     ); 
                     })}
                   </Row>}

@@ -112,3 +112,9 @@
 .event_anchor:hover {
     color: #ff8c00;
 }
+.read-more {
+    cursor: pointer;
+    color: #ff8c00;
+    font-weight: bold;
+    font-size: 15px;
+}
