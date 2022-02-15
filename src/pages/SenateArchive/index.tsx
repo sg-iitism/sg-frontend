@@ -53,7 +53,7 @@ const SenateArchive = () => {
         <h3 style={{marginBottom: "4rem"}}>Senate {year}</h3>
           {!loading ? <Row justify="space-between" style={{marginBottom: "4rem", textAlign: "center"}}>
             {members.map((person) => (
-              <Col lg={6} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
+              <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
                 <div className="senate">
                   <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
                   <div className="senate_desc">
