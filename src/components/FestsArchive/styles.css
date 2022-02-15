@@ -63,6 +63,18 @@
     margin-top: 1rem;
 }
 .text_color {
+    color: #18216d !important;
+    font-size: 15px;
+}
+.parti-div {
     color: #18216d;
-    font-size: 18px;
+}
+.content-css {
+    color: #18216d;
+    font-size: 17px;
+}
+.my-anchor-css-class {
+    color: #ff8c00;
+    cursor: pointer;
+    font-weight: bold;
 }

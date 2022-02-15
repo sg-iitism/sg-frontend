@@ -104,7 +104,7 @@ const Senate = () => {
         {!yearsLoading && !loading && !err && years.length>1 ? <Collapse defaultActiveKey={[]} onChange={() => {}}>
           <Panel header="PREVIOUS MEMBERS" key="1">
             {years.map((year, i, row) => {
-              if(i+1!=row.length){
+              if(i>0){
                 return (<a href={"/senate/"+year.id}><p>{year.id}</p></a>);
               }
             })}

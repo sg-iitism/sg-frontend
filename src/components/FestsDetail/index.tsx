@@ -4,6 +4,7 @@ import { Row, Col, Layout, Menu, Breadcrumb } from "antd";
 import { withTranslation } from "react-i18next";
 import Slider from "react-slick";
 import { Card, Space, Spin } from 'antd';
+import ShowMoreText from "react-show-more-text";
 import Construction from "../Construction";
 import { Button } from "../../common/Button";
 import {
@@ -168,7 +169,7 @@ const FestsDetail = ({
                 <div className="fests_div">
                     <img 
                       src={fest.logoUrl ? fest.logoUrl : NO_IMAGE_URL} 
-                      alt="srijan" className="fests_img" 
+                      alt={fest.name} className="fests_img" 
                     />
                 </div>
             </Col>
@@ -178,9 +179,29 @@ const FestsDetail = ({
                     {fest.name ? fest.name : "Festival"} | <span className="span">{curr.tagline}</span>
                   </h3>
                 </span>
-                <div className="text_color" dangerouslySetInnerHTML={{__html: aboutHtml}}/>
+                <ShowMoreText
+                  lines={8}
+                  more="Show more"
+                  less="Show less"
+                  className="content-css"
+                  anchorClass="my-anchor-css-class"
+                  expanded={false}
+                  truncatedEndingComponent={"... "}
+                >
+                  <div className="text_color" dangerouslySetInnerHTML={{__html: aboutHtml}}/>
+                </ShowMoreText>
                 <br />
-                <div className="span" dangerouslySetInnerHTML={{__html: partiHtml}}/>
+                <ShowMoreText
+                  lines={8}
+                  more="Show more"
+                  less="Show less"
+                  className="content-css"
+                  anchorClass="my-anchor-css-class"
+                  expanded={false}
+                  truncatedEndingComponent={"... "}
+                >
+                  <div className="span" dangerouslySetInnerHTML={{__html: partiHtml}}/>
+                </ShowMoreText>
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
                        {curr.website ? <a href={curr.website} target="_blank" rel="noopener">
@@ -310,7 +331,7 @@ const FestsDetail = ({
             <div>
                 <Row justify="space-between">
                     {year.map((item: any, i, row) => {
-                      if(i+1!=row.length){
+                      if(i>0){
                         return (
                           <Col lg={6} md={6} sm={12} xs={12}>
                             <a href={path + "/years/" + item.year}>

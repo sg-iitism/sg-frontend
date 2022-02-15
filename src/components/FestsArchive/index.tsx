@@ -5,6 +5,7 @@ import { withTranslation } from "react-i18next";
 import Slider from "react-slick";
 import Container from "../../common/Container";
 import Construction from "../Construction";
+import ShowMoreText from "react-show-more-text";
 import { Button } from "../../common/Button";
 import {
     FacebookFilled,
@@ -149,13 +150,33 @@ const FestsArchive = ({
             <Col lg={12} md={12} sm={24} xs={24}>
                 <span>
                   <h3 className="fest_name">
-                    {curr.fest ? curr.fest : "Festival"} | <span className="span">{curr.year}</span>
+                    {fest.name ? fest.name : "Festival"} | <span className="span">{curr.year}</span>
                   </h3>
-                  <span className="span">{curr.tagline}</span>
+                  {curr.tagline ? <div><span style={{fontSize: "20px", fontWeight: "bold"}}>{curr.tagline}</span><br /><br /></div> : null}
                 </span>
-                <div className="text_color" dangerouslySetInnerHTML={{__html: aboutHtml}}/>
+                <ShowMoreText
+                  lines={8}
+                  more="Show more"
+                  less="Show less"
+                  className="content-css"
+                  anchorClass="my-anchor-css-class"
+                  expanded={false}
+                  truncatedEndingComponent={"... "}
+                >
+                  <div className="text_color" dangerouslySetInnerHTML={{__html: aboutHtml}}/>
+                </ShowMoreText>
                 <br />
-                <div className="" dangerouslySetInnerHTML={{__html: partiHtml}}/>
+                <ShowMoreText
+                  lines={8}
+                  more="Show more"
+                  less="Show less"
+                  className="content-css"
+                  anchorClass="my-anchor-css-class"
+                  expanded={false}
+                  truncatedEndingComponent={"... "}
+                >
+                  <div className="text_color" dangerouslySetInnerHTML={{__html: partiHtml}}/>
+                </ShowMoreText>
                 <div style={{marginTop: "2rem"}}>
                     <div style={{textAlign: "left"}}>
                        {curr.website ? <a href={curr.website} target="_blank" rel="noopener">
