@@ -57,6 +57,9 @@ const Header = ({ t, url }: HeaderProps) => {
         <CustomNavLinkSmall>
           <a href="/senate"><Span>{t("Senate")}</Span></a>
         </CustomNavLinkSmall>
+        <CustomNavLinkSmall>
+          <a href="https://www.iitism.ac.in/~dsw/" target="_blank"><Span>{t("DSW")}</Span></a>
+        </CustomNavLinkSmall>
         <CustomNavLinkSmall
           style={{ width: "180px" }}
         >

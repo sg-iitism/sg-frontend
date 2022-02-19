@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { Row, Col } from "antd";
+import { Row, Col, Table } from "antd";
 import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
 import SenateContent from "../../content/SenateContent.json";
@@ -21,21 +21,45 @@ import { BASE_URL, NO_IMAGE_URL } from "../../constants";
 const { Meta } = Card;
 const { Panel } = Collapse;
 const path = window.location.pathname;
+const columns = [
+  {
+    title: "S.No",
+    dataIndex: "sno",
+    key: "sno",
+  },
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'Branch',
+    dataIndex: 'branch',
+    key: 'branch',
+  },
+]
 
 const SenateArchive = () => {
 
   const [members, setMembers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [year, setYear] = useState("");
+  const [others, setOthers] = useState<any[]>([]);
 
   useEffect(() => {
     const senate_url = `${BASE_URL}${path}`;
 
     const fetchData = async () => {
       const people = await axios(senate_url);
-
-      console.log(people.data);
       setMembers(people.data.members);
+      people.data.otherMembers.map((mem:any, index:any) => {
+        var obj = {
+          name: mem.name,
+          branch: mem.branch,
+          sno: index+1,
+        }
+        others.push(obj);
+      });
       setYear(people.data.id);
       setLoading(false);
     };
@@ -49,9 +73,11 @@ const SenateArchive = () => {
         <a href="/senate" className="back_anchor"><span>
           <LeftOutlined className="back_icon" />
           Current Senate
-        </span></a>
+        </span></a><br /><br />
+        {!loading ? <div>
         <h3 style={{marginBottom: "4rem"}}>Senate {year}</h3>
-          {!loading ? <Row justify="space-between" style={{marginBottom: "4rem", textAlign: "center"}}>
+          <p className="exec_council">Executive Council</p>
+          <Row justify="space-between" style={{marginBottom: "4rem", textAlign: "center"}}>
             {members.map((person) => (
               <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
                 <div className="senate">
@@ -59,6 +85,7 @@ const SenateArchive = () => {
                   <div className="senate_desc">
                     <p className="senate_name">{person.name.toUpperCase()}</p>
                     <p className="senate_position">{person.position}</p>
+                    <p className="senate_branch">{person.branch}</p>
                     <div className="senate_icons">
                       {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
                         <LinkedinFilled className="person_icon" />
@@ -78,6 +105,17 @@ const SenateArchive = () => {
               </Col>
             ))}
           </Row>
+          {others.length>0 ? <div>
+            <div style={{margin: "auto", textAlign: "center"}}>
+              <p className="exec_council">Members Council</p>
+            </div>
+            <Row>
+              <div style={{textAlign: "center", margin: "auto"}}>
+                <Table size="large" columns={columns} dataSource={others} />
+              </div>
+            </Row>
+          </div>  : null}
+          </div>
           : 
             <div style={{textAlign: "center", marginBottom: "3rem"}}>
               <Space size="middle" style={{textAlign: "center"}}><Spin size="large" /></Space>

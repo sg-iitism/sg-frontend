@@ -1,0 +1,30 @@
+.announce_div {
+    margin-top: 6rem;
+    max-width: 350px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+.card_shadow {
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+}
+.card_header {
+    background: #003262;
+    color: white;
+    font-weight: 500;
+    font-size: 14.5px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 0.1px;
+}
+.card_body {
+    padding: 20px;
+    max-height: 250px;
+    overflow: hidden;
+}
+.pointer {
+    cursor: pointer;
+}
+.pointer:hover {
+    background: #ff8c00;
+    cursor: pointer;
+}

@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const MiddleBlockSection = styled("section")`
   position: relative;
-  padding: 7.5rem 0 3rem;
+  padding-top: 7.5rem;
+  padding-bottom: 3rem;
+  padding-right: 2rem;
   text-align: left;
   display: flex;
   justify-content: center;

@@ -63,6 +63,12 @@ const Footer = ({ t }: any) => {
                   <img src="../../../img/icons/sg_logo.jpg" width="100px" height="auto" />
                 </LogoContainer>
               </NavLink>
+              <br />
+              <a href="https://www.iitism.ac.in/" target="_blank">
+                <LogoContainer>
+                  <img src="../../../img/icons/ism_logo.png" width="100px" height="auto" />
+                </LogoContainer>
+              </a>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Title>{t("Quick Links")}</Title>
@@ -81,10 +87,10 @@ const Footer = ({ t }: any) => {
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Language>{t("Address")}</Language>
+              <Para>Student Gymkhana</Para>
+              <Para>Office of DSW</Para>
               <Para>IIT (ISM) Dhanbad</Para>
-              <Para>Sardar Patel Road</Para>
-              <Para>Dhanbad, Jharkhand</Para>
-              <Para>826004</Para>
+              <Para>Jharkhand, 826004</Para>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Language>{t("Contact")}</Language>

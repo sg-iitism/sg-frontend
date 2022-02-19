@@ -13,6 +13,7 @@ const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const Fests = lazy(() => import("../../components/Fests"));
+const Announcements = lazy(() => import("../Announcements"));
 
 const Home = () => {
   return (
@@ -27,14 +28,22 @@ const Home = () => {
         icon="heritage-building-ism.jpg"
         id="intro"
       />
-      <MiddleBlock
-        title={MiddleBlockContent.title}
-        content={MiddleBlockContent.text}
-        button={MiddleBlockContent.button}
-        link={MiddleBlockContent.link}
-        newPage={MiddleBlockContent.newPage}
-        id="about"
-      />
+      <Row justify="space-between">
+        <Col lg={15} md={12} sm={24} xs={24}>
+          <MiddleBlock
+            title={MiddleBlockContent.title}
+            content={MiddleBlockContent.text}
+            button={MiddleBlockContent.button}
+            link={MiddleBlockContent.link}
+            newPage={MiddleBlockContent.newPage}
+            id="about"
+          />
+        </Col>
+        <Col lg={9} md={12} sm={24} xs={24}>
+          <Announcements />
+        </Col>
+      </Row>
+      
       <ContentBlock
         type="left"
         title={FestsContent.title}

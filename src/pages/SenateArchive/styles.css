@@ -43,6 +43,16 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #ff8c00;
 }
+.senate_branch {
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:#18216d;
+}
 .back_anchor:hover {
+    color: #ff8c00;
+}
+.exec_council {
+    font-size: 28px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #ff8c00;
 }
