@@ -84,6 +84,9 @@ const Footer = ({ t }: any) => {
               <Large left="true" to="/calendar">
                 {t("Calendar")}
               </Large>
+              <Large left="true">
+                <a href="https://www.iitism.ac.in/">{t("IIT(ISM) Dhanbad")}</a>
+              </Large>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Language>{t("Address")}</Language>

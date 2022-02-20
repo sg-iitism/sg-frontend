@@ -56,6 +56,10 @@ const routes = [
     component: "EventDetails"
   },
   {
+    path: ["/announcements"],
+    component: "Announcements"
+  },
+  {
     component: "404"
   },
 ];

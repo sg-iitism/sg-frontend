@@ -32,21 +32,3 @@
     color: #ff8c00;
     cursor: pointer;
 }
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    min-width: 400px;
-}  
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}  
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-.table_data:hover {
-    cursor: pointer;
-    color: #ff8c00;
-}

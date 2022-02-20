@@ -13,7 +13,7 @@ const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const Fests = lazy(() => import("../../components/Fests"));
-const Announcements = lazy(() => import("../Announcements"));
+const Announcements = lazy(() => import("../../components/Announcements"));
 
 const Home = () => {
   return (
