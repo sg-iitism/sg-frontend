@@ -7,6 +7,7 @@ import draftToHtml from 'draftjs-to-html';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment';
+import { Slide } from "react-awesome-reveal";
 import Construction from "../../components/Construction";
 import {
   CalendarOutlined,
@@ -26,6 +27,21 @@ const Announcements = () => {
   const [pages, setPages] = useState(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
+  const [title, setTitle] = useState(null);
+  const [details, setDetails] = useState(null);
+
+  const setData = (data) => {
+    setTitle(data.title);
+    let detailsHtml;
+    if (data) {
+      try {
+        detailsHtml = draftToHtml(JSON.parse(data.details));
+      } catch {
+        detailsHtml = data.details || '';
+      }
+    } 
+    setDetails(detailsHtml);
+  }
 
   useEffect(() => {
     const url = "https://sg-iitism-api.herokuapp.com/v1/announcements";
@@ -50,33 +66,43 @@ const Announcements = () => {
       <div>
     {err ? <Construction /> : null}
 
-    {!loading && !err ? <div className="announce_div">
-        <div className="card_shadow">
-            <div className="card_header">
-            <p style={{color: "white"}}>Recent Announcements</p>
-            </div>
-            <div className="card_body">
-            {announce.map((data, idx) => {
-                if(idx<5){
-                    return (
-                        <p>{data.title}</p>
-                    )
-                }
-            })}
-            </div>
-            <div className="pointer">
+    {!loading && !err ? <Slide direction='up'><div className="announce_div">
+      <div className="card_shadow">
+          <div className="card_header">
+          <p style={{color: "white"}}>Recent Announcements</p>
+          </div>
+          <div className="card_body">
+          {announce.map((data, idx) => {
+              if(idx<5){
+                  return (
+                      <p className="announce_para" onClick={() => setData(data)}>{idx+1 + ". " + data.title}</p>
+                  )
+              }
+          })}
+          </div>
+          <div className="pointer">
             <a href="/announcements" target="_blank">
                 <div className="card_header">
-                <p style={{color: "white"}}>See More</p>
+                <p style={{color: "white", cursor: "pointer"}}>See More</p>
                 </div>
             </a>
-            </div>
-        </div>
-    </div> : 
-        <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
-          <Space size="middle" style={{textAlign: "center", marginTop: "15%"}}><Spin size="large" /></Space>
-        </div>
-    }
+          </div>
+      </div>
+    </div></Slide> : 
+    <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>
+      <Space size="middle" style={{textAlign: "center", marginTop: "8rem"}}><Spin size="large" /></Space>
+    </div>}
+    {title && details ? 
+       <Modal 
+          title={title}
+          visible={title && details ? true : false} 
+          onOk={() => {setTitle(null); setDetails(null);}} 
+          onCancel={() => {setTitle(null); setDetails(null);}}
+          okText="Close"
+          cancelButtonProps={{ style: { display: 'none' } }}
+       >
+          <div dangerouslySetInnerHTML={{__html: details }}/>
+       </Modal> : null}
     </div>
   );
 };
