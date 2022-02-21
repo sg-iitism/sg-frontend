@@ -72,7 +72,7 @@ const Announcements = () => {
 
     {!loading && !err ? 
     <div>
-      {announce.length>1 ? <div><h3 style={{marginTop: "4rem"}}>Recent Announcements</h3>
+      {announce.length>0 ? <div><h3 style={{marginTop: "4rem"}}>Recent Announcements</h3>
       <div>
           <Row>
             <div style={{textAlign: "center", margin: "auto"}}>
@@ -90,7 +90,7 @@ const Announcements = () => {
               </table>
             </div>
           </Row>
-          {total > 1 ?
+          {total > 0 ?
             <div style={{margin: "auto", textAlign: "center", marginTop: "2rem"}}>
               <Pagination 
                  defaultCurrent={1} 

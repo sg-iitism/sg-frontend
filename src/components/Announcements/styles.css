@@ -8,7 +8,7 @@
     border-radius: 5px;
 }
 .card_header {
-    background: #003262;
+    background: #18216d;
     color: white;
     font-weight: 500;
     font-size: 14.5px;
@@ -19,6 +19,7 @@
 .card_body {
     padding: 20px;
     max-height: 250px;
+    min-height: 200px;
     overflow: hidden;
 }
 .pointer {

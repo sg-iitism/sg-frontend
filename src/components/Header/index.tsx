@@ -96,6 +96,11 @@ const Header = ({ t, url }: HeaderProps) => {
               </Col>
             </Label>
           </Col>
+          <div style={{textAlign: "center", margin: "auto"}}>
+            <a href="https://www.iitism.ac.in" target="_blank">
+              <img src="../../../img/icons/ism_logo.png" width="80px" height="auto" />
+            </a>
+          </div>
           <MenuItem />
         </Drawer>
       </Container>
