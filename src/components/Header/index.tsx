@@ -61,7 +61,7 @@ const Header = ({ t, url }: HeaderProps) => {
           <a href="https://www.iitism.ac.in/~dsw/" target="_blank"><Span>{t("DSW")}</Span></a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall
-          style={{ width: "180px" }}
+          style={{ width: "140px" }}
         >
           <Span>
             <a href="/contact"><Button>{t("Contact")}</Button></a>
@@ -78,6 +78,9 @@ const Header = ({ t, url }: HeaderProps) => {
           <LogoContainer to="/" aria-label="homepage">
             <img src="../../../img/icons/sg_logo.jpg" width="80px" height="auto" />
           </LogoContainer>
+          {/* <LogoContainer to="/" aria-label="homepage">
+            <img src="../../../img/icons/ism_logo.png" width="80px" height="auto" />
+          </LogoContainer> */}
           <NotHidden>
             <MenuItem />
           </NotHidden>

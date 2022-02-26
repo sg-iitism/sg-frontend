@@ -25,7 +25,7 @@ const Home = () => {
         content={IntroContent.text}
         fullContent={IntroContent.fullText}
         newPage={IntroContent.newPage}
-        icon="heritage-building-ism.jpg"
+        icon="main_road.jpg"
         id="intro"
       />
       <Row justify="space-between">
