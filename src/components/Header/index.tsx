@@ -79,7 +79,7 @@ const Header = ({ t, url }: HeaderProps) => {
             <img src="../../../img/icons/sg_logo.jpg" width="80px" height="auto" />
           </LogoContainer>
           {/* <LogoContainer to="/" aria-label="homepage">
-            <img src="../../../img/icons/ism_logo.png" width="80px" height="auto" />
+              <img src="../../../img/icons/ism_logo.png" width="20px" height="auto" />
           </LogoContainer> */}
           <NotHidden>
             <MenuItem />
