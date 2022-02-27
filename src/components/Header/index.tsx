@@ -4,6 +4,7 @@ import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
+import "./styles.css";
 import {
   HeaderSection,
   LogoContainer,
@@ -61,7 +62,7 @@ const Header = ({ t, url }: HeaderProps) => {
           <a href="https://www.iitism.ac.in/~dsw/" target="_blank"><Span>{t("DSW")}</Span></a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall
-          style={{ width: "140px" }}
+          style={{ width: "180px" }}
         >
           <Span>
             <a href="/contact"><Button>{t("Contact")}</Button></a>
@@ -78,9 +79,11 @@ const Header = ({ t, url }: HeaderProps) => {
           <LogoContainer to="/" aria-label="homepage">
             <img src="../../../img/icons/sg_logo.jpg" width="80px" height="auto" />
           </LogoContainer>
-          {/* <LogoContainer to="/" aria-label="homepage">
-              <img src="../../../img/icons/ism_logo.png" width="20px" height="auto" />
-          </LogoContainer> */}
+          <div className="ism_logo">
+            <a href="https://www.iitism.ac.in/" target="_blank">
+              <img src="../../../img/icons/ism_logo.png" width="80px" height="auto" />
+            </a>
+          </div>
           <NotHidden>
             <MenuItem />
           </NotHidden>
