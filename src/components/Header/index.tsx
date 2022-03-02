@@ -68,6 +68,9 @@ const Header = ({ t, url }: HeaderProps) => {
             <a href="/contact"><Button>{t("Contact")}</Button></a>
           </Span>
         </CustomNavLinkSmall>
+        <CustomNavLinkSmall className="ism_nav">
+          <a><img className="ism_nav" src="../../../img/icons/sg_logo.jpg" width="80px" height="auto" /></a>
+        </CustomNavLinkSmall>
       </>
     );
   };
@@ -76,14 +79,14 @@ const Header = ({ t, url }: HeaderProps) => {
     <HeaderSection id="header">
       <Container>
         <Row justify="space-between">
-          <LogoContainer to="/" aria-label="homepage">
-            <img src="../../../img/icons/sg_logo.jpg" width="80px" height="auto" />
-          </LogoContainer>
           <div className="ism_logo">
             <a href="https://www.iitism.ac.in/" target="_blank">
               <img src="../../../img/icons/ism_logo.png" width="80px" height="auto" />
             </a>
           </div>
+          <a href="https://www.iitism.ac.in/" target="_blank">
+            <img className="desktop_nav" src="../../../img/icons/sg_logo.jpg" width="100px" height="auto" />
+          </a>
           <NotHidden>
             <MenuItem />
           </NotHidden>

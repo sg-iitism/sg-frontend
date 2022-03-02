@@ -58,17 +58,17 @@ const Footer = ({ t }: any) => {
         <Container>
           <Row justify="space-between">
             <Col lg={6} md={6} sm={12} xs={12}>
-              <NavLink to="/">
-                <LogoContainer>
-                  <img src="../../../img/icons/sg_logo.jpg" width="100px" height="auto" />
-                </LogoContainer>
-              </NavLink>
-              <br />
               <a href="https://www.iitism.ac.in/" target="_blank">
                 <LogoContainer>
                   <img src="../../../img/icons/ism_logo.png" width="100px" height="auto" />
                 </LogoContainer>
               </a>
+              <br />
+              <NavLink to="/">
+                <LogoContainer>
+                  <img src="../../../img/icons/sg_logo.jpg" width="100px" height="auto" />
+                </LogoContainer>
+              </NavLink>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Title>{t("Quick Links")}</Title>

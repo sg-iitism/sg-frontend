@@ -2,4 +2,12 @@
     .ism_logo {
         display: none;
     }
+    .ism_nav {
+        display: none;
+    }
+}
+@media only screen and (min-width: 412px) {
+    .desktop_nav {
+        display: none;
+    }
 }
