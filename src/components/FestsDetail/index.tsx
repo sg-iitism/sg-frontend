@@ -7,6 +7,7 @@ import { Card, Space, Spin } from 'antd';
 import ShowMoreText from "react-show-more-text";
 import Construction from "../Construction";
 import { Button } from "../../common/Button";
+import { Helmet } from "react-helmet";
 import {
     FacebookFilled,
     LinkedinFilled,
@@ -156,6 +157,12 @@ const FestsDetail = ({
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Construction /> : null}
+
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>{(loading ? "Fest" : fest.name) + " | IIT(ISM)"}</title>
+          <meta name="description" content={fest.subtitle + "Student Gymkhana IIT(ISM) Dhanbad"} />
+      </Helmet>
 
       {!err && (overloading || currloading) ? 
           <div style={{textAlign: "center", minHeight: "50vh", alignItems: "center"}}>

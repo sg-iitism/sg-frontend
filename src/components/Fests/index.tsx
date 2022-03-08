@@ -34,15 +34,16 @@ const FestsComponent = () => {
 
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Fests | IIT(ISM) Dhanbad</title>
+          <meta name="description" content="Festivals at IIT(ISM) Dhanbad" />
+      </Helmet>
       <h3 style={{marginBottom: "4rem"}}>Fests</h3>
       {err ? <Construction /> : null}
       {!loading && !err ? <div>
         <Row justify="space-between">
           {fests.map((fest) => (
-            <Helmet>
-              <meta charSet="utf-8" />
-              <title>{fest.name}</title>
-              <meta name="description" content={fest.subtitle + "IIT(ISM) Dhanbad"} />
               <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "4rem"}}>
                 <a href={"/fests/" + fest.id}>
                   <div className="fests_div">
@@ -56,7 +57,6 @@ const FestsComponent = () => {
                   </div>
                 </a>
               </Col>
-            </Helmet>
           ))}
         </Row>
       </div> : null}

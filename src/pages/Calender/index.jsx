@@ -6,6 +6,7 @@ import Container from "../../common/Container";
 import Construction from '../../components/Construction';
 import draftToHtml from 'draftjs-to-html';
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Helmet } from 'react-helmet';
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import {
@@ -76,6 +77,11 @@ const CalenderComponent = () => {
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Construction /> : null}
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Calendar | SG-IIT(ISM)</title>
+          <meta name="description" content="Events Calendar of IIT(ISM) Dhanbad" />
+      </Helmet>
       <Container>
         {!loading && !err ? <Calendar
           selectable

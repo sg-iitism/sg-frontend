@@ -69,7 +69,7 @@ const Header = ({ t, url }: HeaderProps) => {
           </Span>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall className="ism_nav">
-          <a><img className="ism_nav" src="../../../img/icons/sg_logo.jpg" width="80px" height="auto" /></a>
+          <a href="/"><img className="ism_nav" src="../../../img/icons/sg_logo.jpg" width="80px" height="auto" /></a>
         </CustomNavLinkSmall>
       </>
     );
@@ -84,7 +84,7 @@ const Header = ({ t, url }: HeaderProps) => {
               <img src="../../../img/icons/ism_logo.png" width="80px" height="auto" />
             </a>
           </div>
-          <a href="https://www.iitism.ac.in/" target="_blank">
+          <a href="/" target="_blank">
             <img className="desktop_nav" src="../../../img/icons/sg_logo.jpg" width="100px" height="auto" />
           </a>
           <NotHidden>

@@ -7,6 +7,7 @@ import { Button } from "../../common/Button";
 import { Card, Spin, Space, Modal } from 'antd';
 import Construction from "../Construction";
 import ShowMoreText from "react-show-more-text";
+import { Helmet } from "react-helmet";
 import {
     FacebookFilled,
     LinkedinFilled,
@@ -181,6 +182,12 @@ const ClubDetails = ({
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Construction /> : null}
+
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>{(loading? "Club" : club.name) + " | IIT(ISM) Dhanbad"}</title>
+          <meta name="description" content={club.tagline + "Student Gymkhana, IIT(ISM) Dhanbad"} />
+      </Helmet>
       
       <div>
       { !overloading && !err ?

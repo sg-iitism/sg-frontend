@@ -96,6 +96,11 @@ const Senate = () => {
   return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
       {err ? <Error /> : null}
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Senate Members | Student Gymkhana</title>
+          <meta name="description" content="Senate Members IIT(ISM) Dhanbad" />
+      </Helmet>
         {!loading && !err ? 
         <div>
             <h3 style={{marginBottom: "4rem"}}>Current Senate</h3>

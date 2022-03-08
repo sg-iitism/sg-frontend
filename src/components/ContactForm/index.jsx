@@ -2,12 +2,18 @@ import { Row, Col, Spin } from "antd";
 import { withTranslation } from "react-i18next";
 import { Slide } from "react-awesome-reveal";
 import { ContactContainer } from "./styles";
+import { Helmet } from "react-helmet";
 import React from "react";
 
 const Contact = () => {
 
   return (
     <ContactContainer>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Contact | SG-IIT(ISM)</title>
+      <meta name="description" content="Student Gymkhana IIT(ISM) Dhanbad" />
+    </Helmet>
       <Row justify="space-between" align="middle">
         <Col lg={12} md={12} sm={24} xs={24} order={1}>
         <div style={{padding: "20px"}}>
