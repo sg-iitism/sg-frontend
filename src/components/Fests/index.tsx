@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Row, Col, Space, Spin } from "antd";
 import { withTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import Container from "../../common/Container";
 import Construction from "../Construction";
 import "./styles.css";
@@ -38,7 +39,11 @@ const FestsComponent = () => {
       {!loading && !err ? <div>
         <Row justify="space-between">
           {fests.map((fest) => (
-             <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "4rem"}}>
+            <Helmet>
+              <meta charSet="utf-8" />
+              <title>{fest.name}</title>
+              <meta name="description" content={fest.subtitle + "IIT(ISM) Dhanbad"} />
+              <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "4rem"}}>
                 <a href={"/fests/" + fest.id}>
                   <div className="fests_div">
                     <img src={fest.logoUrl ? fest.logoUrl : NO_IMAGE_URL} className="fests_img"></img>
@@ -51,6 +56,7 @@ const FestsComponent = () => {
                   </div>
                 </a>
               </Col>
+            </Helmet>
           ))}
         </Row>
       </div> : null}

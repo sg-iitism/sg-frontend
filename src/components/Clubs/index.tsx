@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Row, Col, Space, Spin } from "antd";
 import { withTranslation } from "react-i18next";
 import ClubsContent from "../../content/ClubsPage.json";
+import {Helmet} from "react-helmet";
 import "./styles.css";
 import { BASE_URL, NO_IMAGE_URL } from "../../constants";
 
@@ -32,22 +33,27 @@ const ClubsComponent = () => {
             {clubs.map((club) => {
                 if(club.division === "snt"){
                     return (
-                        <Col lg={8} md={8} sm={12} xs={24} style={{marginBottom: "2rem"}}>
-                            <a href={"/clubs/" + club.id}>
-                                <div className="fests_div">
-                                    <img 
-                                      src={club.logoUrl ? club.logoUrl : NO_IMAGE_URL} 
-                                      className="fests_img">
-                                    </img>
-                                    <div style={{marginTop: "2rem"}}>
-                                    <span className="fests_name">{club.name}</span>
+                        <Helmet>
+                            <meta charSet="utf-8" />
+                            <title>{club.name}</title>
+                            <meta name="description" content={club.tagline + "IIT(ISM) Dhanbad"} />
+                            <Col lg={8} md={8} sm={12} xs={24} style={{marginBottom: "2rem"}}>
+                                <a href={"/clubs/" + club.id}>
+                                    <div className="fests_div">
+                                        <img 
+                                        src={club.logoUrl ? club.logoUrl : NO_IMAGE_URL} 
+                                        className="fests_img">
+                                        </img>
+                                        <div style={{marginTop: "2rem"}}>
+                                        <span className="fests_name">{club.name}</span>
+                                        </div>
+                                        <div style={{marginTop: "0.3rem"}}>
+                                        <span className="fests_detail">{club.tagline}</span>
+                                        </div>
                                     </div>
-                                    <div style={{marginTop: "0.3rem"}}>
-                                    <span className="fests_detail">{club.tagline}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </Col>
+                                </a>
+                            </Col>
+                        </Helmet>
                     )
                 }
             })}
@@ -62,22 +68,27 @@ const ClubsComponent = () => {
             {clubs.map((club) => {
                 if(club.division === "mnc"){
                     return (
-                        <Col lg={8} md={8} sm={12} xs={24} style={{marginBottom: "2rem"}}>
-                            <a href={"/clubs/" + club.id}>
-                                <div className="fests_div">
-                                    <img 
-                                      src={club.logoUrl ? club.logoUrl : NO_IMAGE_URL} 
-                                      className="fests_img">
-                                    </img>
-                                    <div style={{marginTop: "2rem"}}>
-                                    <span className="fests_name">{club.name}</span>
+                        <Helmet>
+                            <meta charSet="utf-8" />
+                            <title>{club.name}</title>
+                            <meta name="description" content={club.tagline + "IIT(ISM) Dhanbad"} />
+                            <Col lg={8} md={8} sm={12} xs={24} style={{marginBottom: "2rem"}}>
+                                <a href={"/clubs/" + club.id}>
+                                    <div className="fests_div">
+                                        <img 
+                                        src={club.logoUrl ? club.logoUrl : NO_IMAGE_URL} 
+                                        className="fests_img">
+                                        </img>
+                                        <div style={{marginTop: "2rem"}}>
+                                        <span className="fests_name">{club.name}</span>
+                                        </div>
+                                        <div style={{marginTop: "0.3rem"}}>
+                                        <span className="fests_detail">{club.tagline}</span>
+                                        </div>
                                     </div>
-                                    <div style={{marginTop: "0.3rem"}}>
-                                    <span className="fests_detail">{club.tagline}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </Col>
+                                </a>
+                            </Col>
+                        </Helmet>
                     )
                 }
             })}

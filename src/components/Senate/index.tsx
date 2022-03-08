@@ -9,6 +9,7 @@ import { Button } from "../../common/Button";
 import { Card } from 'antd';
 import { Collapse } from 'antd';
 import { Spin, Space } from 'antd';
+import { Helmet } from "react-helmet";
 import {
   LinkedinFilled,
   MailFilled,
@@ -97,7 +98,7 @@ const Senate = () => {
       {err ? <Error /> : null}
         {!loading && !err ? 
         <div>
-          <h3 style={{marginBottom: "4rem"}}>Current Senate</h3>
+            <h3 style={{marginBottom: "4rem"}}>Current Senate</h3>
           <p className="exec_council">Executive Council</p>
           <Row justify="space-between" style={{marginBottom: "4rem", textAlign: "center"}}>
             {members.map((person) => (

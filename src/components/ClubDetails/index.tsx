@@ -157,6 +157,8 @@ const ClubDetails = ({
       try {
         const achieve_data = await axios(achieve_url);
         setAchieve(achieve_data.data);
+        console.log(achieve);
+        
         setAchieveloading(false);
       } catch(err) {
         setErr(true);

@@ -14,6 +14,7 @@ const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const Fests = lazy(() => import("../../components/Fests"));
 const Announcements = lazy(() => import("../../components/Announcements"));
+const Achievements = lazy(() => import("../../components/Achievements"));
 
 const Home = () => {
   return (
@@ -43,7 +44,7 @@ const Home = () => {
           <Announcements />
         </Col>
       </Row>
-      
+      <Achievements />
       <ContentBlock
         type="left"
         title={FestsContent.title}
