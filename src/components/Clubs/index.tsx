@@ -65,7 +65,7 @@ const ClubsComponent = () => {
               <Space size="middle" style={{textAlign: "center", minHeight: "50vh"}}><Spin size="large" /></Space>
             </div>
          }
-        <h3 className="clubs_h3">Media And Cultural Clubs</h3>
+        <h3 className="clubs_h3" style={{marginBottom: "4rem"}}>Media And Cultural Clubs</h3>
         { !loading ?
         <Row justify="space-between" id="cult_clubs">
             {clubs.map((club) => {
