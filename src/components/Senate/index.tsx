@@ -101,6 +101,7 @@ const Senate = () => {
           <title>Senate Members | Student Gymkhana</title>
           <meta name="description" content="Senate Members IIT(ISM) Dhanbad" />
           <meta property="og:title" content="Senate Members | IIT(ISM) Dhanbad" />
+          <meta property="og:url" content={"https://sg-iitism.herokuapp.com/senate"} />
           <meta property="og:description" content="The elected body of Student Gymkhana, IIT(ISM) Dhanbad" />
           <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Senate" />
       </Helmet>

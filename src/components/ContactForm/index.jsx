@@ -14,6 +14,7 @@ const Contact = () => {
       <title>Contact | SG-IIT(ISM)</title>
       <meta name="description" content="Student Gymkhana IIT(ISM) Dhanbad" />
       <meta property="og:title" content="Contact" />
+      <meta property="og:url" content="https://sg-iitism.herokuapp.com/contact" />
       <meta property="og:description" content="Contact Student Gymkhana, IIT(ISM) Dhanbad" />
       <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Contacts" />
     </Helmet>

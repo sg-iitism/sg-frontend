@@ -81,6 +81,10 @@ const CalenderComponent = () => {
           <meta charSet="utf-8" />
           <title>Calendar | SG-IIT(ISM)</title>
           <meta name="description" content="Events Calendar of IIT(ISM) Dhanbad" />
+          <meta property="og:title" content="Calendar | IIT(ISM) Dhanbad" />
+          <meta property="og:url" content={"https://sg-iitism.herokuapp.com/calendar"} />
+          <meta property="og:description" content="The events calendar of Student Gymkhana, IIT(ISM) Dhanbad" />
+          <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Senate" />
       </Helmet>
       <Container>
         {!loading && !err ? <Calendar

@@ -76,6 +76,7 @@ const SenateArchive = () => {
             <title>Senate Members | {year!="" ? year : "SG-IIT(ISM)"}</title>
             <meta name="description" content={"Senate Members IIT(ISM) Dhanbad | " + (year!="" ? year : "SG-IIT(ISM)")} />
             <meta property="og:title" content={"Senate Members | " + year + "IIT(ISM) Dhanbad"} />
+            <meta property="og:url" content={"https://sg-iitism.herokuapp.com/senate" + year} />
             <meta property="og:description" content="The elected body of Student Gymkhana, IIT(ISM) Dhanbad" />
             <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Senate" />
         </Helmet>

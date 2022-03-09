@@ -189,6 +189,7 @@ const ClubDetails = ({
           <meta name="description" content={club.tagline + "Student Gymkhana, IIT(ISM) Dhanbad"} />
           <meta property="og:title" content={club.name + " | IIT(ISM) Dhanbad"} />
           <meta property="og:description" content={club.tagline} />
+          <meta property="og:url" content={"https://sg-iitism.herokuapp.com/clubs" + club.name} />
           <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Clubs" />
       </Helmet>
       

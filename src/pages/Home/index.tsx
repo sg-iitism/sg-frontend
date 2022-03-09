@@ -25,6 +25,7 @@ const Home = () => {
         <title>Student Gymkhana - IIT(ISM) Dhanbad</title>
         <meta name="description" content="Student Gymkhana IIT(ISM) Dhanbad" />
         <meta property="og:title" content="Student Gymkahana | IIT(ISM) Dhanbad" />
+        <meta property="og:url" content={"https://sg-iitism.herokuapp.com/"} />
         <meta property="og:description" content="Student Gymkhana of IIT(ISM) Dhanbad" />
         <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Clubs" />
       </Helmet>

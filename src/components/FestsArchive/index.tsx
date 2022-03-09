@@ -142,6 +142,7 @@ const FestsArchive = ({
           <title>{(loading ? "Fest" : fest.name + " | " + (curr?curr.year:"IIT(ISM) Dhanbad"))}</title>
           <meta name="description" content={fest.subtitle} />
           <meta property="og:title" content={fest.name + " | " + curr.year + " | IIT(ISM) Dhanbad"} />
+          <meta property="og:url" content={"https://sg-iitism.herokuapp.com/fests" + fest.name + "/years" + curr.year} />
           <meta property="og:description" content="The annual fest of IIT(ISM) Dhanbad" />
           <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Festivals" />
       </Helmet>

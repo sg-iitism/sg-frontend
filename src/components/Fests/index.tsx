@@ -39,6 +39,7 @@ const FestsComponent = () => {
           <title>Fests | IIT(ISM) Dhanbad</title>
           <meta name="description" content="Festivals at IIT(ISM) Dhanbad" />
           <meta property="og:title" content="Fests | IIT(ISM) Dhanbad" />
+          <meta property="og:url" content={"https://sg-iitism.herokuapp.com/fests"} />
           <meta property="og:description" content="Technical, Cultural and Sports fests of IIT(ISM) Dhanbad" />
           <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Festivals" />
       </Helmet>
