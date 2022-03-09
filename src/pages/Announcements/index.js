@@ -4,6 +4,7 @@ import { Modal, Spin, Space, Row, Pagination } from 'antd';
 import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
 import draftToHtml from 'draftjs-to-html';
+import { Helmet } from 'react-helmet';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Construction from "../../components/Construction";
 
@@ -68,6 +69,14 @@ const Announcements = () => {
 
   return (
     <Container>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Announcements - SG IIT(ISM)</title>
+      <meta name="description" content="Recent Announcements of Student Gymkhana IIT(ISM) Dhanbad" />
+      <meta property="og:title" content="Anouncements of IIT(ISM) Dhanbad" />
+      <meta property="og:description" content="announcements of Student Gymkhana of IIT(ISM) Dhanbad" />
+      <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Clubs" />
+    </Helmet>
     {err ? <Construction /> : null}
 
     {!loading && !err ? 

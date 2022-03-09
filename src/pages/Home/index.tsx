@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { Row, Col } from "antd";
+import { Helmet } from "react-helmet";
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
 import FestsContent from "../../content/FestsContent.json";
@@ -19,6 +20,14 @@ const Achievements = lazy(() => import("../../components/Achievements"));
 const Home = () => {
   return (
     <Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Student Gymkhana - IIT(ISM) Dhanbad</title>
+        <meta name="description" content="Student Gymkhana IIT(ISM) Dhanbad" />
+        <meta property="og:title" content="Student Gymkahana | IIT(ISM) Dhanbad" />
+        <meta property="og:description" content="Student Gymkhana of IIT(ISM) Dhanbad" />
+        <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Clubs" />
+      </Helmet>
       <ScrollToTop />
       <ContentBlock
         type="right"
