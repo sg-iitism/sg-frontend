@@ -8,6 +8,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment';
 import { Slide } from "react-awesome-reveal";
+import { Helmet } from 'react-helmet';
 import Construction from "../../components/Construction";
 import {
   CalendarOutlined,
@@ -63,7 +64,7 @@ const Announcements = () => {
   }, []);
 
   return (
-      <div>
+    <div>
     {err ? <Construction /> : null}
 
     {!loading && !err ? <Slide direction='up'><div className="announce_div">

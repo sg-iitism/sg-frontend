@@ -18,6 +18,7 @@ import {
     PhoneFilled
 } from '@ant-design/icons';
 import draftToHtml from 'draftjs-to-html';
+import { Helmet } from "react-helmet";
 import { ContentBlockProps } from "./types";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -136,6 +137,14 @@ const FestsArchive = ({
 
     return (
     <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>{(loading ? "Fest" : fest.name + " | " + (curr?curr.year:"IIT(ISM) Dhanbad"))}</title>
+          <meta name="description" content={fest.subtitle} />
+          <meta property="og:title" content={fest.name + " | " + curr.year + " | IIT(ISM) Dhanbad"} />
+          <meta property="og:description" content="The annual fest of IIT(ISM) Dhanbad" />
+          <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Festivals" />
+      </Helmet>
       {err ? <Construction /> : null}
         {!loading && !err ? <div>
         <Row justify="space-between" id="about_fest">

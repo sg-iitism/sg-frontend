@@ -187,6 +187,9 @@ const ClubDetails = ({
           <meta charSet="utf-8" />
           <title>{(loading? "Club" : club.name) + " | IIT(ISM) Dhanbad"}</title>
           <meta name="description" content={club.tagline + "Student Gymkhana, IIT(ISM) Dhanbad"} />
+          <meta property="og:title" content={club.name + " | IIT(ISM) Dhanbad"} />
+          <meta property="og:description" content={club.tagline} />
+          <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Clubs" />
       </Helmet>
       
       <div>

@@ -8,6 +8,7 @@ import { Button } from "../../common/Button";
 import { Card } from 'antd';
 import { Collapse } from 'antd';
 import { Spin, Space } from 'antd';
+import { Helmet } from "react-helmet";
 import {
   LinkedinFilled,
   MailFilled,
@@ -70,6 +71,14 @@ const SenateArchive = () => {
   return (
     <Container>
       <div style={{marginTop: "4rem", marginBottom: "6rem"}}>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Senate Members | {year!="" ? year : "SG-IIT(ISM)"}</title>
+            <meta name="description" content={"Senate Members IIT(ISM) Dhanbad | " + (year!="" ? year : "SG-IIT(ISM)")} />
+            <meta property="og:title" content={"Senate Members | " + year + "IIT(ISM) Dhanbad"} />
+            <meta property="og:description" content="The elected body of Student Gymkhana, IIT(ISM) Dhanbad" />
+            <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Senate" />
+        </Helmet>
         <a href="/senate" className="back_anchor"><span>
           <LeftOutlined className="back_icon" />
           Current Senate

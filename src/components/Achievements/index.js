@@ -6,6 +6,7 @@ import draftToHtml from 'draftjs-to-html';
 import Slider from "react-slick";
 import Construction from "../../components/Construction";
 import { Button } from "../../common/Button";
+import { Helmet } from 'react-helmet';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";

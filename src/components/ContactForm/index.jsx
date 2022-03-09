@@ -13,6 +13,9 @@ const Contact = () => {
       <meta charSet="utf-8" />
       <title>Contact | SG-IIT(ISM)</title>
       <meta name="description" content="Student Gymkhana IIT(ISM) Dhanbad" />
+      <meta property="og:title" content="Contact" />
+      <meta property="og:description" content="Contact Student Gymkhana, IIT(ISM) Dhanbad" />
+      <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Contacts" />
     </Helmet>
       <Row justify="space-between" align="middle">
         <Col lg={12} md={12} sm={24} xs={24} order={1}>

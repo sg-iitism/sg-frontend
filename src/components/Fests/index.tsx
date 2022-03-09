@@ -38,6 +38,9 @@ const FestsComponent = () => {
           <meta charSet="utf-8" />
           <title>Fests | IIT(ISM) Dhanbad</title>
           <meta name="description" content="Festivals at IIT(ISM) Dhanbad" />
+          <meta property="og:title" content="Fests | IIT(ISM) Dhanbad" />
+          <meta property="og:description" content="Technical, Cultural and Sports fests of IIT(ISM) Dhanbad" />
+          <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Festivals" />
       </Helmet>
       <h3 style={{marginBottom: "4rem"}}>Fests</h3>
       {err ? <Construction /> : null}

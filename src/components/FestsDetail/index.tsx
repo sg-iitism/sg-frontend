@@ -162,6 +162,9 @@ const FestsDetail = ({
           <meta charSet="utf-8" />
           <title>{(loading ? "Fest" : fest.name) + " | IIT(ISM)"}</title>
           <meta name="description" content={fest.subtitle + "Student Gymkhana IIT(ISM) Dhanbad"} />
+          <meta property="og:title" content={fest.name + " | IIT(ISM) Dhanbad"} />
+          <meta property="og:description" content="The annual fest of IIT(ISM) Dhanbad" />
+          <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Festivals" />
       </Helmet>
 
       {!err && (overloading || currloading) ? 
