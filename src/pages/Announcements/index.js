@@ -81,7 +81,7 @@ const Announcements = () => {
 
     {!loading && !err ? 
     <div>
-      {announce.length>0 ? <div><h3 style={{marginTop: "4rem"}}>Recent Announcements</h3>
+      {announce.length>0 ? <div><h3 style={{marginTop: "4rem"}}>Announcements and Documents</h3>
       <div>
           <Row>
             <div style={{textAlign: "center", margin: "auto"}}>

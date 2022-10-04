@@ -74,7 +74,7 @@ const Senate = () => {
       
       try {
         const tenure = await axios(tenure_url);
-        setYears(tenure.data);
+        setYears(tenure.data.reverse());
         setYearsLoading(false);
       } catch(err) {
         setErr(true);
@@ -107,35 +107,66 @@ const Senate = () => {
       </Helmet>
         {!loading && !err ? 
         <div>
-            <h3 style={{marginBottom: "4rem"}}>Current Senate</h3>
+          <h3 style={{marginBottom: "4rem"}}>Current Senate</h3>
           <p className="exec_council">Executive Council</p>
           <Row justify="space-between" style={{marginBottom: "4rem", textAlign: "center"}}>
-            {members.map((person) => (
-              <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
-                <div className="senate">
-                  <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
-                  <div className="senate_desc">
-                    <p className="senate_name">{person.name.toUpperCase()}</p>
-                    <p className="senate_position">{person.position}</p>
-                    <p className="senate_branch">{person.branch}</p>
-                    <div className="senate_icons">
-                      {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
-                        <LinkedinFilled className="person_icon" />
-                      </a> : null}
-                      {person.mail ? <a href={"mailto:" + person.mail} data-toggle="tooltip" data-placement="top" title={person.mail}>
-                        <MailFilled className="person_icon" />
-                      </a> : null}
-                      {person.phone ? <a href={"tel:" + person.phone} data-toggle="tooltip" data-placement="top" title={person.phone}>
-                        <PhoneFilled className="person_icon" />
-                      </a> : null}
-                      {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
-                        <FacebookFilled className="person_icon" />
-                      </a> : null}
+            {members.map((person) => {
+              if(person.position.toLowerCase()==="president" || person.position.toLowerCase()==="chairperson"){
+                return (
+                  <Col lg={12} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
+                  <div className="senate">
+                    <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
+                    <div className="senate_desc">
+                      <p className="senate_name">{person.name.toUpperCase()}</p>
+                      <p className="senate_position">{person.position}</p>
+                      <p className="senate_branch">{person.branch}</p>
+                      <div className="senate_icons">
+                        {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
+                          <LinkedinFilled className="person_icon" />
+                        </a> : null}
+                        {person.mail ? <a href={"mailto:" + person.mail} data-toggle="tooltip" data-placement="top" title={person.mail}>
+                          <MailFilled className="person_icon" />
+                        </a> : null}
+                        {person.phone ? <a href={"tel:" + person.phone} data-toggle="tooltip" data-placement="top" title={person.phone}>
+                          <PhoneFilled className="person_icon" />
+                        </a> : null}
+                        {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
+                          <FacebookFilled className="person_icon" />
+                        </a> : null}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Col>
-            ))}
+                </Col>
+                )
+              } else {
+                return (
+                    <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
+                      <div className="senate">
+                        <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
+                        <div className="senate_desc">
+                          <p className="senate_name">{person.name.toUpperCase()}</p>
+                          <p className="senate_position">{person.position}</p>
+                          <p className="senate_branch">{person.branch}</p>
+                          <div className="senate_icons">
+                            {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
+                              <LinkedinFilled className="person_icon" />
+                            </a> : null}
+                            {person.mail ? <a href={"mailto:" + person.mail} data-toggle="tooltip" data-placement="top" title={person.mail}>
+                              <MailFilled className="person_icon" />
+                            </a> : null}
+                            {person.phone ? <a href={"tel:" + person.phone} data-toggle="tooltip" data-placement="top" title={person.phone}>
+                              <PhoneFilled className="person_icon" />
+                            </a> : null}
+                            {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
+                              <FacebookFilled className="person_icon" />
+                            </a> : null}
+                          </div>
+                        </div>
+                      </div>
+                    </Col>
+                )
+              }
+            })}
           </Row>
           {others.length>0 ? <div>
             <div style={{margin: "auto", textAlign: "center"}}>
@@ -155,7 +186,7 @@ const Senate = () => {
         {!yearsLoading && !loading && !err && years.length>1 ? <div style={{marginTop: "2rem"}}> <Collapse defaultActiveKey={[]} onChange={() => {}}>
           <Panel header="PREVIOUS MEMBERS" key="1">
             {years.map((year, i, row) => {
-              if(i+1!=row.length){
+              if(i!=0){
                 return (<a href={"/senate/"+year.id}><p>{year.id}</p></a>);
               }
             })}

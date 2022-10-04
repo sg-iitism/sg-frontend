@@ -70,7 +70,7 @@ const Announcements = () => {
     {!loading && !err ? <Slide direction='up'><div className="announce_div">
       <div className="card_shadow">
           <div className="card_header">
-          <p style={{color: "white"}}>Recent Announcements</p>
+          <p style={{color: "white"}}>Announcements and Documents</p>
           </div>
           <div className="card_body">
           {announce.map((data, idx) => {
