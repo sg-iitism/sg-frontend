@@ -88,32 +88,63 @@ const SenateArchive = () => {
         <h3 style={{marginBottom: "4rem"}}>Senate {year}</h3>
           <p className="exec_council">Executive Council</p>
           <Row justify="space-between" style={{marginBottom: "4rem", textAlign: "center"}}>
-            {members.map((person) => (
-              <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
-                <div className="senate">
-                  <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
-                  <div className="senate_desc">
-                    <p className="senate_name">{person.name.toUpperCase()}</p>
-                    <p className="senate_position">{person.position}</p>
-                    <p className="senate_branch">{person.branch}</p>
-                    <div className="senate_icons">
-                      {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
-                        <LinkedinFilled className="person_icon" />
-                      </a> : null}
-                      {person.mail ? <a href={person.mail}>
-                        <MailFilled className="person_icon" />
-                      </a> : null}
-                      {person.phone ? <a href={"tel:" + person.phone}>
-                        <PhoneFilled className="person_icon" />
-                      </a> : null}
-                      {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
-                        <FacebookFilled className="person_icon" />
-                      </a> : null}
+            {members.map((person) => {
+              if(person.position.toLowerCase()==="president" || person.position.toLowerCase()==="chairperson"){
+                return (
+                  <Col lg={12} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
+                    <div className="senate">
+                      <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
+                      <div className="senate_desc">
+                        <p className="senate_name">{person.name.toUpperCase()}</p>
+                        <p className="senate_position">{person.position}</p>
+                        <p className="senate_branch">{person.branch}</p>
+                        <div className="senate_icons">
+                          {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
+                            <LinkedinFilled className="person_icon" />
+                          </a> : null}
+                          {person.mail ? <a href={person.mail}>
+                            <MailFilled className="person_icon" />
+                          </a> : null}
+                          {person.phone ? <a href={"tel:" + person.phone}>
+                            <PhoneFilled className="person_icon" />
+                          </a> : null}
+                          {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
+                            <FacebookFilled className="person_icon" />
+                          </a> : null}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </Col>
-            ))}
+                  </Col>
+                )
+              } else {
+                return (
+                  <Col lg={6} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
+                    <div className="senate">
+                      <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
+                      <div className="senate_desc">
+                        <p className="senate_name">{person.name.toUpperCase()}</p>
+                        <p className="senate_position">{person.position}</p>
+                        <p className="senate_branch">{person.branch}</p>
+                        <div className="senate_icons">
+                          {person.linkedin ? <a href={person.linkedin} target="_blank" rel="noopener">
+                            <LinkedinFilled className="person_icon" />
+                          </a> : null}
+                          {person.mail ? <a href={person.mail}>
+                            <MailFilled className="person_icon" />
+                          </a> : null}
+                          {person.phone ? <a href={"tel:" + person.phone}>
+                            <PhoneFilled className="person_icon" />
+                          </a> : null}
+                          {person.facebook ? <a href={person.facebook} target="_blank" rel="noopener">
+                            <FacebookFilled className="person_icon" />
+                          </a> : null}
+                        </div>
+                      </div>
+                    </div>
+                  </Col>
+                )
+              }
+            })}
           </Row>
           {others.length>0 ? <div>
             <div style={{margin: "auto", textAlign: "center"}}>
