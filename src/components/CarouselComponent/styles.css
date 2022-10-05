@@ -1,0 +1,26 @@
+.w-100 {
+    width: 100%!important;
+}
+.main-div {
+    margin-top: 5rem;
+}
+.desk {
+    height: 350px;
+    width: auto;
+    vertical-align: middle;
+    position: relative;
+}
+.img-h2 {
+   color: #2e186a;
+   margin-top: 2rem;
+   text-align: center;
+   font-weight: bold;
+}
+@media (max-width: 600px){
+    .desk {
+        height: 250px;
+        width: auto;
+        vertical-align: middle;
+        position: relative;
+    }
+}

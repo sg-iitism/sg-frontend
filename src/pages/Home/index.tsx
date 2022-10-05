@@ -16,6 +16,7 @@ const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const Fests = lazy(() => import("../../components/Fests"));
 const Announcements = lazy(() => import("../../components/Announcements"));
 const Achievements = lazy(() => import("../../components/Achievements"));
+const CarouselComponent = lazy(() => import("../../components/CarouselComponent"));
 
 const Home = () => {
   return (
@@ -30,7 +31,7 @@ const Home = () => {
         <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Clubs" />
       </Helmet>
       <ScrollToTop />
-      <ContentBlock
+      {/* <ContentBlock
         type="right"
         title={IntroContent.title}
         content={IntroContent.text}
@@ -38,7 +39,8 @@ const Home = () => {
         newPage={IntroContent.newPage}
         icon="heritage-building-ism.jpg"
         id="intro"
-      />
+      /> */}
+      <CarouselComponent />
       <Row justify="space-between">
         <Col lg={15} md={12} sm={24} xs={24}>
           <MiddleBlock
