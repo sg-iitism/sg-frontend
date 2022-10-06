@@ -31,16 +31,18 @@ const Home = () => {
         <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Clubs" />
       </Helmet>
       <ScrollToTop />
-      {/* <ContentBlock
+      <ContentBlock
         type="right"
         title={IntroContent.title}
         content={IntroContent.text}
         fullContent={IntroContent.fullText}
         newPage={IntroContent.newPage}
+        typewriter={IntroContent.typewriter}
+        typeStyle={IntroContent.typeStyle}
         icon="heritage-building-ism.jpg"
         id="intro"
-      /> */}
-      <CarouselComponent />
+      />
+      {/* <CarouselComponent /> */}
       <Row justify="space-between">
         <Col lg={15} md={12} sm={24} xs={24}>
           <MiddleBlock

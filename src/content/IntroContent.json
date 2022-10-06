@@ -3,6 +3,8 @@
   "text": "Indian Institute of Technology",
   "fullText": "(Indian School of Mines) Dhanbad",
   "newPage": true,
+  "typewriter": true,
+  "typeStyle": true,
   "button": [
     {
       "title": "Constitution",

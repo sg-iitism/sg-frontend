@@ -9,4 +9,6 @@ export interface ContentBlockProps {
   type?: string;
   fullContent?: string;
   newPage?: boolean;
+  typewriter?: boolean;
+  typeStyle?: boolean;
 }

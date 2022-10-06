@@ -4,18 +4,22 @@ import { SvgIcon } from "../../../common/SvgIcon";
 import { Button } from "../../../common/Button";
 import { ContentBlockProps } from "../types";
 import { Fade } from "react-awesome-reveal";
+import Typewriter from 'typewriter-effect';
 import {
   RightBlockContainer,
   Content,
   ContentWrapper,
   ButtonWrapper,
 } from "./styles";
+import './style.css';
 
 const RightBlock = ({
   title,
   content,
   fullContent,
   newPage,
+  typewriter,
+  typeStyle,
   button,
   icon,
   t,
@@ -35,9 +39,19 @@ const RightBlock = ({
             <ContentWrapper>
               <h6>{t(title)}</h6>
               <Content>
-                {t(content)}
-                <br />
-                {t(fullContent)}
+                <p className={typeStyle ? "home_para" : ""}>{t(content)}</p>
+                <p className={typeStyle ? "home_para" : ""}>{t(fullContent)}</p>
+                {typewriter ? <br /> : null}
+                {typewriter ? <Typewriter
+                  options={{
+                    strings: ['Welcomes you!', 'Clubs and Societies...', 'Events and Sports...',
+                              'Festivals and Celebrations...', 'and everything happening...'],
+                    wrapperClassName: "type_wrap",
+                    cursorClassName: "type_class",
+                    autoStart: true,
+                    loop: true,
+                  }}
+                /> : null}
               </Content>
               <ButtonWrapper>
                 {typeof button === "object" &&

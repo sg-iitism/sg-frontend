@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Modal, Spin, Space } from 'antd';
+import { Modal, Spin, Space, Row, Col } from 'antd';
 import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
 import Construction from '../../components/Construction';
@@ -13,9 +13,13 @@ import {
   CalendarOutlined,
   GlobalOutlined
 } from '@ant-design/icons';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 import "./styles.css"
 import { BASE_URL, NO_IMAGE_URL } from '../../constants';
+
+import CarouselComponent from '../../components/CarouselComponent';
 
 const localizer = momentLocalizer(moment);
 
@@ -151,6 +155,44 @@ const CalenderComponent = () => {
         </Modal> : 
         null
       }
+      <Container>
+        <div className='events_div'>
+          <h6>Recent Events</h6>
+          <CarouselComponent />
+        </div>
+        {events ? <div className='events_div'>
+          <h6>Gallery</h6>
+          <Row>
+            <Col lg={8} md={24} sm={24} xs={24}>
+                <img className='events_img' src={require("../../images/pic1.jpg")} />
+            </Col>
+            <Col lg={8} md={24} sm={24} xs={24}>
+                <img className='events_img' src={require("../../images/pic2.jpg")} />
+            </Col>
+            <Col lg={8} md={24} sm={24} xs={24}>
+                <img className='events_img' src={require("../../images/pic3.jpg")} />
+            </Col>
+            <Col lg={8} md={24} sm={24} xs={24}>
+                <img className='events_img' src={require("../../images/pic4.jpg")} />
+            </Col>
+            <Col lg={8} md={24} sm={24} xs={24}>
+                <img className='events_img' src={require("../../images/pic5.jpg")} />
+            </Col>
+            <Col lg={8} md={24} sm={24} xs={24}>
+                <img className='events_img' src={require("../../images/pic6.jpg")} />
+            </Col>
+            <Col lg={8} md={24} sm={24} xs={24}>
+                <img className='events_img' src={require("../../images/pic7.jpg")} />
+            </Col>
+            <Col lg={8} md={24} sm={24} xs={24}>
+                <img className='events_img' src={require("../../images/pic8.jpg")} />
+            </Col>
+            <Col lg={8} md={24} sm={24} xs={24}>
+                <img className='events_img' src={require("../../images/pic9.jpg")} />
+            </Col>
+          </Row>
+        </div> : null}
+      </Container>
     </div>
   );
 };

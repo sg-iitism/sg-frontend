@@ -9,6 +9,7 @@ import {
   MailOutlined,
   InstagramOutlined
 } from '@ant-design/icons';
+import './style.css';
 
 import i18n from "i18next";
 import {
@@ -72,21 +73,24 @@ const Footer = ({ t }: any) => {
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Title>{t("Quick Links")}</Title>
-              <Large left="true" to="/clubs">
-                {t("Clubs")}
-              </Large>
-              <Large left="true" to="/fests">
-                {t("Fests")}
-              </Large>
-              <Large left="true" to="/senate">
-                {t("Senate")}
-              </Large>
-              <Large left="true" to="/calendar">
-                {t("Calendar")}
-              </Large>
-              <Large left="true" to="https://www.iitism.ac.in">
-                <a style={{color: "black"}} href="https://www.iitism.ac.in/">{t("IIT(ISM) Dhanbad")}</a>
-              </Large>
+              <a href="/clubs" target="_blank" className="footer_link">
+                Clubs
+              </a><br />
+              <a href="/fests" target="_blank" className="footer_link">
+                <span className="footer_span">{t("Fests")}</span>
+              </a><br />
+              <a href="/senate" target="_blank" className="footer_link">
+                <span className="footer_span">{t("Senate")}</span>
+              </a><br />
+              <a href="/calendar" target="_blank" className="footer_link">
+                <span className="footer_span">{t("Calendar")}</span>
+              </a><br />
+              <a href="https://www.iitism.ac.in/" target="_blank" className="footer_link">
+                <span className="footer_span">{t("IIT(ISM) Dhanbad")}</span>
+              </a><br />
+              <a href="https://people.iitism.ac.in/~dsw/counselling.html" target="_blank" className="footer_link">
+                <span className="footer_span">{t("Student Counselling Group")}</span>
+              </a>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Language>{t("Address")}</Language>

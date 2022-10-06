@@ -1,0 +1,15 @@
+.type_wrap {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff8c00;
+}
+.type_class {
+    font-size: 30px;
+    color: #18216d;
+    font-weight: bold;
+}
+.home_para {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
