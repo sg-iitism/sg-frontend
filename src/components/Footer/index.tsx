@@ -89,7 +89,7 @@ const Footer = ({ t }: any) => {
                 <span className="footer_span">{t("IIT(ISM) Dhanbad")}</span>
               </a><br />
               <a href="https://people.iitism.ac.in/~dsw/counselling.html" target="_blank" className="footer_link">
-                <span className="footer_span">{t("Student Counselling Group")}</span>
+                <span className="footer_span">{t("Student Counselling Center")}</span>
               </a>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
@@ -105,8 +105,17 @@ const Footer = ({ t }: any) => {
               <br />
               <Large to="/contact">{t(`Send a Message`)}</Large>
               <div style={{marginTop: "2rem"}}>
-                <a href="https://www.facebook.com/ismstudentssociety" target="_blank" rel="noopener">
-                    <FacebookFilled style={{ fontSize: '25px', color: '#18216d' }} />
+                <a href="https://www.facebook.com/studentsgymkhanaiitism" target="_blank" rel="noopener">
+                    <FacebookFilled style={{ fontSize: '25px', color: '#18216d', marginLeft: "5px", marginRight: "5px" }} />
+                </a>
+                <a href="https://www.instagram.com/sg_iitism/?igshid=YmMyMTA2M2Y%3D" target="_blank" rel="noopener">
+                    <InstagramOutlined style={{ fontSize: '25px', color: '#18216d', marginLeft: "5px", marginRight: "5px" }} />
+                </a>
+                <a href="https://www.linkedin.com/company/students-gymkhana-iit-ism-dhanbad/" target="_blank" rel="noopener">
+                    <LinkedinFilled style={{ fontSize: '25px', color: '#18216d', marginLeft: "5px", marginRight: "5px" }} />
+                </a>
+                <a href="mailto:president_sg@iitism.ac.in" target="_blank" rel="noopener">
+                    <MailOutlined style={{ fontSize: '25px', color: '#18216d', marginLeft: "5px", marginRight: "5px" }} />
                 </a>
               </div>
             </Col>
