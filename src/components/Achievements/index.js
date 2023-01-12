@@ -113,8 +113,8 @@ const Achievements = () => {
   // }
 
   useEffect(() => {
-    const url = "https://sg-iitism-api.herokuapp.com/v1/achievements?limit=10";
-    const events_url = `https://sg-iitism-api.herokuapp.com/v1//events`;
+    const url = "https://sg-api.onrender.com/v1/achievements?limit=10";
+    const events_url = `https://sg-api.onrender.com/v1/events`;
 
     const fetchData = async () => {
       try {

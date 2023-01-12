@@ -33,7 +33,7 @@ const ClubsComponent = () => {
             <meta name="description" content="Technical and Cultural Clubs, Student Gymkhana IIT(ISM) Dhanbad" />
             <meta property="og:title" content="Clubs | IIT(ISM) Dhanbad" />
             <meta property="og:description" content="Technical and Cultural clubs of IIT(ISM) Dhanbad" />
-            <meta property="og:url" content="https://sg-iitism.herokuapp.com/clubs" />
+            <meta property="og:url" content="https://sg-api.onrender.com/v1/clubs" />
             <meta name="keywords" content="Student Gymkhana IIT(ISM) Dhanbad Clubs" />
         </Helmet>
         <h3 className="clubs_h3_science">Technical Clubs</h3>

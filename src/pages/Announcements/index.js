@@ -35,7 +35,7 @@ const Announcements = () => {
   const handleChange = (page) => {
     setLoading(true);
     console.log(page);
-    const url = "https://sg-iitism-api.herokuapp.com/v1/announcements" + "?page=" + page;
+    const url = "https://sg-api.onrender.com/v1/announcements" + "?page=" + page;
     const fetchNotice = async () => {
       try {
         const data = await axios(url);
@@ -49,7 +49,7 @@ const Announcements = () => {
   }
 
   useEffect(() => {
-    const url = "https://sg-iitism-api.herokuapp.com/v1/announcements?page=1";
+    const url = "https://sg-api.onrender.com/v1/announcements?page=1";
 
     const fetchData = async () => {
       try {
