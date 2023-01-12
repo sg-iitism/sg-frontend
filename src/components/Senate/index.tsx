@@ -140,7 +140,7 @@ const Senate = () => {
                 )
               } else {
                 return (
-                    <Col lg={8} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
+                    <Col lg={6} md={12} sm={24} xs={24} style={{marginBottom: "2rem"}}>
                       <div className="senate">
                         <img src={person.imageUrl || NO_IMAGE_URL} className="senate_img" />
                         <div className="senate_desc">
