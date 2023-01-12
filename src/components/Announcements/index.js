@@ -45,7 +45,7 @@ const Announcements = () => {
   }
 
   useEffect(() => {
-    const url = "https://sg-api.onrender.com/v1/announcements";
+    const url = "https://sgiitism-api.onrender.com/v1/announcements";
 
     const fetchData = async () => {
       try {
