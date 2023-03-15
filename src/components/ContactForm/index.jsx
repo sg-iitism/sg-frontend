@@ -26,7 +26,7 @@ const Contact = () => {
             <p>Login with your college email ID in icognito mode and then open this page to access the contact form</p>
           </div>
           <iframe 
-            src="https://docs.google.com/forms/d/e/1FAIpQLSec2xPGgebmqHADExKLLHHF_puweEProdVYTUBMim8GCS3dIA/viewform?embedded=true" 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfmvEKR2S7DYuGV6DvfcUBYDm38YN5ZQA7ScXKEB11qr7cRDg/viewform?usp=sf_link" 
             title="Contact Form" width="100%" height="450px" frameborder="0" marginheight="0" marginwidth="0"><Spin/></iframe>
           </Slide>
         </div>
